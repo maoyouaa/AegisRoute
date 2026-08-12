@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aegis-gateway
+  kafka:
+    bootstrap-servers: ${AEGIS_REDPANDA_BOOTSTRAP:redpanda:9092}
+    producer:
+      acks: 1
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      properties:
+        max.block.ms: 250
+        delivery.timeout.ms: 2000
+        request.timeout.ms: 500
+
+aegis:
+  control-base-url: ${AEGIS_CONTROL_BASE_URL:http://control:8081}
+  gateway-instance-id: ${HOSTNAME:gateway-local}
+  snapshot-poll-interval: 1000
+  shadow:
+    max-messages: 1024
+    max-bytes: 16777216
+    delivery-timeout: 2s
+    topic: aegis.shadow-requested.v1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

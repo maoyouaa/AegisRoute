@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "eventId": "44444444-4444-4444-8444-444444444444",
+  "sampleId": "22222222-2222-4222-8222-222222222222",
+  "requestId": "fixture-request-1",
+  "rolloutId": "33333333-3333-4333-8333-333333333333",
+  "routeVersion": 7,
+  "deploymentId": "candidate-v1",
+  "outcome": "HTTP_ERROR",
+  "statusCode": 500,
+  "latencyMs": 15,
+  "schemaValid": true,
+  "observedAt": "2026-08-12T00:00:01Z"
+}

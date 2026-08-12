@@ -1,0 +1,37 @@
+# Gradle and JVM
+.gradle/
+.bootstrap/
+**/build/
+out/
+*.class
+hs_err_pid*
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+*.local
+secrets/
+
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Test, benchmark, and runtime output
+build-evidence/
+benchmark/raw/
+logs/
+*.log
+.codex-log/
+
+# Docker and local data
+.docker-data/

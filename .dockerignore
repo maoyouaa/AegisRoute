@@ -1,0 +1,8 @@
+.git
+.gradle
+.bootstrap
+**/build
+.idea
+build-evidence
+.docker-data
+*.log

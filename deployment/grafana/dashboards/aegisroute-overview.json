@@ -1,0 +1,31 @@
+{
+  "annotations": { "list": [] },
+  "editable": false,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Route snapshot age",
+      "targets": [{ "expr": "aegis_route_snapshot_age_seconds", "refId": "A" }],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Shadow drops by reason",
+      "targets": [{ "expr": "sum by (reason) (rate(aegis_shadow_dropped_total[1m]))", "refId": "A" }],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Applied route version",
+      "targets": [{ "expr": "aegis_route_version", "refId": "A" }],
+      "gridPos": { "h": 6, "w": 8, "x": 0, "y": 8 }
+    }
+  ],
+  "schemaVersion": 41,
+  "tags": ["aegisroute", "synthetic-demo"],
+  "templating": { "list": [] },
+  "time": { "from": "now-15m", "to": "now" },
+  "title": "AegisRoute v0.1 overview",
+  "uid": "aegisroute-v01",
+  "version": 1
+}

@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: aegis-worker
+  kafka:
+    bootstrap-servers: ${AEGIS_REDPANDA_BOOTSTRAP:redpanda:9092}
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+aegis:
+  control-base-url: ${AEGIS_CONTROL_BASE_URL:http://control:8081}
+  candidate-base-url: ${AEGIS_CANDIDATE_BASE_URL:http://candidate:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

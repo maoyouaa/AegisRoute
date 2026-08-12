@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegisroute.dev/contracts/events/v1/baseline-observed.schema.json",
+  "title": "BaselineObservedV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "eventId", "sampleId", "requestId", "rolloutId", "routeVersion", "deploymentId", "outcome", "statusCode", "latencyMs", "observedAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "eventId": { "type": "string", "format": "uuid" },
+    "sampleId": { "type": "string", "format": "uuid" },
+    "requestId": { "type": "string", "minLength": 1 },
+    "rolloutId": { "type": "string", "format": "uuid" },
+    "routeVersion": { "type": "integer", "minimum": 1 },
+    "deploymentId": { "type": "string", "minLength": 1 },
+    "outcome": { "enum": ["SUCCESS", "HTTP_ERROR", "TIMEOUT", "CANCELLED", "STREAM_ERROR"] },
+    "statusCode": { "type": "integer", "minimum": 0, "maximum": 599 },
+    "latencyMs": { "type": "integer", "minimum": 0 },
+    "observedAt": { "type": "string", "format": "date-time" }
+  }
+}

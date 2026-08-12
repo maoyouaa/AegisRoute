@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegisroute.dev/contracts/events/v1/route-applied.schema.json",
+  "title": "RouteAppliedV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "eventId", "gatewayInstanceId", "routeId", "routeVersion", "checksum", "appliedAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "eventId": { "type": "string", "format": "uuid" },
+    "gatewayInstanceId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "routeId": { "type": "string", "format": "uuid" },
+    "routeVersion": { "type": "integer", "minimum": 1 },
+    "checksum": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "appliedAt": { "type": "string", "format": "date-time" }
+  }
+}

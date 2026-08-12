@@ -1,0 +1,28 @@
+name: Feature / 功能
+description: Propose a scoped capability with acceptance evidence / 提出带验收证据的功能
+title: "[Feature] "
+labels: ["type:feature"]
+body:
+  - type: textarea
+    id: english
+    attributes:
+      label: English description
+      description: Problem, proposed behaviour, scope, and acceptance evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: chinese
+    attributes:
+      label: 中文说明
+      description: 问题、预期行为、范围与验收证据。
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Architecture boundaries
+      options:
+        - label: Baseline critical-path impact has been considered.
+          required: true
+        - label: API/schema/migration/security changes are identified.
+          required: true

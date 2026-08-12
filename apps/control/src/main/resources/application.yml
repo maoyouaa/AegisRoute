@@ -1,0 +1,19 @@
+server:
+  address: 0.0.0.0
+  port: 8081
+
+spring:
+  application:
+    name: aegis-control
+  datasource:
+    url: ${AEGIS_DATABASE_URL:jdbc:postgresql://localhost:5432/aegisroute}
+    username: ${AEGIS_DATABASE_USERNAME:aegis}
+    password: ${AEGIS_DATABASE_PASSWORD:aegis-local-only}
+  flyway:
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

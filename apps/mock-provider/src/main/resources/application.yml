@@ -1,0 +1,19 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: aegis-mock-provider
+
+aegis:
+  mock:
+    name: ${AEGIS_MOCK_NAME:baseline}
+    fail-every: ${AEGIS_MOCK_FAIL_EVERY:0}
+    latency: ${AEGIS_MOCK_LATENCY:5ms}
+    response-text: ${AEGIS_MOCK_RESPONSE_TEXT:Synthetic response}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

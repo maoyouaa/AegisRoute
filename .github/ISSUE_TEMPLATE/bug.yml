@@ -1,0 +1,23 @@
+name: Bug / 缺陷
+description: Report a reproducible defect / 报告可复现缺陷
+title: "[Bug] "
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction / 复现
+      description: Exact commands, inputs, expected result, and actual result. Do not include secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / 证据
+      description: Sanitised logs, trace IDs, or test output.

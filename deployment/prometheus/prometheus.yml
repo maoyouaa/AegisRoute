@@ -1,0 +1,22 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: gateway
+    dns_sd_configs:
+      - names: [gateway]
+        type: A
+        port: 8080
+    metrics_path: /actuator/prometheus
+  - job_name: control
+    static_configs:
+      - targets: [control:8081]
+    metrics_path: /actuator/prometheus
+  - job_name: worker
+    static_configs:
+      - targets: [worker:8082]
+    metrics_path: /actuator/prometheus
+  - job_name: redpanda
+    static_configs:
+      - targets: [redpanda:9644]
+    metrics_path: /public_metrics

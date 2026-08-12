@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "eventId": "66666666-6666-4666-8666-666666666666",
+  "gatewayInstanceId": "gateway-1",
+  "routeId": "77777777-7777-4777-8777-777777777777",
+  "routeVersion": 7,
+  "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "appliedAt": "2026-08-12T00:00:03Z"
+}
