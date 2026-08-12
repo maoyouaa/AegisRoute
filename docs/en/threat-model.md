@@ -15,6 +15,7 @@ Assets are route integrity, rollout decisions, synthetic event integrity, releas
 | Secret or personal-data leak | synthetic fixtures only, no Authorization logging, secret scan | No production DLP system |
 | Decision tampering | append-only table with database trigger rejecting update/delete | Database administrator remains trusted |
 | Supply-chain substitution | Wrapper, pinned Actions SHAs, image digests/SBOM/provenance at release | Base-image patch policy remains operational work |
+| CI token misuse | Supply-chain jobs default to read-only contents; checkout never persists credentials; Gitleaks receives the ephemeral token only in its scan step with PR comments disabled | A compromised third-party Action can still read repository contents and the job-scoped token during that step |
 
 ## Explicit non-claims
 
