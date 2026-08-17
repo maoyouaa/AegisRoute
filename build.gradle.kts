@@ -113,3 +113,39 @@ tasks.register("integrationTest") {
     group = LifecycleBasePlugin.VERIFICATION_GROUP
     dependsOn(subprojects.map { it.tasks.named("integrationTest") })
 }
+
+val verifySupplyChainWorkflow = tasks.register("verifySupplyChainWorkflow") {
+    description = "Verifies least-privilege invariants for the supply-chain workflow."
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+
+    val workflow = layout.projectDirectory.file(".github/workflows/supply-chain.yml")
+    inputs.file(workflow)
+
+    doLast {
+        val contents = workflow.asFile.readText()
+        val pinnedGitleaksStep =
+            """
+            |      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+            |        env:
+            |          GITHUB_TOKEN: ${'$'}{{ github.token }}
+            |          GITLEAKS_ENABLE_COMMENTS: "false"
+            """.trimMargin()
+
+        check(contents.contains("permissions:\n  contents: read")) {
+            "Supply-chain workflow must default to read-only repository contents."
+        }
+        check(!Regex("""(?m)^\s+[A-Za-z-]+:\s+write\s*$""").containsMatchIn(contents)) {
+            "Supply-chain workflow must not grant write permissions."
+        }
+        check(contents.contains(pinnedGitleaksStep)) {
+            "Gitleaks must stay SHA-pinned, receive only the step-scoped GitHub token, and disable PR comments."
+        }
+        check(Regex("""persist-credentials:\s+false""").findAll(contents).count() == 2) {
+            "Both supply-chain checkout steps must avoid persisting credentials."
+        }
+    }
+}
+
+tasks.named("check") {
+    dependsOn(verifySupplyChainWorkflow)
+}
