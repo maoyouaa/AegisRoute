@@ -33,7 +33,7 @@ Baseline serving
 |---|---|
 | Product and architecture specification | Documented |
 | Repository and build baseline | Implemented; local Windows checks pass, GitHub CI pending |
-| Streaming gateway | Implemented; full end-to-end SSE matrix pending |
+| Streaming gateway | Layered HTTP/Provider SSE matrix locally verified; GitHub-hosted E2E evidence pending |
 | Shadow/evaluation pipeline | Implemented; local Compose path verified |
 | Human canary and automatic rollback | Implemented; local two-Gateway convergence verified |
 | Performance and reliability results | Not yet measured |

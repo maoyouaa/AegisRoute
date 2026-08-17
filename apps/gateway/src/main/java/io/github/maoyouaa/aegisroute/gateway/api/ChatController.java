@@ -10,6 +10,7 @@ import io.github.maoyouaa.aegisroute.contracts.events.BaselineObservedV1;
 import io.github.maoyouaa.aegisroute.contracts.events.ObservedOutcome;
 import io.github.maoyouaa.aegisroute.contracts.events.ServingObservedV1;
 import io.github.maoyouaa.aegisroute.contracts.events.ShadowRequestedV1;
+import io.github.maoyouaa.aegisroute.domain.provider.FailureKind;
 import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
 import io.github.maoyouaa.aegisroute.domain.routing.StableSampler;
 import io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStore;
@@ -17,6 +18,7 @@ import io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueue;
 import io.github.maoyouaa.aegisroute.gateway.shadow.ShadowEnvelope;
 import io.github.maoyouaa.aegisroute.provider.OpenAiProviderFactory;
 import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
+import io.github.maoyouaa.aegisroute.provider.ProviderFailureClassifier;
 import io.github.maoyouaa.aegisroute.provider.ProviderStreamEvent;
 import java.time.Duration;
 import java.time.Instant;
@@ -165,19 +167,20 @@ public final class ChatController {
                     499,
                     started))
         .doOnError(
-            failure ->
-                observeStream(
-                    observed,
-                    route,
-                    sampleId,
-                    resolvedRequestId,
-                    deploymentId,
-                    candidate,
-                    firstTokenEmitted.get()
-                        ? ObservedOutcome.STREAM_ERROR
-                        : ObservedOutcome.HTTP_ERROR,
-                    502,
-                    started));
+            failure -> {
+              ProviderFailureClassifier.Classification classification =
+                  ProviderFailureClassifier.classify(failure, firstTokenEmitted.get());
+              observeStream(
+                  observed,
+                  route,
+                  sampleId,
+                  resolvedRequestId,
+                  deploymentId,
+                  candidate,
+                  observedOutcome(classification.kind()),
+                  classification.statusCode(),
+                  started);
+            });
   }
 
   private RouteSnapshot requireRoute() {
@@ -280,6 +283,15 @@ public final class ChatController {
     if (!candidate) {
       enqueueBaseline(route, sampleId, requestId, outcome, statusCode, started);
     }
+  }
+
+  private ObservedOutcome observedOutcome(FailureKind kind) {
+    return switch (kind) {
+      case TIMEOUT -> ObservedOutcome.TIMEOUT;
+      case CANCELLED -> ObservedOutcome.CANCELLED;
+      case STREAM_ERROR -> ObservedOutcome.STREAM_ERROR;
+      default -> ObservedOutcome.HTTP_ERROR;
+    };
   }
 
   private ServerSentEvent<Object> toSse(String id, String model, ProviderStreamEvent event) {

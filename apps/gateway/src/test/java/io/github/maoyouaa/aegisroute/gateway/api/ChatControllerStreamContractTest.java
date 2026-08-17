@@ -17,12 +17,18 @@ import io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStore;
 import io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueue;
 import io.github.maoyouaa.aegisroute.provider.InferenceProvider;
 import io.github.maoyouaa.aegisroute.provider.OpenAiProviderFactory;
+import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
+import io.github.maoyouaa.aegisroute.provider.ProviderException;
 import io.github.maoyouaa.aegisroute.provider.ProviderStreamEvent;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import java.net.ConnectException;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
@@ -58,6 +64,79 @@ class ChatControllerStreamContractTest {
   }
 
   @Test
+  void http429BeforeFirstTokenPreservesProviderStatusWithoutRetry() throws Exception {
+    Fixture fixture = fixture(Flux.error(new ProviderException(429, false, "limited")));
+
+    StepVerifier.create(fixture.controller.stream(request(), "stream-429"))
+        .expectError(ProviderException.class)
+        .verify();
+
+    ServingObservedV1 serving = servingObservation(fixture.queue);
+    assertThat(serving.outcome()).isEqualTo(ObservedOutcome.HTTP_ERROR);
+    assertThat(serving.statusCode()).isEqualTo(429);
+    verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+  }
+
+  @Test
+  void http500BeforeFirstTokenPreservesProviderStatusWithoutRetry() throws Exception {
+    Fixture fixture = fixture(Flux.error(new ProviderException(500, false, "failed")));
+
+    StepVerifier.create(fixture.controller.stream(request(), "stream-500"))
+        .expectError(ProviderException.class)
+        .verify();
+
+    ServingObservedV1 serving = servingObservation(fixture.queue);
+    assertThat(serving.outcome()).isEqualTo(ObservedOutcome.HTTP_ERROR);
+    assertThat(serving.statusCode()).isEqualTo(500);
+    verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+  }
+
+  @Test
+  void responseStartedWithoutTokenIsObservedAsStreamErrorWithoutRetry() throws Exception {
+    Fixture fixture = fixture(Flux.error(new ProviderException(502, true, "headers started")));
+
+    StepVerifier.create(fixture.controller.stream(request(), "stream-response-started"))
+        .expectError(ProviderException.class)
+        .verify();
+
+    ServingObservedV1 serving = servingObservation(fixture.queue);
+    assertThat(serving.outcome()).isEqualTo(ObservedOutcome.STREAM_ERROR);
+    assertThat(serving.statusCode()).isEqualTo(502);
+    verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+  }
+
+  @Test
+  void connectionFailureBeforeFirstTokenIsObservedWithoutRetry() throws Exception {
+    Fixture fixture = fixture(Flux.error(new ConnectException("refused")));
+
+    StepVerifier.create(fixture.controller.stream(request(), "stream-connect"))
+        .expectError(ConnectException.class)
+        .verify();
+
+    ServingObservedV1 serving = servingObservation(fixture.queue);
+    assertThat(serving.outcome()).isEqualTo(ObservedOutcome.HTTP_ERROR);
+    assertThat(serving.statusCode()).isEqualTo(502);
+    verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+  }
+
+  @Test
+  void totalDeadlineIsObservedAsTimeoutAndIsNotReset() throws Exception {
+    Fixture fixture = fixture(Flux.error(new TimeoutException("deadline")));
+
+    StepVerifier.create(fixture.controller.stream(request(), "stream-deadline"))
+        .expectError(TimeoutException.class)
+        .verify();
+
+    ServingObservedV1 serving = servingObservation(fixture.queue);
+    assertThat(serving.outcome()).isEqualTo(ObservedOutcome.TIMEOUT);
+    assertThat(serving.statusCode()).isEqualTo(504);
+    ArgumentCaptor<ProviderCallContext> context =
+        ArgumentCaptor.forClass(ProviderCallContext.class);
+    verify(fixture.provider, times(1)).stream(Mockito.any(), context.capture());
+    assertThat(context.getValue().deadline()).isEqualTo(Duration.ofSeconds(30));
+  }
+
+  @Test
   void failureAfterFirstTokenIsObservedAsStreamErrorWithoutRetry() throws Exception {
     Fixture fixture =
         fixture(
@@ -89,11 +168,15 @@ class ChatControllerStreamContractTest {
   }
 
   private ObservedOutcome servingOutcome(BoundedShadowQueue queue) throws Exception {
+    return servingObservation(queue).outcome();
+  }
+
+  private ServingObservedV1 servingObservation(BoundedShadowQueue queue) throws Exception {
     queue.poll(); // shadow-requested
     ServingObservedV1 serving = mapper.readValue(queue.poll().payload(), ServingObservedV1.class);
     assertThat(queue.poll()).as("baseline observation follows serving observation").isNotNull();
     assertThat(queue.poll()).as("observation is emitted exactly once").isNull();
-    return serving.outcome();
+    return serving;
   }
 
   private Fixture fixture(Flux<ProviderStreamEvent> stream) {

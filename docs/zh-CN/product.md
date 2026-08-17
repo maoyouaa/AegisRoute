@@ -36,6 +36,8 @@ Control mutation 使用幂等与 optimistic concurrency。创建接口要求 `Id
 
 Gateway 每秒拉取 checksum-valid、不可变 Route Snapshot。第一次得到有效 Snapshot 前 live 为 UP、ready 为 DOWN，serving 返回 `503 ROUTE_SNAPSHOT_UNAVAILABLE`；初始化完成后即使 Control 故障也继续使用 LKG。Gateway 不查询 PostgreSQL。
 
+Gateway 对 Streaming failure 只做分类，不自动 retry。首 token 前的上游 429/5xx、连接和 timeout 故障会保留有限状态码与 retry eligibility 证据；已经开始响应、客户端取消，或首 token 后的任何故障都不可 retry。Eligibility 只是供单独审阅策略使用的证据，不代表可以重置请求总 deadline 或调用另一个 Provider。
+
 Shadow 入口只是向按消息数和字节数双重限界的本地队列执行 non-blocking offer。独立 Publisher 线程承担 Kafka metadata、ack、retry 和 delivery timeout。队列压力与 broker 故障只能按有限原因丢弃 shadow，不能让 baseline 失败。
 
 Worker 先用仓库内 JSON Schema 校验事件，再调用 candidate；它负责事件去重、按 `sampleId` 配对 baseline/candidate、清理超时未配对结果，并聚合 candidate serving window。v0.1 不允许自动晋级，只有确定性 breach policy 可以发起回滚。
