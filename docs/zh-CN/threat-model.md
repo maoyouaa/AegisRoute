@@ -16,6 +16,7 @@
 | Decision 篡改 | append-only 表与数据库触发器拒绝 update/delete | 数据库管理员仍属于信任边界 |
 | 供应链替换 | Wrapper、Action 完整 SHA、Release digest/SBOM/provenance | 基础镜像补丁策略仍需运营流程 |
 | CI token 滥用 | Supply Chain job 默认仅可读仓库内容；checkout 不持久化凭据；Gitleaks 只在扫描 step 获得临时 token，且禁用 PR 评论 | 被攻陷的第三方 Action 在该 step 中仍可读取仓库内容与 job-scoped token |
+| Release 自动化权限扩大 | 仓库 workflow 默认只读；安全 YAML parser 拒绝重复键，并要求 trigger、job、step、input 与 job-scoped permission 精确匹配已审阅策略；只有 `release_created=true` 才允许发布；不使用 PAT 或 GitHub App 凭据 | GitHub 将创建 PR 与批准 PR 合并为一个可变仓库设置。被攻陷且具有 pull-request 写权限的 Release job 可能滥用该能力；同仓 verifier 不是独立 trust anchor，仓库 CI 也无法证明远端实时设置 |
 
 ## 明确不声明
 

@@ -58,6 +58,7 @@ docker compose up --build --wait --scale gateway=2
 - [最终产品文档](docs/zh-CN/product.md)
 - [威胁模型](docs/zh-CN/threat-model.md)
 - [开发流程](docs/zh-CN/development-workflow.md)
+- [Release 权限边界](docs/zh-CN/release-permission-boundary.md)
 - [最终产品规格](docs/zh-CN/AegisRoute_Product_Spec_Final.md)
 - [项目审阅](docs/zh-CN/AegisRoute_Project_Review.md)
 - [原始设计](docs/zh-CN/AegisRoute_Product_Design.md)
