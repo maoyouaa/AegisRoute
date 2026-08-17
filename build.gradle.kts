@@ -1,6 +1,18 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.testing.jacoco.tasks.JacocoReport
+import org.yaml.snakeyaml.LoaderOptions
+import org.yaml.snakeyaml.Yaml
+import org.yaml.snakeyaml.constructor.SafeConstructor
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.yaml:snakeyaml:2.4")
+    }
+}
 
 plugins {
     base
@@ -154,83 +166,301 @@ val verifyReleaseWorkflowSecurity = tasks.register("verifyReleaseWorkflowSecurit
     inputs.file(workflow)
 
     doLast {
-        val contents = workflow.asFile.readText().replace("\r\n", "\n")
-        val actionReferences =
-            Regex("""(?m)^\s+(?:-\s+)?uses:\s+([^#\s]+)""")
-                .findAll(contents)
-                .map { it.groupValues[1] }
-                .toList()
-        val unpinnedActions =
-            actionReferences.filterNot {
-                Regex("""^[^@\s]+@[0-9a-f]{40}${'$'}""").matches(it)
+        fun yamlMap(vararg entries: Pair<String, Any?>): Map<String, Any?> = linkedMapOf(*entries)
+
+        fun normalizeYaml(value: Any?, root: Boolean = false): Any? =
+            when (value) {
+                is Map<*, *> -> {
+                    val normalized = linkedMapOf<String, Any?>()
+                    value.forEach { (rawKey, rawValue) ->
+                        val key =
+                            when {
+                                rawKey is String -> rawKey
+                                root && rawKey == true -> "on"
+                                else -> error("Release workflow contains a non-string YAML key: $rawKey")
+                            }
+                        check(!normalized.containsKey(key)) {
+                            "Release workflow contains a duplicate normalized YAML key: $key"
+                        }
+                        normalized[key] = normalizeYaml(rawValue)
+                    }
+                    normalized
+                }
+
+                is List<*> -> value.map { normalizeYaml(it) }
+                else -> value
             }
 
-        check(actionReferences.isNotEmpty() && unpinnedActions.isEmpty()) {
-            "Every third-party release Action must use a full commit SHA; unpinned: $unpinnedActions"
-        }
-        check(contents.contains("permissions:\n  contents: read\n\njobs:")) {
-            "Release workflow must default to read-only repository contents."
+        fun firstDifference(expected: Any?, actual: Any?, path: String = "workflow"): String? {
+            if (expected is Map<*, *> && actual is Map<*, *>) {
+                if (expected.keys != actual.keys) {
+                    return "$path keys expected ${expected.keys} but found ${actual.keys}"
+                }
+                expected.keys.forEach { key ->
+                    firstDifference(expected[key], actual[key], "$path.$key")?.let { return it }
+                }
+                return null
+            }
+            if (expected is List<*> && actual is List<*>) {
+                if (expected.size != actual.size) {
+                    return "$path expected ${expected.size} entries but found ${actual.size}"
+                }
+                expected.indices.forEach { index ->
+                    firstDifference(expected[index], actual[index], "$path[$index]")?.let { return it }
+                }
+                return null
+            }
+            return if (expected == actual) {
+                null
+            } else {
+                "$path expected '$expected' but found '$actual'"
+            }
         }
 
-        val writePermissions =
-            Regex("""(?m)^\s{6}([a-z-]+): write\s*${'$'}""")
-                .findAll(contents)
-                .map { it.groupValues[1] }
-                .toList()
-        check(
-            writePermissions ==
-                listOf(
-                    "contents",
-                    "pull-requests",
-                    "issues",
-                    "packages",
-                    "id-token",
-                    "attestations",
-                )
-        ) {
-            "Release jobs may grant only the reviewed job-scoped write permissions; found $writePermissions"
-        }
-
-        check(
-            contents.contains(
-                "if: needs.release-please.outputs.release_created == 'true'"
+        val expectedTags =
+            "ghcr.io/${'$'}{{ github.repository_owner }}/aegisroute-${'$'}{{ matrix.app }}:" +
+                "${'$'}{{ needs.release-please.outputs.tag_name }}\n" +
+                "ghcr.io/${'$'}{{ github.repository_owner }}/aegisroute-${'$'}{{ matrix.app }}:latest\n"
+        val expectedWorkflow =
+            yamlMap(
+                "name" to "Release",
+                "on" to yamlMap("push" to yamlMap("branches" to listOf("main"))),
+                "permissions" to yamlMap("contents" to "read"),
+                "jobs" to
+                    yamlMap(
+                        "release-please" to
+                            yamlMap(
+                                "runs-on" to "ubuntu-24.04",
+                                "permissions" to
+                                    yamlMap(
+                                        "contents" to "write",
+                                        "pull-requests" to "write",
+                                        "issues" to "write",
+                                    ),
+                                "outputs" to
+                                    yamlMap(
+                                        "release_created" to
+                                            "${'$'}{{ steps.release.outputs.release_created }}",
+                                        "tag_name" to "${'$'}{{ steps.release.outputs.tag_name }}",
+                                        "sha" to "${'$'}{{ steps.release.outputs.sha }}",
+                                    ),
+                                "steps" to
+                                    listOf(
+                                        yamlMap(
+                                            "id" to "release",
+                                            "uses" to
+                                                "googleapis/release-please-action@" +
+                                                "45996ed1f6d02564a971a2fa1b5860e934307cf7",
+                                            "with" to
+                                                yamlMap(
+                                                    "config-file" to "release-please-config.json",
+                                                    "manifest-file" to ".release-please-manifest.json",
+                                                ),
+                                        )
+                                    ),
+                            ),
+                        "images" to
+                            yamlMap(
+                                "needs" to "release-please",
+                                "if" to
+                                    "needs.release-please.outputs.release_created == 'true'",
+                                "runs-on" to "ubuntu-24.04",
+                                "permissions" to
+                                    yamlMap(
+                                        "contents" to "read",
+                                        "packages" to "write",
+                                        "id-token" to "write",
+                                        "attestations" to "write",
+                                    ),
+                                "strategy" to
+                                    yamlMap(
+                                        "matrix" to
+                                            yamlMap(
+                                                "app" to
+                                                    listOf(
+                                                        "gateway",
+                                                        "control",
+                                                        "worker",
+                                                        "mock-provider",
+                                                    )
+                                            )
+                                    ),
+                                "steps" to
+                                    listOf(
+                                        yamlMap(
+                                            "uses" to
+                                                "actions/checkout@" +
+                                                "11bd71901bbe5b1630ceea73d27597364c9af683",
+                                            "with" to
+                                                yamlMap(
+                                                    "ref" to
+                                                        "${'$'}{{ needs.release-please.outputs.sha }}",
+                                                    "persist-credentials" to false,
+                                                ),
+                                        ),
+                                        yamlMap(
+                                            "uses" to
+                                                "docker/login-action@" +
+                                                "184bdaa0721073962dff0199f1fb9940f07167d1",
+                                            "with" to
+                                                yamlMap(
+                                                    "registry" to "ghcr.io",
+                                                    "username" to "${'$'}{{ github.actor }}",
+                                                    "password" to "${'$'}{{ secrets.GITHUB_TOKEN }}",
+                                                ),
+                                        ),
+                                        yamlMap(
+                                            "id" to "build",
+                                            "uses" to
+                                                "docker/build-push-action@" +
+                                                "263435318d21b8e681c14492fe198d362a7d2c83",
+                                            "with" to
+                                                yamlMap(
+                                                    "context" to ".",
+                                                    "file" to "deployment/Dockerfile",
+                                                    "build-args" to "APP=${'$'}{{ matrix.app }}",
+                                                    "push" to true,
+                                                    "tags" to expectedTags,
+                                                ),
+                                        ),
+                                        yamlMap(
+                                            "uses" to
+                                                "actions/attest-build-provenance@" +
+                                                "977bb373ede98d70efdf65b84cb5f73e068dcc2a",
+                                            "with" to
+                                                yamlMap(
+                                                    "subject-name" to
+                                                        "ghcr.io/${'$'}{{ github.repository_owner }}/" +
+                                                        "aegisroute-${'$'}{{ matrix.app }}",
+                                                    "subject-digest" to
+                                                        "${'$'}{{ steps.build.outputs.digest }}",
+                                                    "push-to-registry" to true,
+                                                ),
+                                        ),
+                                        yamlMap(
+                                            "uses" to
+                                                "anchore/sbom-action@" +
+                                                "f8bdd1d8ac5e901a77a92f111440fdb1b593736b",
+                                            "with" to
+                                                yamlMap(
+                                                    "image" to
+                                                        "ghcr.io/${'$'}{{ github.repository_owner }}/" +
+                                                        "aegisroute-${'$'}{{ matrix.app }}@" +
+                                                        "${'$'}{{ steps.build.outputs.digest }}",
+                                                    "artifact-name" to
+                                                        "${'$'}{{ matrix.app }}-" +
+                                                        "${'$'}{{ needs.release-please.outputs.tag_name }}" +
+                                                        ".spdx.json",
+                                                ),
+                                        ),
+                                    ),
+                            ),
+                    ),
             )
-        ) {
-            "Image publication must stay gated on Release Please reporting release_created=true."
+
+        fun validateReleaseWorkflowSecurity(contents: String) {
+            check(Regex("""(?m)^on:[ \t]*(?:#.*)?${'$'}""").findAll(contents).count() == 1) {
+                "Release workflow must declare one canonical top-level on key."
+            }
+            check(
+                Regex("""(?m)^[ \t]*permissions:[ \t]*(?:#.*)?${'$'}""")
+                    .findAll(contents)
+                    .count() == 3
+            ) {
+                "Release workflow must declare three canonical block-form permission maps."
+            }
+            val loaderOptions =
+                LoaderOptions().apply {
+                    setAllowDuplicateKeys(false)
+                    setAllowRecursiveKeys(false)
+                    setMaxAliasesForCollections(0)
+                    setCodePointLimit(200_000)
+                }
+            val documents = Yaml(SafeConstructor(loaderOptions)).loadAll(contents).toList()
+            check(documents.size == 1) {
+                "Release workflow must contain exactly one YAML document."
+            }
+            val actualWorkflow = normalizeYaml(documents.single(), root = true)
+            check(actualWorkflow is Map<*, *>) {
+                "Release workflow root must be a YAML mapping."
+            }
+            val difference = firstDifference(expectedWorkflow, actualWorkflow)
+            check(difference == null) {
+                "Release workflow must match the reviewed least-privilege structure: $difference"
+            }
         }
-        check(
-            contents.contains(
-                "release_created: ${'$'}{{ steps.release.outputs.release_created }}"
+
+        val contents = workflow.asFile.readText().replace("\r\n", "\n")
+        validateReleaseWorkflowSecurity(contents)
+
+        val forbiddenMutations =
+            mapOf(
+                "an additional pinned approval Action" to
+                    contents.replaceFirst(
+                        "    steps:\n",
+                        "    steps:\n" +
+                            "      - uses: example/auto-approve@" +
+                            "0".repeat(40) +
+                            "\n",
+                    ),
+                "an arbitrary merge command" to
+                    contents.replaceFirst(
+                        "    steps:\n",
+                        "    steps:\n      - run: gh pr merge 8 --merge\n",
+                    ),
+                "publication permission on the Release Please job" to
+                    contents.replaceFirst(
+                        "      issues: write\n",
+                        "      issues: write\n      packages: write\n",
+                    ),
+                "a duplicate write-all permission block" to
+                    contents.replaceFirst(
+                        "  release-please:\n",
+                        "  release-please:\n    permissions: write-all\n",
+                    ),
+                "a pull_request_target trigger" to
+                    contents.replaceFirst(
+                        "on:\n  push:\n    branches: [main]",
+                        "on:\n  pull_request_target:",
+                    ),
+                "a YAML 1.1 boolean trigger key" to
+                    contents.replaceFirst(
+                        "on:\n  push:\n    branches: [main]",
+                        "true:\n  push:\n    branches: [main]",
+                    ),
+                "a flow-style auto-merge job with an underscore id" to
+                    contents +
+                    "\n  auto_merge:\n" +
+                    "    runs-on: ubuntu-24.04\n" +
+                    "    permissions : write-all\n" +
+                    "    steps:\n" +
+                    "      - { run : 'GH_TOKEN=${'$'}{{ secrets.GITHUB_TOKEN }} " +
+                    "gh pr review 8 --approve && gh pr merge 8 --merge' }\n",
+                "a duplicate publication gate" to
+                    contents.replaceFirst(
+                        "    if: needs.release-please.outputs.release_created == 'true'\n",
+                        "    if: needs.release-please.outputs.release_created == 'true'\n" +
+                            "    if: always()\n",
+                    ),
+                "a duplicate unsafe checkout ref" to
+                    contents.replaceFirst(
+                        "          ref: ${'$'}{{ needs.release-please.outputs.sha }}\n",
+                        "          ref: ${'$'}{{ needs.release-please.outputs.sha }}\n" +
+                            "          ref: main\n",
+                    ),
+                "checkout credentials moved to the login step" to
+                    contents
+                        .replaceFirst("          persist-credentials: false\n", "")
+                        .replaceFirst(
+                            "          registry: ghcr.io\n",
+                            "          registry: ghcr.io\n" +
+                                "          persist-credentials: false\n",
+                        ),
             )
-        ) {
-            "Release Please must expose the release_created output used by the publication gate."
-        }
-
-        val checkoutCount = actionReferences.count { it.startsWith("actions/checkout@") }
-        val nonPersistentCheckoutCount =
-            Regex("""(?m)^\s+persist-credentials:\s+false\s*${'$'}""")
-                .findAll(contents)
-                .count()
-        check(checkoutCount > 0 && checkoutCount == nonPersistentCheckoutCount) {
-            "Every release checkout must set persist-credentials=false."
-        }
-        check(contents.contains("ref: ${'$'}{{ needs.release-please.outputs.sha }}")) {
-            "Release images must build from the exact SHA emitted by Release Please."
-        }
-
-        val referencedSecrets =
-            Regex("""\$\{\{\s*secrets\.([A-Za-z0-9_]+)\s*}}""")
-                .findAll(contents)
-                .map { it.groupValues[1] }
-                .toSet()
-        check(referencedSecrets == setOf("GITHUB_TOKEN")) {
-            "Release workflow may reference only the ephemeral GITHUB_TOKEN; found $referencedSecrets"
-        }
-        check(!contents.contains("secrets[")) {
-            "Dynamic secret lookup is not allowed in the release workflow."
-        }
-        check(!Regex("""(?m)^\s+(?:github-)?token:\s+""").containsMatchIn(contents)) {
-            "Release Please must use the default GITHUB_TOKEN rather than a custom token input."
+        forbiddenMutations.forEach { (description, mutated) ->
+            check(runCatching { validateReleaseWorkflowSecurity(mutated) }.isFailure) {
+                "Release workflow verifier accepted $description."
+            }
         }
     }
 }

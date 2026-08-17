@@ -32,8 +32,11 @@ Repository CI cannot prove this mutable external state. Record the API read-back
 `.github/workflows/release.yml` must retain all of these properties:
 
 - top-level `contents: read`;
+- an exact `push`-to-`main` trigger plus a reviewed two-job and Action allowlist;
 - full commit SHA pins for every third-party Action;
-- write permissions only on the job that needs each capability;
+- safe YAML parsing with duplicate keys, recursive keys, collection aliases, extra documents, and any semantic structure outside the reviewed workflow rejected;
+- exact, block-form permissions on the job that needs each capability, with no `write-all` or inline permissions;
+- no arbitrary `run` steps or unreviewed environment injection in privileged jobs;
 - Release Please using the default `GITHUB_TOKEN`, with no PAT, custom secret, or GitHub App credential;
 - release checkouts using `persist-credentials: false` and the exact Release Please output SHA;
 - image, SBOM, and provenance publication gated by `release_created == 'true'`.
@@ -44,9 +47,11 @@ The root Gradle task `verifyReleaseWorkflowSecurity` checks this static policy a
 .\gradlew.bat verifyReleaseWorkflowSecurity
 ```
 
+The task compares the complete parsed workflow tree with the reviewed policy and runs negative mutation fixtures for approval/merge steps, permission drift, trigger drift, duplicate keys, and misplaced checkout controls. Because the verifier and workflow live in the same repository, this is a review and drift-detection control, not an independent trust anchor; branch protection and human review must cover changes to either one.
+
 ## Authorization and failure boundary
 
-Creating or updating the Release Please PR does not authorize any later side effect. Merging the Release PR, creating a tag, creating a GitHub Release, and publishing GHCR images each remain separately authorized actions.
+Creating or updating the Release Please PR does not authorize any later side effect. Before merging that PR, authorization must explicitly cover the merge and the tag, GitHub Release, GHCR images, SBOMs, and provenance that the merge automatically triggers. Authorization for “merge” alone is insufficient.
 
 If Release Please reports no release, the `images` job must be skipped. A failed or cancelled Release Please job must not publish artifacts. Enabling GitHub's combined setting does create residual capability: a compromised release job with pull-request write permission could attempt to approve a PR. SHA pins, job-scoped permissions, branch protection, human review, and explicit authorization reduce but do not eliminate this platform-level risk.
 

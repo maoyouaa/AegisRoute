@@ -32,8 +32,11 @@ gh api repos/maoyouaa/AegisRoute/actions/permissions/workflow
 `.github/workflows/release.yml` 必须保持以下属性：
 
 - 顶层 `contents: read`；
+- 精确的 `push` 到 `main` 触发条件，以及经过审阅的双 job 与 Action allowlist；
 - 所有第三方 Action 固定到完整 commit SHA；
-- 写权限只授予实际需要该能力的 job；
+- 使用安全 YAML 解析，并拒绝重复键、recursive key、collection alias、额外文档以及审阅范围外的任何语义结构；
+- 每项能力只在实际需要的 job 中使用精确 block-form permission，禁止 `write-all` 与 inline permission；
+- privileged job 不允许任意 `run` step 或未经审阅的 environment 注入；
 - Release Please 使用默认 `GITHUB_TOKEN`，不使用 PAT、自定义 secret 或 GitHub App 凭据；
 - Release checkout 设置 `persist-credentials: false`，并使用 Release Please 输出的准确 SHA；
 - 镜像、SBOM 与 provenance 发布以 `release_created == 'true'` 为门禁。
@@ -44,9 +47,11 @@ gh api repos/maoyouaa/AegisRoute/actions/permissions/workflow
 .\gradlew.bat verifyReleaseWorkflowSecurity
 ```
 
+该任务把完整解析后的 workflow tree 与已审阅策略进行比对，并执行负向 mutation fixture，覆盖 approve/merge step、权限漂移、trigger 漂移、重复键和 checkout 控制错位。由于 verifier 与 workflow 同处一个仓库，这是一项审阅与漂移检测控制，不是独立 trust anchor；对任一文件的修改仍必须经过分支保护与人工审阅。
+
 ## 授权与故障边界
 
-创建或更新 Release Please PR，不授权任何后续副作用。合并 Release PR、创建 tag、创建 GitHub Release 和发布 GHCR 镜像，仍然是四项必须分别授权的动作。
+创建或更新 Release Please PR，不授权任何后续副作用。合并该 PR 前，授权必须明确覆盖 merge，以及 merge 会自动触发的 tag、GitHub Release、GHCR image、SBOM 与 provenance；仅授权“merge”不足以执行。
 
 如果 Release Please 没有报告 Release，`images` job 必须跳过。Release Please job 失败或取消时也不得发布产物。启用 GitHub 的组合设置会产生剩余能力：被攻陷且具有 pull-request 写权限的 Release job 可能尝试批准 PR。完整 SHA 固定、job 级权限、分支保护、人工审查和明确授权能够降低风险，但不能消除这一平台级风险。
 
