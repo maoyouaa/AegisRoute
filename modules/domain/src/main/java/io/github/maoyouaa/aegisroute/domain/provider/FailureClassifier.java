@@ -10,14 +10,14 @@ public final class FailureClassifier {
       boolean responseStarted,
       boolean connectionFailure) {
     if (cancelled) return FailureKind.CANCELLED;
-    if (timedOut) return responseStarted ? FailureKind.STREAM_ERROR : FailureKind.TIMEOUT;
-    if (connectionFailure) {
-      return responseStarted ? FailureKind.STREAM_ERROR : FailureKind.CONNECTION_ERROR;
-    }
+    if (responseStarted) return FailureKind.STREAM_ERROR;
+    if (timedOut) return FailureKind.TIMEOUT;
+    if (connectionFailure) return FailureKind.CONNECTION_ERROR;
     if (statusCode == 429) return FailureKind.RATE_LIMITED;
-    if (statusCode >= 500) return FailureKind.PROVIDER_ERROR;
-    if (statusCode >= 400) return FailureKind.CLIENT_ERROR;
-    return FailureKind.SUCCESS;
+    if (statusCode >= 500 && statusCode <= 599) return FailureKind.PROVIDER_ERROR;
+    if (statusCode >= 400 && statusCode <= 499) return FailureKind.CLIENT_ERROR;
+    if (statusCode >= 100 && statusCode <= 399) return FailureKind.SUCCESS;
+    return FailureKind.UNKNOWN;
   }
 
   public static boolean mayRetry(FailureKind kind, boolean firstTokenEmitted) {

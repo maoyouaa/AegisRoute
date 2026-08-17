@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    api(project(":modules:domain"))
     api(project(":modules:contracts"))
     api("io.projectreactor:reactor-core")
     implementation("org.springframework:spring-webflux")

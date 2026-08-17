@@ -8,5 +8,6 @@ public enum FailureKind {
   TIMEOUT,
   CANCELLED,
   STREAM_ERROR,
-  CONNECTION_ERROR
+  CONNECTION_ERROR,
+  UNKNOWN
 }

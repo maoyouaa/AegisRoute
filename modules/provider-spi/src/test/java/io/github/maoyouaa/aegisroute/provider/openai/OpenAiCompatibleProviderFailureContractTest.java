@@ -4,9 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionRequest;
 import io.github.maoyouaa.aegisroute.contracts.api.ChatMessage;
-import io.github.maoyouaa.aegisroute.provider.FailureClassifier;
+import io.github.maoyouaa.aegisroute.domain.provider.FailureKind;
 import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
 import io.github.maoyouaa.aegisroute.provider.ProviderException;
+import io.github.maoyouaa.aegisroute.provider.ProviderFailureClassifier;
 import java.net.ConnectException;
 import java.time.Duration;
 import java.util.List;
@@ -49,10 +50,10 @@ class OpenAiCompatibleProviderFailureContractTest {
               assertThat(failure)
                   .isInstanceOf(WebClientRequestException.class)
                   .hasRootCauseInstanceOf(ConnectException.class);
-              assertThat(FailureClassifier.classify(failure, false))
+              assertThat(ProviderFailureClassifier.classify(failure, false))
                   .isEqualTo(
-                      new FailureClassifier.Classification(
-                          FailureClassifier.Kind.CONNECTION_FAILURE, 502, true));
+                      new ProviderFailureClassifier.Classification(
+                          FailureKind.CONNECTION_ERROR, 502, true));
             })
         .verify();
 
