@@ -19,6 +19,7 @@ aegis:
   control-base-url: ${AEGIS_CONTROL_BASE_URL:http://control:8081}
   gateway-instance-id: ${HOSTNAME:gateway-local}
   snapshot-poll-interval: 1000
+  control-request-timeout: 750ms
   shadow:
     max-messages: 1024
     max-bytes: 16777216

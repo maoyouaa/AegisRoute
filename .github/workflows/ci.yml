@@ -74,3 +74,5 @@ jobs:
           persist-credentials: false
       - run: docker compose config --quiet
       - run: docker compose -f compose.yml -f compose.dev.yml config --quiet
+      - shell: pwsh
+        run: ./scripts/verify-compose-runtime-policy.ps1

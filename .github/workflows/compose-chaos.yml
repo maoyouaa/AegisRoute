@@ -7,6 +7,8 @@ on:
       - "modules/**"
       - "deployment/**"
       - "compose*.yml"
+      - "scripts/verify-compose-runtime-policy.ps1"
+      - "scripts/verify-compose-crash-recovery.ps1"
   workflow_dispatch:
 
 permissions:
@@ -24,6 +26,9 @@ jobs:
       - name: Exercise rollback and failure isolation
         shell: pwsh
         run: ./scripts/acceptance.ps1
+      - name: Exercise dependency crash recovery
+        shell: pwsh
+        run: ./scripts/verify-compose-crash-recovery.ps1
       - name: Save topology evidence
         if: always()
         run: |

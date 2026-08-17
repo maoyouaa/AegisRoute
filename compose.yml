@@ -1,12 +1,16 @@
 name: aegisroute
 
-x-java-service: &java-service
+x-runtime-service: &runtime-service
   restart: unless-stopped
+
+x-java-service: &java-service
+  <<: *runtime-service
   networks:
     - aegis-internal
 
 services:
   edge:
+    <<: *runtime-service
     image: nginx:1.29.0-alpine
     ports:
       - "127.0.0.1:8080:8080"
@@ -103,6 +107,7 @@ services:
       AEGIS_MOCK_RESPONSE_TEXT: Synthetic candidate response
 
   postgres:
+    <<: *runtime-service
     image: postgres:17.6-alpine
     environment:
       POSTGRES_DB: aegisroute
@@ -119,6 +124,7 @@ services:
       - aegis-internal
 
   redpanda:
+    <<: *runtime-service
     image: redpandadata/redpanda:v25.2.6
     command:
       - redpanda
@@ -140,10 +146,16 @@ services:
     expose:
       - "9092"
       - "9644"
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "health", "-X", "brokers=localhost:9092"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
     networks:
       - aegis-internal
 
   prometheus:
+    <<: *runtime-service
     image: prom/prometheus:v3.5.0
     command:
       - --config.file=/etc/prometheus/prometheus.yml
@@ -155,6 +167,7 @@ services:
       - aegis-internal
 
   grafana:
+    <<: *runtime-service
     image: grafana/grafana:12.1.0
     environment:
       GF_AUTH_ANONYMOUS_ENABLED: "true"
