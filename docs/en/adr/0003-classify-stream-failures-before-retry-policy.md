@@ -16,7 +16,7 @@ Introduce a side-effect-free `FailureClassifier` in the Provider SPI. It returns
 - HTTP 429 and upstream 5xx before response output are eligible but are not retried by v0.1;
 - connection and timeout failures before output are eligible and map to 502 and 504 respectively;
 - HTTP 4xx other than 429, ambiguous already-started responses, cancellations, and unknown failures are not eligible;
-- every failure after the first SSE token is `STREAM_FAILURE` and is never eligible.
+- every non-cancellation failure after the first SSE token is `STREAM_FAILURE` and is never eligible; client cancellation remains `CANCELLED` and is also never eligible.
 
 Gateway uses the classification only to write accurate serving evidence. The classifier never invokes a Provider, changes a Route Snapshot, or resets a deadline.
 

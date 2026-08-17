@@ -16,7 +16,7 @@ SSE 故障的安全含义取决于客户端已经观察到什么。首 token 前
 - response output 前的 HTTP 429 与上游 5xx 具备 eligibility，但 v0.1 不执行 retry；
 - output 前的连接与 timeout 故障具备 eligibility，并分别映射为 502 与 504；
 - 429 以外的 HTTP 4xx、已经开始响应的歧义边界、取消与未知故障不具备 eligibility；
-- 首个 SSE token 后的任何故障都属于 `STREAM_FAILURE`，绝不可 retry。
+- 首个 SSE token 后除取消以外的故障都属于 `STREAM_FAILURE`，绝不可 retry；客户端取消仍记为 `CANCELLED`，同样不可 retry。
 
 Gateway 只使用分类结果写入准确的 serving evidence。Classifier 不调用 Provider、不修改 Route Snapshot，也不重置 deadline。
 

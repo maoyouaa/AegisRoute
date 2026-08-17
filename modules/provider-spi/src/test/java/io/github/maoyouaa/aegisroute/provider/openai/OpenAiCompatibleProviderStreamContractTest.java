@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
@@ -110,6 +111,31 @@ class OpenAiCompatibleProviderStreamContractTest {
     assertThat(cancelled).isTrue();
   }
 
+  @Test
+  void totalDeadlineIsNotResetAfterTheFirstToken() {
+    AtomicInteger attempts = new AtomicInteger();
+    AtomicBoolean cancelled = new AtomicBoolean();
+    Flux<DataBuffer> body =
+        Flux.concat(Flux.just(buffer(TOKEN_EVENT)), Flux.<DataBuffer>never())
+            .doOnCancel(() -> cancelled.set(true));
+    var provider = provider(attempts, body);
+
+    StepVerifier.withVirtualTime(() -> provider.stream(request(), context(Duration.ofSeconds(5))))
+        .expectSubscription()
+        .expectNext(new ProviderStreamEvent.Token("hello"))
+        .expectNoEvent(Duration.ofSeconds(4))
+        .thenAwait(Duration.ofSeconds(1))
+        .expectErrorSatisfies(
+            failure ->
+                assertThat(failure)
+                    .isInstanceOf(TimeoutException.class)
+                    .hasMessage("Provider stream exceeded its total deadline"))
+        .verify();
+
+    assertThat(attempts).hasValue(1);
+    assertThat(cancelled).isTrue();
+  }
+
   private OpenAiCompatibleProvider provider(AtomicInteger attempts, Flux<DataBuffer> responseBody) {
     return new OpenAiCompatibleProvider(
         WebClient.builder()
@@ -135,6 +161,10 @@ class OpenAiCompatibleProviderStreamContractTest {
   }
 
   private ProviderCallContext context() {
-    return new ProviderCallContext("stream-contract", Duration.ofSeconds(30));
+    return context(Duration.ofSeconds(30));
+  }
+
+  private ProviderCallContext context(Duration deadline) {
+    return new ProviderCallContext("stream-contract", deadline);
   }
 }
