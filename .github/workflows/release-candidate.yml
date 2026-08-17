@@ -1,0 +1,368 @@
+name: Release candidate validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Open Release Please PR number
+        required: true
+        type: string
+      head_sha:
+        description: Exact 40-character Release PR head commit SHA
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: release-candidate-${{ inputs.pr_number }}-${{ inputs.head_sha }}
+  cancel-in-progress: false
+
+jobs:
+  validate_candidate:
+    name: validate-candidate
+    runs-on: ubuntu-24.04
+    outputs:
+      base_sha: ${{ steps.candidate.outputs.base_sha }}
+      head_sha: ${{ steps.candidate.outputs.head_sha }}
+    steps:
+      - name: Verify immutable Release Please candidate
+        id: candidate
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          EXPECTED_HEAD_SHA: ${{ inputs.head_sha }}
+          DISPATCH_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] || {
+            echo "pr_number must be a positive integer" >&2
+            exit 1
+          }
+          [[ "$EXPECTED_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || {
+            echo "head_sha must be a full lowercase commit SHA" >&2
+            exit 1
+          }
+          [[ "$DISPATCH_SHA" == "$EXPECTED_HEAD_SHA" ]] || {
+            echo "Dispatch the workflow with --ref set to the Release PR branch" >&2
+            exit 1
+          }
+
+          pull="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}")"
+          state="$(jq -r '.state' <<<"$pull")"
+          base_ref="$(jq -r '.base.ref' <<<"$pull")"
+          base_sha="$(jq -r '.base.sha' <<<"$pull")"
+          head_ref="$(jq -r '.head.ref' <<<"$pull")"
+          head_sha="$(jq -r '.head.sha' <<<"$pull")"
+          head_repo="$(jq -r '.head.repo.full_name' <<<"$pull")"
+
+          [[ "$state" == "open" ]] || {
+            echo "Release candidate PR must be open" >&2
+            exit 1
+          }
+          [[ "$base_ref" == "main" ]] || {
+            echo "Release candidate PR must target main" >&2
+            exit 1
+          }
+          [[ "$head_ref" == "release-please--branches--main" ]] || {
+            echo "PR head is not the Release Please branch" >&2
+            exit 1
+          }
+          [[ "$head_repo" == "$GITHUB_REPOSITORY" ]] || {
+            echo "Release candidate must use a same-repository branch" >&2
+            exit 1
+          }
+          [[ "$head_sha" == "$EXPECTED_HEAD_SHA" ]] || {
+            echo "Release PR head moved; dispatch again with the new SHA" >&2
+            exit 1
+          }
+
+          compare_status="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/compare/${base_sha}...${head_sha}" \
+            --jq '.status')"
+          [[ "$compare_status" == "ahead" ]] || {
+            echo "Release candidate must be strictly ahead of its current base" >&2
+            exit 1
+          }
+
+          files="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files?per_page=100")"
+          file_count="$(jq 'length' <<<"$files")"
+          [[ "$file_count" -eq 3 ]] || {
+            echo "Release candidate must change exactly three files" >&2
+            exit 1
+          }
+          unexpected="$(jq -r '
+            .[].filename |
+            select(
+              . != ".release-please-manifest.json" and
+              . != "CHANGELOG.md" and
+              . != "gradle.properties"
+            )
+          ' <<<"$files")"
+          [[ -z "$unexpected" ]] || {
+            echo "Release candidate contains non-release files:" >&2
+            echo "$unexpected" >&2
+            exit 1
+          }
+          for required_file in .release-please-manifest.json CHANGELOG.md gradle.properties; do
+            jq -e --arg required "$required_file" \
+              'any(.[]; .filename == $required)' <<<"$files" >/dev/null || {
+              echo "Release candidate is missing $required_file" >&2
+              exit 1
+            }
+          done
+
+          echo "base_sha=$base_sha" >>"$GITHUB_OUTPUT"
+          echo "head_sha=$head_sha" >>"$GITHUB_OUTPUT"
+
+  linux:
+    name: linux
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
+      - run: ./gradlew clean check integrationTest --console=plain
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: release-candidate-linux-test-reports
+          path: "**/build/reports/**"
+
+  windows:
+    name: windows
+    needs: validate_candidate
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
+      - run: .\gradlew.bat check --console=plain
+
+  coverage:
+    name: coverage
+    needs: [validate_candidate, linux]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
+      - run: ./gradlew test jacocoTestReport --console=plain
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: release-candidate-jacoco-reports
+          path: "**/build/reports/jacoco/**"
+
+  compose_config:
+    name: compose-config
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - shell: pwsh
+        run: ./scripts/verify-release-candidate-workflow.ps1
+      - run: docker compose config --quiet
+      - run: docker compose -f compose.yml -f compose.dev.yml config --quiet
+
+  dependency_review:
+    name: dependency-review
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - uses: actions/dependency-review-action@595b5aeba73380359d98a5e087f648dbb0edce1b # v4.7.3
+        with:
+          base-ref: ${{ needs.validate_candidate.outputs.base_sha }}
+          head-ref: ${{ needs.validate_candidate.outputs.head_sha }}
+
+  secret_scan:
+    name: secret-scan
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITLEAKS_ENABLE_COMMENTS: "false"
+
+  analyze:
+    name: analyze
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - uses: github/codeql-action/init@c4dd10e44af883a891fe31ced449bcb4a6728b9b # v3
+        with:
+          languages: java-kotlin
+      - uses: github/codeql-action/autobuild@c4dd10e44af883a891fe31ced449bcb4a6728b9b # v3
+      - uses: github/codeql-action/analyze@c4dd10e44af883a891fe31ced449bcb4a6728b9b # v3
+        with:
+          ref: refs/pull/${{ inputs.pr_number }}/head
+          sha: ${{ needs.validate_candidate.outputs.head_sha }}
+
+  two_gateway:
+    name: two-gateway
+    needs: validate_candidate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.validate_candidate.outputs.head_sha }}
+          persist-credentials: false
+      - run: docker compose up --build --wait --scale gateway=2
+      - name: Exercise rollback and failure isolation
+        shell: pwsh
+        run: ./scripts/acceptance.ps1
+      - name: Save topology evidence
+        if: always()
+        run: |
+          mkdir -p build-evidence/release-candidate-compose
+          docker compose ps --format json > build-evidence/release-candidate-compose/ps.json
+          docker compose logs --no-color > build-evidence/release-candidate-compose/logs.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: release-candidate-two-gateway-evidence
+          path: build-evidence/release-candidate-compose
+      - if: always()
+        run: docker compose down --volumes
+
+  evidence:
+    name: release-candidate-evidence
+    if: always()
+    needs:
+      - validate_candidate
+      - linux
+      - windows
+      - coverage
+      - compose_config
+      - dependency_review
+      - secret_scan
+      - analyze
+      - two_gateway
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Write immutable candidate manifest
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          BASE_SHA: ${{ needs.validate_candidate.outputs.base_sha }}
+          VALIDATE_RESULT: ${{ needs.validate_candidate.result }}
+          LINUX_RESULT: ${{ needs.linux.result }}
+          WINDOWS_RESULT: ${{ needs.windows.result }}
+          COVERAGE_RESULT: ${{ needs.coverage.result }}
+          COMPOSE_CONFIG_RESULT: ${{ needs.compose_config.result }}
+          DEPENDENCY_REVIEW_RESULT: ${{ needs.dependency_review.result }}
+          SECRET_SCAN_RESULT: ${{ needs.secret_scan.result }}
+          ANALYZE_RESULT: ${{ needs.analyze.result }}
+          TWO_GATEWAY_RESULT: ${{ needs.two_gateway.result }}
+        run: |
+          mkdir -p build-evidence/release-candidate
+          jq -n \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg prNumber "$PR_NUMBER" \
+            --arg headSha "$HEAD_SHA" \
+            --arg baseSha "$BASE_SHA" \
+            --arg runId "$GITHUB_RUN_ID" \
+            --arg runAttempt "$GITHUB_RUN_ATTEMPT" \
+            --arg actor "$GITHUB_ACTOR" \
+            --arg validate "$VALIDATE_RESULT" \
+            --arg linux "$LINUX_RESULT" \
+            --arg windows "$WINDOWS_RESULT" \
+            --arg coverage "$COVERAGE_RESULT" \
+            --arg composeConfig "$COMPOSE_CONFIG_RESULT" \
+            --arg dependencyReview "$DEPENDENCY_REVIEW_RESULT" \
+            --arg secretScan "$SECRET_SCAN_RESULT" \
+            --arg analyze "$ANALYZE_RESULT" \
+            --arg twoGateway "$TWO_GATEWAY_RESULT" \
+            '{
+              repository: $repository,
+              prNumber: ($prNumber | tonumber),
+              headSha: $headSha,
+              baseSha: $baseSha,
+              runId: $runId,
+              runAttempt: ($runAttempt | tonumber),
+              actor: $actor,
+              results: {
+                validate: $validate,
+                linux: $linux,
+                windows: $windows,
+                coverage: $coverage,
+                composeConfig: $composeConfig,
+                dependencyReview: $dependencyReview,
+                secretScan: $secretScan,
+                analyze: $analyze,
+                twoGateway: $twoGateway
+              }
+            }' > build-evidence/release-candidate/manifest.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: release-candidate-manifest
+          path: build-evidence/release-candidate/manifest.json
+      - name: Enforce complete release candidate gate
+        env:
+          VALIDATE_RESULT: ${{ needs.validate_candidate.result }}
+          LINUX_RESULT: ${{ needs.linux.result }}
+          WINDOWS_RESULT: ${{ needs.windows.result }}
+          COVERAGE_RESULT: ${{ needs.coverage.result }}
+          COMPOSE_CONFIG_RESULT: ${{ needs.compose_config.result }}
+          DEPENDENCY_REVIEW_RESULT: ${{ needs.dependency_review.result }}
+          SECRET_SCAN_RESULT: ${{ needs.secret_scan.result }}
+          ANALYZE_RESULT: ${{ needs.analyze.result }}
+          TWO_GATEWAY_RESULT: ${{ needs.two_gateway.result }}
+        run: |
+          for result in \
+            "$VALIDATE_RESULT" \
+            "$LINUX_RESULT" \
+            "$WINDOWS_RESULT" \
+            "$COVERAGE_RESULT" \
+            "$COMPOSE_CONFIG_RESULT" \
+            "$DEPENDENCY_REVIEW_RESULT" \
+            "$SECRET_SCAN_RESULT" \
+            "$ANALYZE_RESULT" \
+            "$TWO_GATEWAY_RESULT"; do
+            [[ "$result" == "success" ]] || exit 1
+          done
