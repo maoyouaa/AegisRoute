@@ -15,6 +15,7 @@
 | Secret/个人数据泄漏 | 仅合成 fixture、不记录 Authorization、secret scan | 没有生产 DLP |
 | Decision 篡改 | append-only 表与数据库触发器拒绝 update/delete | 数据库管理员仍属于信任边界 |
 | 供应链替换 | Wrapper、Action 完整 SHA、Release digest/SBOM/provenance | 基础镜像补丁策略仍需运营流程 |
+| CI token 滥用 | Supply Chain job 默认仅可读仓库内容；checkout 不持久化凭据；Gitleaks 只在扫描 step 获得临时 token，且禁用 PR 评论 | 被攻陷的第三方 Action 在该 step 中仍可读取仓库内容与 job-scoped token |
 
 ## 明确不声明
 
