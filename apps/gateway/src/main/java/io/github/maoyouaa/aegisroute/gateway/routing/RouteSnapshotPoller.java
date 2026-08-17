@@ -1,6 +1,7 @@
 package io.github.maoyouaa.aegisroute.gateway.routing;
 
 import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -15,16 +16,22 @@ public final class RouteSnapshotPoller {
   private final RouteSnapshotStore store;
   private final WebClient control;
   private final String instanceId;
+  private final Duration requestTimeout;
   private final AtomicReference<String> etag = new AtomicReference<>();
 
   public RouteSnapshotPoller(
       RouteSnapshotStore store,
       WebClient.Builder builder,
       @Value("${aegis.control-base-url:http://localhost:8081}") String controlBaseUrl,
-      @Value("${aegis.gateway-instance-id:${HOSTNAME:gateway-local}}") String instanceId) {
+      @Value("${aegis.gateway-instance-id:${HOSTNAME:gateway-local}}") String instanceId,
+      @Value("${aegis.control-request-timeout:750ms}") Duration requestTimeout) {
     this.store = store;
     this.control = builder.baseUrl(controlBaseUrl).build();
     this.instanceId = instanceId;
+    if (requestTimeout.isZero() || requestTimeout.isNegative()) {
+      throw new IllegalArgumentException("control request timeout must be positive");
+    }
+    this.requestTimeout = requestTimeout;
   }
 
   @Scheduled(fixedDelayString = "${aegis.snapshot-poll-interval:1000}")
@@ -50,7 +57,7 @@ public final class RouteSnapshotPoller {
                     }
                     return value.releaseBody().then(reactor.core.publisher.Mono.empty());
                   })
-              .block();
+              .block(requestTimeout);
       if (response != null && store.apply(response.snapshot())) {
         etag.set(response.etag());
         acknowledge(response.snapshot());
@@ -76,7 +83,7 @@ public final class RouteSnapshotPoller {
                   "appliedAt", store.appliedAt() == null ? Instant.now() : store.appliedAt()))
           .retrieve()
           .toBodilessEntity()
-          .block();
+          .block(requestTimeout);
     } catch (RuntimeException ignored) {
       // Acknowledgement failure cannot invalidate serving LKG.
     }

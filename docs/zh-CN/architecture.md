@@ -5,3 +5,5 @@ AegisRoute v0.1 将 baseline serving 与 candidate evaluation 隔离。Gateway �
 Control 发布不可变、带 checksum 的 Route Revision。增加 candidate 流量必须由人工操作；确定性安全策略可以创建 append-only rollback decision 和 candidate 为零的更高版本 Route Revision。Gateway acknowledgement 用于证明所有实例已经收敛，闭合证据链。
 
 默认 Compose 将 Control、Worker、PostgreSQL、Redpanda 和 Mock Provider 放在 `aegis-internal`。Control 在容器内监听 `0.0.0.0:8081`，但不发布宿主机端口；开发 override 可绑定 `127.0.0.1:8081`。
+
+所有长驻 Compose 服务统一使用 `restart: unless-stopped`，Redpanda 具有显式集群健康探针。因此 PostgreSQL 或 Redpanda 进程异常退出后可以自动恢复，无需人工重新启动。Gateway 的 Snapshot 轮询和 acknowledgement 使用有界 Control 请求超时，避免不可用依赖永久占用调度线程；依赖恢复期间 baseline 继续使用 LKG 服务。故障现场和整改证据记录在 [Compose 依赖恢复事故报告](incidents/2026-08-17-compose-dependency-recovery.md)中。
