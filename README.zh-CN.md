@@ -33,7 +33,7 @@ Baseline serving
 |---|---|
 | 产品与架构规格 | 已文档化 |
 | 仓库与构建基线 | 已实现；Windows 本地检查通过，GitHub CI 待运行 |
-| Streaming Gateway | 已实现；完整端到端 SSE 矩阵待完成 |
+| Streaming Gateway | 分层 HTTP/Provider SSE 矩阵已在本地验证；GitHub-hosted E2E 证据待完成 |
 | Shadow/Evaluation Pipeline | 已实现；本地 Compose 链路已验证 |
 | 人工 Canary 与自动回滚 | 已实现；本地双 Gateway 收敛已验证 |
 | 性能与可靠性数据 | 尚未测量 |

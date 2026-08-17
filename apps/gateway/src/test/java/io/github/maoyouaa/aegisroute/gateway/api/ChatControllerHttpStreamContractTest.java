@@ -26,11 +26,14 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Sinks;
+import reactor.test.StepVerifier;
 
 class ChatControllerHttpStreamContractTest {
   private final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
@@ -57,6 +60,64 @@ class ChatControllerHttpStreamContractTest {
         new TimeoutException("synthetic timeout detail"), 504, ObservedOutcome.TIMEOUT);
   }
 
+  @Test
+  void terminatesCommittedStreamAfterTokenWithoutRetry() throws Exception {
+    Sinks.One<Void> failAfterClientToken = Sinks.one();
+    Fixture fixture =
+        fixture(
+            Flux.concat(
+                Flux.just(new ProviderStreamEvent.Token("hello")),
+                failAfterClientToken
+                    .asMono()
+                    .thenMany(
+                        Flux.error(new IllegalStateException("synthetic post-token failure")))));
+
+    var result =
+        streamRequest(fixture.client, "http-stream-post-token")
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .returnResult(String.class);
+
+    StepVerifier.create(result.getResponseBody())
+        .expectNextMatches(
+            data -> {
+              failAfterClientToken.tryEmitEmpty();
+              return data.contains("hello");
+            })
+        .expectErrorMatches(
+            failure -> failure.getMessage().contains("synthetic post-token failure"))
+        .verify();
+
+    assertObservation(fixture, 502, ObservedOutcome.STREAM_ERROR);
+  }
+
+  @Test
+  void propagatesClientCancellationWithoutRetry() throws Exception {
+    AtomicBoolean providerCancelled = new AtomicBoolean();
+    Fixture fixture =
+        fixture(
+            Flux.concat(
+                    Flux.just(new ProviderStreamEvent.Token("hello")),
+                    Flux.<ProviderStreamEvent>never())
+                .doOnCancel(() -> providerCancelled.set(true)));
+
+    var result =
+        streamRequest(fixture.client, "http-stream-cancel")
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .returnResult(String.class);
+
+    StepVerifier.create(result.getResponseBody())
+        .expectNextMatches(data -> data.contains("hello"))
+        .thenCancel()
+        .verify();
+
+    assertThat(providerCancelled).isTrue();
+    assertObservation(fixture, 499, ObservedOutcome.CANCELLED);
+  }
+
   private void assertPreTokenProviderStatus(int statusCode) throws Exception {
     assertPreTokenFailure(
         new ProviderException(statusCode, false, "synthetic detail"),
@@ -68,14 +129,7 @@ class ChatControllerHttpStreamContractTest {
       Throwable failure, int statusCode, ObservedOutcome expectedOutcome) throws Exception {
     Fixture fixture = fixture(Flux.error(failure));
 
-    fixture
-        .client
-        .post()
-        .uri("/v1/chat/completions")
-        .header("X-Request-Id", "http-stream-" + statusCode)
-        .contentType(MediaType.APPLICATION_JSON)
-        .accept(MediaType.TEXT_EVENT_STREAM)
-        .bodyValue(request())
+    streamRequest(fixture.client, "http-stream-" + statusCode)
         .exchange()
         .expectStatus()
         .isEqualTo(statusCode)
@@ -89,6 +143,11 @@ class ChatControllerHttpStreamContractTest {
               assertThat(error.error().message()).doesNotContain("synthetic", "detail");
             });
 
+    assertObservation(fixture, statusCode, expectedOutcome);
+  }
+
+  private void assertObservation(Fixture fixture, int statusCode, ObservedOutcome expectedOutcome)
+      throws Exception {
     fixture.queue.poll(); // shadow-requested
     ServingObservedV1 serving =
         mapper.readValue(fixture.queue.poll().payload(), ServingObservedV1.class);
@@ -99,6 +158,17 @@ class ChatControllerHttpStreamContractTest {
         .isNotNull();
     assertThat(fixture.queue.poll()).as("observation is emitted exactly once").isNull();
     verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+  }
+
+  private WebTestClient.RequestHeadersSpec<?> streamRequest(
+      WebTestClient client, String requestId) {
+    return client
+        .post()
+        .uri("/v1/chat/completions")
+        .header("X-Request-Id", requestId)
+        .contentType(MediaType.APPLICATION_JSON)
+        .accept(MediaType.TEXT_EVENT_STREAM)
+        .bodyValue(request());
   }
 
   private Fixture fixture(Flux<ProviderStreamEvent> stream) {

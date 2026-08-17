@@ -26,5 +26,5 @@ Gateway 只使用分类结果写入准确的 serving evidence。两个 classifie
 
 - Rollback evidence 可以保留上游 429/5xx 与 timeout 语义，不再把所有故障压平为 502；
 - Provider 与 Gateway contract test 可以分别证明 HTTP、连接、deadline、取消与 post-token 边界；
-- HTTP 层测试可以区分真实的 pre-token 429/500 response 与内部 evidence 分类；
+- HTTP 层测试可以区分真实的 pre-token 429/500/transport response 与内部 evidence 分类，并证明 committed stream 断流和 client cancellation 都不会触发第二次 Provider 调用；
 - 本决策不增加透明 retry 或 fallback。以后如需增加，必须使用独立 ADR 并重新审查 evidence model。
