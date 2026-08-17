@@ -15,6 +15,7 @@ import io.github.maoyouaa.aegisroute.domain.routing.StableSampler;
 import io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStore;
 import io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueue;
 import io.github.maoyouaa.aegisroute.gateway.shadow.ShadowEnvelope;
+import io.github.maoyouaa.aegisroute.provider.FailureClassifier;
 import io.github.maoyouaa.aegisroute.provider.OpenAiProviderFactory;
 import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
 import io.github.maoyouaa.aegisroute.provider.ProviderStreamEvent;
@@ -165,19 +166,20 @@ public final class ChatController {
                     499,
                     started))
         .doOnError(
-            failure ->
-                observeStream(
-                    observed,
-                    route,
-                    sampleId,
-                    resolvedRequestId,
-                    deploymentId,
-                    candidate,
-                    firstTokenEmitted.get()
-                        ? ObservedOutcome.STREAM_ERROR
-                        : ObservedOutcome.HTTP_ERROR,
-                    502,
-                    started));
+            failure -> {
+              FailureClassifier.Classification classification =
+                  FailureClassifier.classify(failure, firstTokenEmitted.get());
+              observeStream(
+                  observed,
+                  route,
+                  sampleId,
+                  resolvedRequestId,
+                  deploymentId,
+                  candidate,
+                  observedOutcome(classification.kind()),
+                  classification.statusCode(),
+                  started);
+            });
   }
 
   private RouteSnapshot requireRoute() {
@@ -280,6 +282,15 @@ public final class ChatController {
     if (!candidate) {
       enqueueBaseline(route, sampleId, requestId, outcome, statusCode, started);
     }
+  }
+
+  private ObservedOutcome observedOutcome(FailureClassifier.Kind kind) {
+    return switch (kind) {
+      case TIMEOUT -> ObservedOutcome.TIMEOUT;
+      case CANCELLED -> ObservedOutcome.CANCELLED;
+      case RESPONSE_STARTED, STREAM_FAILURE -> ObservedOutcome.STREAM_ERROR;
+      default -> ObservedOutcome.HTTP_ERROR;
+    };
   }
 
   private ServerSentEvent<Object> toSse(String id, String model, ProviderStreamEvent event) {

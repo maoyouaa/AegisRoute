@@ -36,6 +36,8 @@ Control mutations use idempotency and optimistic concurrency. Creation needs `Id
 
 Gateway polls a checksum-valid immutable Route Snapshot once per second. Before the first valid snapshot it remains live but not ready and serving returns `503 ROUTE_SNAPSHOT_UNAVAILABLE`. After initialization a Control outage leaves the last-known-good snapshot active. Gateway never queries PostgreSQL.
 
+Streaming failures are classified without performing an automatic retry. Before the first token, upstream 429/5xx, connection, and timeout failures retain bounded status and retry-eligibility evidence; a started response, client cancellation, or any failure after a token is never retryable. Eligibility is evidence for a separately reviewed policy, not permission to reset the request deadline or invoke another provider.
+
 Shadow ingress is a non-blocking offer into a count- and byte-bounded local queue. An independent publisher thread owns Kafka metadata, acknowledgements, retry, and delivery timeout. Queue pressure or broker failure drops shadow work with a bounded reason label; it cannot fail the baseline request.
 
 Worker validates repository-owned JSON Schemas, calls the candidate, deduplicates events, pairs baseline and candidate observations by `sampleId`, expires incomplete pairs, and aggregates candidate serving windows. Promotion remains human-initiated. Only deterministic breach policy may initiate rollback.
