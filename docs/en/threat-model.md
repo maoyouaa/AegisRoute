@@ -20,3 +20,9 @@ Assets are route integrity, rollout decisions, synthetic event integrity, releas
 ## Explicit non-claims
 
 This model does not establish GDPR compliance, tenant isolation, Internet-safe IAM, penetration-test coverage, or production readiness. Those require different data, identity, hosting, and operational boundaries.
+
+## Release candidate validation boundary
+
+Release candidate checks are manually dispatched against an immutable, same-repository Release Please head SHA. Before checking out the repository source tree, the workflow verifies the live open PR, `main` base, Release Please branch, exact dispatch/head SHA match, ancestry, and a three-file changed-path allowlist. Jobs then retain read-only permissions except CodeQL result upload. This detects normal candidate drift and excludes publication permissions.
+
+Residual risk remains operational: a maintainer can copy the wrong PR number or SHA, the candidate can move after a run, and GitHub repository settings can change outside Git. GitHub also loads the workflow definition from the candidate ref, so its runtime allowlist is not an independent integrity proof for that same workflow. The workflow fails on detected mismatches and records a run manifest, but dispatch and release authorization still require a fresh remote-state audit and human review. See [Release candidate validation](release-candidate-validation.md).

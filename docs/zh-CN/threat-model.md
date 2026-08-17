@@ -20,3 +20,9 @@
 ## 明确不声明
 
 本文不证明 GDPR、租户隔离、公网 IAM、渗透测试覆盖或生产就绪。这些能力需要不同的数据、身份、托管和运维边界。
+
+## Release candidate 验证边界
+
+Release candidate 检查由维护者针对本仓库 Release Please 分支的不可变 head SHA 手动触发。在 checkout 仓库源码树之前，workflow 会验证远端 open PR、`main` base、Release Please 分支、dispatch/head SHA 完全一致、提交祖先关系，以及严格的三个文件 changed-path allowlist。此后除 CodeQL 结果上传外，所有 job 都保持只读；这能检测正常 candidate 漂移，并排除发布权限。
+
+剩余风险仍属于运维边界：维护者可能复制错误的 PR 编号或 SHA，candidate 可能在运行后移动，GitHub 仓库设置也可以在 Git 之外变化。GitHub 还会从 candidate ref 加载 workflow 定义，因此运行时 allowlist 不能独立证明同一 workflow 的完整性。workflow 会在发现不一致时失败并保存 run manifest，但 dispatch 与 Release 授权仍要求重新审计远端状态并人工审查。参见 [Release candidate 验证](release-candidate-validation.md)。
