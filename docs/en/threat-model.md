@@ -16,6 +16,7 @@ Assets are route integrity, rollout decisions, synthetic event integrity, releas
 | Decision tampering | append-only table with database trigger rejecting update/delete | Database administrator remains trusted |
 | Supply-chain substitution | Wrapper, pinned Actions SHAs, image digests/SBOM/provenance at release | Base-image patch policy remains operational work |
 | CI token misuse | Supply-chain jobs default to read-only contents; checkout never persists credentials; Gitleaks receives the ephemeral token only in its scan step with PR comments disabled | A compromised third-party Action can still read repository contents and the job-scoped token during that step |
+| Release automation privilege expansion | Repository workflows default to read-only; Release Please and image publication receive separate job-scoped permissions; publication requires `release_created=true`; no PAT or GitHub App credential is used | GitHub combines PR creation and approval in one mutable repository setting. A compromised release job with pull-request write access could misuse that capability, and repository CI cannot prove the live setting |
 
 ## Explicit non-claims
 

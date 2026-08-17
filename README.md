@@ -58,6 +58,7 @@ The acceptance script uses only synthetic data and verifies the automatic rollba
 - [Product document](docs/en/product.md)
 - [Threat model](docs/en/threat-model.md)
 - [Development workflow](docs/en/development-workflow.md)
+- [Release permission boundary](docs/en/release-permission-boundary.md)
 - [Product specification (Chinese)](docs/zh-CN/AegisRoute_Product_Spec_Final.md)
 - [Project review (Chinese)](docs/zh-CN/AegisRoute_Project_Review.md)
 - [Original design (Chinese)](docs/zh-CN/AegisRoute_Product_Design.md)

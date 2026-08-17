@@ -146,6 +146,96 @@ val verifySupplyChainWorkflow = tasks.register("verifySupplyChainWorkflow") {
     }
 }
 
+val verifyReleaseWorkflowSecurity = tasks.register("verifyReleaseWorkflowSecurity") {
+    description = "Verifies the static least-privilege boundary for the release workflow."
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+
+    val workflow = layout.projectDirectory.file(".github/workflows/release.yml")
+    inputs.file(workflow)
+
+    doLast {
+        val contents = workflow.asFile.readText().replace("\r\n", "\n")
+        val actionReferences =
+            Regex("""(?m)^\s+(?:-\s+)?uses:\s+([^#\s]+)""")
+                .findAll(contents)
+                .map { it.groupValues[1] }
+                .toList()
+        val unpinnedActions =
+            actionReferences.filterNot {
+                Regex("""^[^@\s]+@[0-9a-f]{40}${'$'}""").matches(it)
+            }
+
+        check(actionReferences.isNotEmpty() && unpinnedActions.isEmpty()) {
+            "Every third-party release Action must use a full commit SHA; unpinned: $unpinnedActions"
+        }
+        check(contents.contains("permissions:\n  contents: read\n\njobs:")) {
+            "Release workflow must default to read-only repository contents."
+        }
+
+        val writePermissions =
+            Regex("""(?m)^\s{6}([a-z-]+): write\s*${'$'}""")
+                .findAll(contents)
+                .map { it.groupValues[1] }
+                .toList()
+        check(
+            writePermissions ==
+                listOf(
+                    "contents",
+                    "pull-requests",
+                    "issues",
+                    "packages",
+                    "id-token",
+                    "attestations",
+                )
+        ) {
+            "Release jobs may grant only the reviewed job-scoped write permissions; found $writePermissions"
+        }
+
+        check(
+            contents.contains(
+                "if: needs.release-please.outputs.release_created == 'true'"
+            )
+        ) {
+            "Image publication must stay gated on Release Please reporting release_created=true."
+        }
+        check(
+            contents.contains(
+                "release_created: ${'$'}{{ steps.release.outputs.release_created }}"
+            )
+        ) {
+            "Release Please must expose the release_created output used by the publication gate."
+        }
+
+        val checkoutCount = actionReferences.count { it.startsWith("actions/checkout@") }
+        val nonPersistentCheckoutCount =
+            Regex("""(?m)^\s+persist-credentials:\s+false\s*${'$'}""")
+                .findAll(contents)
+                .count()
+        check(checkoutCount > 0 && checkoutCount == nonPersistentCheckoutCount) {
+            "Every release checkout must set persist-credentials=false."
+        }
+        check(contents.contains("ref: ${'$'}{{ needs.release-please.outputs.sha }}")) {
+            "Release images must build from the exact SHA emitted by Release Please."
+        }
+
+        val referencedSecrets =
+            Regex("""\$\{\{\s*secrets\.([A-Za-z0-9_]+)\s*}}""")
+                .findAll(contents)
+                .map { it.groupValues[1] }
+                .toSet()
+        check(referencedSecrets == setOf("GITHUB_TOKEN")) {
+            "Release workflow may reference only the ephemeral GITHUB_TOKEN; found $referencedSecrets"
+        }
+        check(!contents.contains("secrets[")) {
+            "Dynamic secret lookup is not allowed in the release workflow."
+        }
+        check(!Regex("""(?m)^\s+(?:github-)?token:\s+""").containsMatchIn(contents)) {
+            "Release Please must use the default GITHUB_TOKEN rather than a custom token input."
+        }
+    }
+}
+
 tasks.named("check") {
     dependsOn(verifySupplyChainWorkflow)
+    dependsOn(verifyReleaseWorkflowSecurity)
 }
