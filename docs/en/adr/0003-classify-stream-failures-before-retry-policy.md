@@ -20,8 +20,11 @@ Keep retry eligibility in the dependency-light Domain `FailureClassifier`. Intro
 
 Gateway uses the classification only to write accurate serving evidence. Neither classifier invokes a Provider, changes a Route Snapshot, or resets a deadline.
 
+Before any SSE item is committed, a `ProviderException` is exposed through a bounded `PROVIDER_FAILURE` JSON envelope with its validated upstream HTTP status. The upstream exception message is never returned. Once an SSE item has been emitted, the response status cannot be rewritten; the stream terminates without retry.
+
 ## Consequences
 
 - Rollback evidence retains upstream 429/5xx and timeout semantics instead of flattening every failure to 502.
 - Provider and Gateway contract tests can prove HTTP, connection, deadline, cancellation, and post-token boundaries independently.
+- HTTP-layer tests distinguish a real pre-token 429/500 response from internal evidence classification.
 - No transparent retry or fallback is added by this decision. Adding one requires a separate ADR and evidence model review.

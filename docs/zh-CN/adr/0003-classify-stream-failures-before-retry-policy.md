@@ -20,8 +20,11 @@ Retry eligibility 继续由轻依赖的 Domain `FailureClassifier` 统一决定�
 
 Gateway 只使用分类结果写入准确的 serving evidence。两个 classifier 都不调用 Provider、不修改 Route Snapshot，也不重置 deadline。
 
+在任何 SSE item 提交前，`ProviderException` 会通过有限的 `PROVIDER_FAILURE` JSON envelope 返回，并保留已校验的上游 HTTP 状态；上游 exception message 绝不返回。首个 SSE item 发出后，HTTP 状态已无法重写，stream 只会终止，不执行 retry。
+
 ## 后果
 
 - Rollback evidence 可以保留上游 429/5xx 与 timeout 语义，不再把所有故障压平为 502；
 - Provider 与 Gateway contract test 可以分别证明 HTTP、连接、deadline、取消与 post-token 边界；
+- HTTP 层测试可以区分真实的 pre-token 429/500 response 与内部 evidence 分类；
 - 本决策不增加透明 retry 或 fallback。以后如需增加，必须使用独立 ADR 并重新审查 evidence model。
