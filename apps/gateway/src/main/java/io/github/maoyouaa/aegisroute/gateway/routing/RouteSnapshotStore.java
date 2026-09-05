@@ -23,16 +23,7 @@ public final class RouteSnapshotStore {
   }
 
   public boolean apply(RouteSnapshot candidate) {
-    String calculated =
-        RouteChecksum.calculate(
-            candidate.routeId(),
-            candidate.rolloutId(),
-            candidate.version(),
-            candidate.baselineDeploymentId(),
-            candidate.baselineBaseUrl(),
-            candidate.candidateDeploymentId(),
-            candidate.candidateBaseUrl(),
-            candidate.candidateRatio());
+    String calculated = RouteChecksum.calculate(candidate);
     if (!calculated.equals(candidate.checksum())) return false;
     while (true) {
       AppliedSnapshot existing = current.get();

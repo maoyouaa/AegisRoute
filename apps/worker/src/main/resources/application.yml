@@ -2,17 +2,29 @@ server:
   port: 8082
 
 spring:
+  task:
+    scheduling:
+      pool:
+        size: 3
   application:
     name: aegis-worker
   kafka:
     bootstrap-servers: ${AEGIS_REDPANDA_BOOTSTRAP:redpanda:9092}
     consumer:
+      enable-auto-commit: false
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
     producer:
+      acks: all
+      properties:
+        max.block.ms: 500
+        delivery.timeout.ms: 2000
+        request.timeout.ms: 500
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+    listener:
+      ack-mode: record
 
 aegis:
   control-base-url: ${AEGIS_CONTROL_BASE_URL:http://control:8081}

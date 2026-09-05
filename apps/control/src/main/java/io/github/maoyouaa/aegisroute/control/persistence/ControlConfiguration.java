@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ControlConfiguration {
   @Bean
+  java.time.Clock controlClock() {
+    return java.time.Clock.systemUTC();
+  }
+
+  @Bean
   ObjectMapper objectMapper() {
     return new ObjectMapper()
         .registerModule(new JavaTimeModule())

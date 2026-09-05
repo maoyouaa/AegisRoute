@@ -19,4 +19,36 @@ Assets are route integrity, rollout decisions, synthetic event integrity, releas
 
 ## Explicit non-claims
 
+The secret scanner has one exact fingerprint exception in `.gitleaksignore`:
+Gitleaks 8.24.3 mistakes the Java type `ObservationV2` in `saveResult(String key, ...)`
+for a generic API key in commit `90a741c`. The exception fixes that immutable
+commit/path/rule/line only; no file or rule is globally excluded. Local controls
+reproduce the original finding, remove only that finding, and still detect a
+synthetic credential-shaped value and the same signature in a different commit.
+
 This model does not establish GDPR compliance, tenant isolation, Internet-safe IAM, penetration-test coverage, or production readiness. Those require different data, identity, hosting, and operational boundaries.
+
+
+## Reliability v2 and local fault rehearsal
+
+The v2 event carries the full immutable route and business identity. Worker validates
+its schema, checksum, lifecycle selection, deployment and immutable Control revision
+before durable admission. A valid self-computed checksum alone is not authority for an
+arbitrary candidate URL. Replay uses the complete sample identity; mismatches are
+quarantined and cannot create a second count. Tests cover wrong candidate, route mismatch,
+new event IDs, sealed replay and persistent local results. SQLite is a trusted private
+Worker volume; disk tampering and disk loss are outside the process-restart claim.
+
+Gateway summaries are bounded memory only; missing/partial boot or capacity-loss reports
+remain unknown. Control accepts internal evidence only on its internal network, stores
+append-only decisions/ACK tuples and treats missing targets as unknown. Internal peers and
+synthetic actor strings are still trusted; this is not authenticated production IAM.
+
+`/internal/faults` and `/internal/stats` exist only when `AEGIS_MOCK_FAULT_CONTROLS=true`.
+They return 404 by default, accept a fixed bounded synthetic mode enum and retain at most
+8192 bounded request IDs for call/cancellation evidence. They never accept commands,
+URLs, credentials or real prompts. Regression tests verify default denial, mode bounds,
+and instance isolation. The dedicated reliability Compose opt-in exposes these internal
+services through a task-specific Nginx bound only to 127.0.0.1, including Control/Grafana
+for inspection. This local exception must not be used as an Internet-facing deployment.
+No fault switch or runtime data is global to other Compose projects.

@@ -1,0 +1,32 @@
+{
+  "pairedDeltas": [
+    {
+      "repeat": 1,
+      "p50DeltaMs": -9.302350001235027,
+      "p95DeltaMs": -1.7236499988939613,
+      "p95DeltaPercent": -4.845914178711608
+    },
+    {
+      "repeat": 2,
+      "p50DeltaMs": -8.297799991851207,
+      "p95DeltaMs": -0.324655014264863,
+      "p95DeltaPercent": -0.9532302354223532
+    },
+    {
+      "repeat": 3,
+      "p50DeltaMs": 10.042750007414725,
+      "p95DeltaMs": 0.6530999933602288,
+      "p95DeltaPercent": 1.9877699139158933
+    }
+  ],
+  "offP95Range": [
+    32.85591500243754,
+    35.569140008010436
+  ],
+  "limitations": [
+    "Same shared Windows/Docker host; other pre-existing containers remain running.",
+    "Fixed off-then-on ordering within each pair, warm process, no cold-start or saturation claim.",
+    "Client latency includes localhost Nginx, network and request serialization. Scheduler and Docker CPU contention remain noise.",
+    "Only synthetic responses at the saved offered rate; these samples do not establish zero overhead or production capacity."
+  ]
+}

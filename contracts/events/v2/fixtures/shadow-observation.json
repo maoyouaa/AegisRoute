@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "eventId": "4fac5b16-de52-4807-b48a-1bb1bde6eb63",
+  "sample": {
+    "gatewayInstanceId": "gateway-b",
+    "bootId": "da5209b2-53c0-4580-a05b-887e3cb35192",
+    "sampleId": "980a550c-5491-44dc-a3e2-998d89559d01",
+    "requestId": "scenario-0dde66d2-initial-shadow-b-1",
+    "route": {
+      "routeId": "b532777c-616b-4eee-b542-9586653f4a49",
+      "rolloutId": "36bc0e6a-4a82-4095-918a-99130b08e468",
+      "version": 2,
+      "baselineDeploymentId": "baseline-v1",
+      "baselineBaseUrl": "http://baseline:8080",
+      "candidateDeploymentId": "candidate-v1",
+      "candidateBaseUrl": "http://candidate:8080",
+      "candidateRatio": 0,
+      "checksum": "f556fc5549071298c182976afd4452f179a3c4c8e2a70e1382e3f6fd5aea5bbf",
+      "createdAt": "2026-09-05T01:37:36.016223Z",
+      "phase": "SHADOW",
+      "shadowPercentage": 100,
+      "checksumVersion": 2
+    },
+    "admittedAt": "2026-09-05T01:37:40.199635925Z",
+    "shadowSelected": true
+  },
+  "kind": "SHADOW",
+  "deploymentId": "candidate-v1",
+  "outcome": "SUCCESS",
+  "statusCode": 200,
+  "latencyMs": 76,
+  "observedAt": "2026-09-05T01:37:40.331352219Z"
+}

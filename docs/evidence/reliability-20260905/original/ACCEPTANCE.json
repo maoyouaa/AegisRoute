@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "acceptedDate": "2026-09-05",
+  "sourceTreeSha256": "39086a2711ffa095286abffb8ab9cbf81f4ddfc4533962217641c5c28dcf4778",
+  "syntheticOnly": true,
+  "tests": {"total": 85, "integration": 17, "failures": 0, "errors": 0, "skipped": 0},
+  "actualTransportCases": 14,
+  "measuredRequests": 1440,
+  "matchedOnShadowSamples": 720,
+  "measurementErrors": 0,
+  "measurementDropDelta": 0,
+  "finalRouteVersion": 38,
+  "exactAcks": ["gateway-a", "gateway-b"],
+  "gates": {"A": "PASS", "B": "PASS", "C": "PASS", "1": "PASS", "2": "PASS", "3": "PASS", "4": "PASS", "5": "PASS", "6": "PASS", "7": "PASS"},
+  "independentReview": "FINAL-REVIEW.md",
+  "sourceVerification": "manifest-verification.json",
+  "unverified": ["disk loss", "Worker HA", "real providers and external side effects", "cold start or saturation", "production IAM or compliance", "cloud deployment"]
+}

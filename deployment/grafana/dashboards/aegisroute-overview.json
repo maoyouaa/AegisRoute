@@ -1,31 +1,1492 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": false,
   "panels": [
     {
+      "id": 1,
+      "type": "stat",
+      "title": "Rollout phase",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_phase) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Rollout phase",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "Draft",
+                  "color": "text"
+                },
+                "1": {
+                  "text": "Shadow",
+                  "color": "text"
+                },
+                "2": {
+                  "text": "Eligible",
+                  "color": "text"
+                },
+                "3": {
+                  "text": "Canary",
+                  "color": "text"
+                },
+                "4": {
+                  "text": "Full",
+                  "color": "text"
+                },
+                "5": {
+                  "text": "Paused",
+                  "color": "text"
+                },
+                "6": {
+                  "text": "Blocked",
+                  "color": "text"
+                },
+                "7": {
+                  "text": "Rollback propagating",
+                  "color": "text"
+                },
+                "8": {
+                  "text": "Rolled back",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Canary ratio",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_candidate_ratio) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Candidate traffic",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Current route",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_route_version) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Current route",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Evidence route",
+      "description": "Compare with current route. A previous route never authorizes promotion.",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_window_route_version) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Latest evidence route",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Window age",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "(time() - aegis_control_window_end_seconds) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Window age",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Serving latency \u00b7 p95",
+      "description": "Actual Gateway duration; fixed low-cardinality traffic/outcome labels. No request IDs.",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95,sum by(le,traffic)(rate(aegis_serving_seconds_bucket[1m])))",
+          "refId": "A",
+          "legendFormat": "{{traffic}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Serving error rate",
+      "description": "No requests means unknown, not zero error.",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "targets": [
+        {
+          "expr": "sum by(traffic)(rate(aegis_serving_seconds_count{outcome!=\"SUCCESS\"}[1m])) / sum by(traffic)(rate(aegis_serving_seconds_count[1m]))",
+          "refId": "A",
+          "legendFormat": "{{traffic}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "min": 0,
+          "max": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "stat",
+      "title": "Coverage",
+      "description": "Observed serving / expected admissions. Missing denominator or partial boot cannot qualify.",
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 13
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_coverage) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Latest window coverage",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "stat",
+      "title": "Pairing at seal",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 6,
+        "y": 13
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_pairs) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Complete pairs",
+          "instant": true,
+          "range": false
+        },
+        {
+          "expr": "(aegis_control_unpaired) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "B",
+          "legendFormat": "Unpaired",
+          "instant": true,
+          "range": false
+        },
+        {
+          "expr": "(aegis_control_pending) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "C",
+          "legendFormat": "Pending at seal",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "stat",
+      "title": "Shadow errors",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 14,
+        "y": 13
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_shadow_error_ratio) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Shadow error ratio",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 11,
+      "type": "stat",
+      "title": "Window result",
+      "description": "Historical window result. Promotion also requires current route, freshness and unused evidence.",
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 13
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_eligible) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Latest window eligibility",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "Insufficient / ineligible",
+                  "color": "orange"
+                },
+                "1": {
+                  "text": "Eligible at seal",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "timeseries",
+      "title": "Shadow queue / durable backlog",
+      "description": "",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "targets": [
+        {
+          "expr": "sum(aegis_shadow_queue_messages)",
+          "refId": "A",
+          "legendFormat": "Gateway queue"
+        },
+        {
+          "expr": "aegis_worker_pending_executions",
+          "refId": "B",
+          "legendFormat": "Candidate waiting"
+        },
+        {
+          "expr": "aegis_worker_pending_results",
+          "refId": "C",
+          "legendFormat": "Result outbox"
+        },
+        {
+          "expr": "aegis_worker_pending_windows",
+          "refId": "D",
+          "legendFormat": "Window outbox"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": "timeseries",
+      "title": "Dropped events / expired work",
+      "description": "Loss is explicit. Insufficient sealed windows remain immutable; old work cannot delay fresh samples indefinitely.",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "targets": [
+        {
+          "expr": "sum by(reason)(increase(aegis_shadow_dropped_total[1m]))",
+          "refId": "A",
+          "legendFormat": "Drops \u00b7 {{reason}}"
+        },
+        {
+          "expr": "aegis_worker_expired_executions",
+          "refId": "B",
+          "legendFormat": "Expired before execution"
+        },
+        {
+          "expr": "aegis_worker_quarantine",
+          "refId": "C",
+          "legendFormat": "Quarantined"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": "stat",
+      "title": "Rollback source",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 26
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_rollback_kind) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Rollback source",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "No decision",
+                  "color": "text"
+                },
+                "1": {
+                  "text": "Manual",
+                  "color": "text"
+                },
+                "2": {
+                  "text": "Policy",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 15,
+      "type": "stat",
+      "title": "Target route",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 6,
+        "y": 26
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_rollback_target_version) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Target route",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": "stat",
+      "title": "Exact confirmations",
+      "description": "Exact immutable route ID + version + checksum + instance. Empty targets are unknown.",
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 10,
+        "y": 26
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_rollback_confirmed) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Confirmed",
+          "instant": true,
+          "range": false
+        },
+        {
+          "expr": "(aegis_control_rollback_targets) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "B",
+          "legendFormat": "Required",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 17,
+      "type": "stat",
+      "title": "Gateway A",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 26
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_gateway_a_confirmed) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Gateway A",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "-1": {
+                  "text": "No target",
+                  "color": "text"
+                },
+                "0": {
+                  "text": "Pending",
+                  "color": "orange"
+                },
+                "1": {
+                  "text": "Confirmed",
+                  "color": "green"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 18,
+      "type": "stat",
+      "title": "Gateway B",
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 26
+      },
+      "targets": [
+        {
+          "expr": "(aegis_control_gateway_b_confirmed) and on() (time() - aegis_control_updated_seconds < 5)",
+          "refId": "A",
+          "legendFormat": "Gateway B",
+          "instant": true,
+          "range": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "-1": {
+                  "text": "No target",
+                  "color": "text"
+                },
+                "0": {
+                  "text": "Pending",
+                  "color": "orange"
+                },
+                "1": {
+                  "text": "Confirmed",
+                  "color": "green"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "nan",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            },
+            {
+              "type": "special",
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "Unknown / no evidence",
+                  "color": "text"
+                }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "text": {
+          "valueSize": 36,
+          "titleSize": 12
+        }
+      }
+    },
+    {
+      "id": 19,
+      "type": "timeseries",
+      "title": "Applied route versions",
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 31
+      },
+      "targets": [
+        {
+          "expr": "aegis_route_version",
+          "refId": "A",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
+    },
+    {
+      "id": 20,
       "type": "timeseries",
       "title": "Route snapshot age",
-      "targets": [{ "expr": "aegis_route_snapshot_age_seconds", "refId": "A" }],
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 31
+      },
+      "targets": [
+        {
+          "expr": "aegis_route_snapshot_age_seconds",
+          "refId": "A",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "decimals": 2,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
     },
     {
+      "id": 21,
       "type": "timeseries",
-      "title": "Shadow drops by reason",
-      "targets": [{ "expr": "sum by (reason) (rate(aegis_shadow_dropped_total[1m]))", "refId": "A" }],
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 }
+      "title": "Process health",
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "targets": [
+        {
+          "expr": "up{job=~\"gateway|control|worker|redpanda\"}",
+          "refId": "A",
+          "legendFormat": "{{job}} \u00b7 {{instance}}"
+        },
+        {
+          "expr": "aegis_control_available * ((time() - aegis_control_updated_seconds) < bool 5)",
+          "refId": "B",
+          "legendFormat": "Control evidence projection"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
     },
     {
-      "type": "stat",
-      "title": "Applied route version",
-      "targets": [{ "expr": "aegis_route_version", "refId": "A" }],
-      "gridPos": { "h": 6, "w": 8, "x": 0, "y": 8 }
+      "id": 22,
+      "type": "timeseries",
+      "title": "JVM memory in use",
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "targets": [
+        {
+          "expr": "sum by(instance)(jvm_memory_used_bytes{area=\"heap\"})",
+          "refId": "A",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "decimals": 0,
+          "noValue": "Unknown / no evidence",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      }
     }
   ],
   "schemaVersion": 41,
-  "tags": ["aegisroute", "synthetic-demo"],
-  "templating": { "list": [] },
-  "time": { "from": "now-15m", "to": "now" },
+  "tags": [
+    "aegisroute",
+    "synthetic-demo"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
   "title": "AegisRoute v0.1 overview",
   "uid": "aegisroute-v01",
-  "version": 1
+  "version": 2,
+  "refresh": "5s",
+  "description": "Synthetic v0.1 reliability rehearsal. Persisted Control evidence and exact Gateway ACKs. No production or zero-overhead claim."
 }

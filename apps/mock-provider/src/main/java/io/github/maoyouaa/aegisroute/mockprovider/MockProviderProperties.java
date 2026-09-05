@@ -5,7 +5,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("aegis.mock")
 public record MockProviderProperties(
-    String name, int failEvery, Duration latency, String responseText) {
+    String name,
+    int failEvery,
+    Duration latency,
+    String responseText,
+    boolean faultControlsEnabled) {
   public MockProviderProperties {
     if (name == null) name = "baseline";
     if (latency == null) latency = Duration.ofMillis(5);

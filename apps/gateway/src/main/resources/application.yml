@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  task:
+    scheduling:
+      pool:
+        size: 2
   application:
     name: aegis-gateway
   kafka:
@@ -17,7 +21,7 @@ spring:
 
 aegis:
   control-base-url: ${AEGIS_CONTROL_BASE_URL:http://control:8081}
-  gateway-instance-id: ${HOSTNAME:gateway-local}
+  gateway-instance-id: ${AEGIS_GATEWAY_INSTANCE_ID:${HOSTNAME:gateway-local}}
   snapshot-poll-interval: 1000
   control-request-timeout: 750ms
   shadow:

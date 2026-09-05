@@ -14,6 +14,94 @@ import org.junit.jupiter.api.Test;
 
 class ResultPairingStoreTest {
   @Test
+  void repeatedBusinessSampleWithNewEventIdDoesNotCompleteAgain() {
+    UUID sample = UUID.randomUUID();
+    UUID rollout = UUID.randomUUID();
+    Instant now = Instant.parse("2026-08-12T00:00:00Z");
+    var store = new ResultPairingStore(Duration.ofMinutes(10), Clock.fixed(now, ZoneOffset.UTC));
+    var baseline =
+        new BaselineObservedV1(
+            1,
+            UUID.randomUUID(),
+            sample,
+            "request",
+            rollout,
+            1,
+            "baseline",
+            ObservedOutcome.SUCCESS,
+            200,
+            10,
+            now);
+    var first =
+        new CandidateObservedV1(
+            1,
+            UUID.randomUUID(),
+            sample,
+            "request",
+            rollout,
+            1,
+            "candidate",
+            ObservedOutcome.SUCCESS,
+            200,
+            12,
+            true,
+            now);
+    var replay =
+        new CandidateObservedV1(
+            1,
+            UUID.randomUUID(),
+            sample,
+            "request",
+            rollout,
+            1,
+            "candidate",
+            ObservedOutcome.SUCCESS,
+            200,
+            12,
+            true,
+            now);
+    store.baseline(baseline);
+    assertThat(store.candidate(first)).isPresent();
+    assertThat(store.candidate(replay)).isEmpty();
+  }
+
+  @Test
+  void sameSampleIdFromDifferentRolloutCannotPair() {
+    UUID sample = UUID.randomUUID();
+    Instant now = Instant.parse("2026-08-12T00:00:00Z");
+    var store = new ResultPairingStore(Duration.ofMinutes(10), Clock.fixed(now, ZoneOffset.UTC));
+    store.baseline(
+        new BaselineObservedV1(
+            1,
+            UUID.randomUUID(),
+            sample,
+            "request",
+            UUID.randomUUID(),
+            1,
+            "baseline",
+            ObservedOutcome.SUCCESS,
+            200,
+            10,
+            now));
+    assertThat(
+            store.candidate(
+                new CandidateObservedV1(
+                    1,
+                    UUID.randomUUID(),
+                    sample,
+                    "request",
+                    UUID.randomUUID(),
+                    1,
+                    "candidate",
+                    ObservedOutcome.SUCCESS,
+                    200,
+                    12,
+                    true,
+                    now)))
+        .isEmpty();
+  }
+
+  @Test
   void pairsBySampleAndDeduplicatesEvent() {
     UUID sample = UUID.randomUUID();
     UUID rollout = UUID.randomUUID();

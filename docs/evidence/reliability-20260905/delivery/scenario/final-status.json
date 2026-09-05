@@ -1,0 +1,37 @@
+{
+  "phase": "ROLLED_BACK",
+  "rolloutVersion": 5,
+  "route": {
+    "routeId": "b68bda0a-9ca8-4b0a-8e8a-c02bd8d13a2e",
+    "rolloutId": "fefb0549-a8ea-46eb-a973-d91264846f4f",
+    "version": 11,
+    "baselineDeploymentId": "baseline-v2",
+    "baselineBaseUrl": "http://baseline:8080",
+    "candidateDeploymentId": "candidate-v2",
+    "candidateBaseUrl": "http://candidate:8080",
+    "candidateRatio": 0,
+    "checksum": "cf0506f1550a7e4a6b9bf82684458974addf923640d11a76cd420db68b1b977e",
+    "createdAt": "2026-09-05T07:40:02.821079Z",
+    "phase": "ROLLBACK_PROPAGATING",
+    "shadowPercentage": 0,
+    "checksumVersion": 2
+  },
+  "window": null,
+  "decision": {
+    "id": "e3fd6314-4db3-437a-a45b-ddf021959e62",
+    "routeId": "b68bda0a-9ca8-4b0a-8e8a-c02bd8d13a2e",
+    "version": 11,
+    "checksum": "cf0506f1550a7e4a6b9bf82684458974addf923640d11a76cd420db68b1b977e",
+    "kind": "MANUAL",
+    "createdAt": "2026-09-05T07:40:02.821079Z",
+    "required": [
+      "gateway-a",
+      "gateway-b"
+    ],
+    "confirmed": [
+      "gateway-a",
+      "gateway-b"
+    ],
+    "confirmation": "CONFIRMED"
+  }
+}

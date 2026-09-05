@@ -1,0 +1,697 @@
+{
+  "status": "PASS",
+  "source": "actual saved SQLite facts and PostgreSQL rows",
+  "sealedWindows": 43,
+  "matchedControlWindows": 43,
+  "decisionsWithTwoExactAcks": 5,
+  "windows": [
+    {
+      "windowId": "d1448308-3c33-3ab2-a95f-d70d4e76a22d",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 12,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 9,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "12ffe09e-fef9-3c98-a5b5-fc27d8e21a71",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 1,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "1e93b2f7-2a6d-310a-add3-80c33d9515dd",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 12,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 9,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "ad423631-86fa-37f6-9795-f5bd00f631a4",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 1,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "d62e50bf-0715-31f5-8fa3-4d22ae708e84",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 11,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "d1f4e695-245d-3ef5-acc6-0d3e4ebad46a",
+      "routeVersion": 1,
+      "calculated": {
+        "servingObserved": 11,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "bdc44e9c-4b5b-3b62-bc46-aa97b67280b4",
+      "routeVersion": 2,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "50165d4a-9bce-340f-a874-d4778bd60ab5",
+      "routeVersion": 2,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "2301ac78-2144-389a-b44b-139e7069339d",
+      "routeVersion": 5,
+      "calculated": {
+        "servingObserved": 12,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 9,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "a531df22-360c-3ee4-b707-467ce3bf2df2",
+      "routeVersion": 5,
+      "calculated": {
+        "servingObserved": 1,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "e973a8b4-fe01-315b-b6f4-31db5a302962",
+      "routeVersion": 5,
+      "calculated": {
+        "servingObserved": 11,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "fdb576f9-5379-3c59-9800-b46be7599da8",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "d2e748a5-f06e-3b09-8ffb-85965aff9568",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "f664e068-e777-3971-944c-ab2240d83f12",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 29,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 28,
+        "baselineErrors": 0,
+        "shadowErrors": 28,
+        "unpairedSamples": 1,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "d254723a-baa4-36bd-9b2c-8dfebf8738e9",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 8,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 8,
+        "baselineErrors": 0,
+        "shadowErrors": 8,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "9dd32ef5-5ce5-36ac-adb2-0cff69d03e4e",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 20,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "4859d512-9a1b-3f36-a4f8-6ea565192a8b",
+      "routeVersion": 6,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "d5a209b8-20fb-374b-aefb-ca60884a215a",
+      "routeVersion": 7,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "ed0aaede-0d68-3716-80b9-6c221a1a999e",
+      "routeVersion": 8,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "31bfbcd4-3221-32a4-b562-b2293aebfbfe",
+      "routeVersion": 9,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "c5b50fea-2a6e-3b29-af41-7e4aefaf1215",
+      "routeVersion": 10,
+      "calculated": {
+        "servingObserved": 10,
+        "candidateRequests": 10,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "8e84e706-820f-3fc7-8ef2-3ea9fef03617",
+      "routeVersion": 10,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "c50a07ae-540c-3203-994c-66c3a4bad91a",
+      "routeVersion": 10,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "63d6e836-d753-38b0-9542-48ba135f3016",
+      "routeVersion": 10,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "b727fe17-e66f-3abd-9c97-b63e0361190f",
+      "routeVersion": 11,
+      "calculated": {
+        "servingObserved": 10,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "3b470155-44ce-3301-8cb1-9555a71262b7",
+      "routeVersion": 14,
+      "calculated": {
+        "servingObserved": 10,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "3135cb73-7831-3803-87c3-394b93c02bd2",
+      "routeVersion": 16,
+      "calculated": {
+        "servingObserved": 11,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 8,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "bd570b32-4d8f-3851-a988-025e429366c8",
+      "routeVersion": 16,
+      "calculated": {
+        "servingObserved": 2,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 2,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "110df2cc-d497-3fd7-94d3-bd996b019c3e",
+      "routeVersion": 16,
+      "calculated": {
+        "servingObserved": 1,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "fa40ef54-3c1a-350d-995a-c9acdedc2c49",
+      "routeVersion": 16,
+      "calculated": {
+        "servingObserved": 11,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 1,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "8e9fb37e-2dc3-38bb-92a2-54babecd12ce",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "3751e496-e74a-3748-80da-52fb9dc221d0",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "80a08ca0-a37c-3644-990e-69efa1a0cc70",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 26,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 24,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 2,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "c7fba0eb-ca3a-3ba5-b68e-d7f9b8005d2f",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 8,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 8,
+        "baselineErrors": 0,
+        "shadowErrors": 8,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "be687d5a-3106-3cea-ad6c-8029326065bd",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 20,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "b20ffd17-63a0-3093-9fcf-19102acc1446",
+      "routeVersion": 17,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 0,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "78ff63fb-d896-3d14-8776-e54cded817ff",
+      "routeVersion": 18,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "19e2c09b-fcbb-35ec-bea8-57a2019de55b",
+      "routeVersion": 19,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "33ea352e-4cfd-301d-be08-22d1ac37bc26",
+      "routeVersion": 20,
+      "calculated": {
+        "servingObserved": 40,
+        "candidateRequests": 20,
+        "candidateErrors": 0,
+        "completePairs": 20,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "b74e6181-86ec-3f2c-baa0-56bd7a92dfeb",
+      "routeVersion": 21,
+      "calculated": {
+        "servingObserved": 10,
+        "candidateRequests": 10,
+        "candidateErrors": 0,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "a93331a0-c1f2-39cb-b776-488f5d28ff72",
+      "routeVersion": 21,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "31ae7ed2-9ae0-3ff3-b6d7-ad0c53e31e5d",
+      "routeVersion": 21,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    },
+    {
+      "windowId": "8f174f4c-1496-36f4-9d77-f674e756b36d",
+      "routeVersion": 21,
+      "calculated": {
+        "servingObserved": 20,
+        "candidateRequests": 20,
+        "candidateErrors": 20,
+        "completePairs": 0,
+        "baselineErrors": 0,
+        "shadowErrors": 0,
+        "unpairedSamples": 0,
+        "pendingSamples": 0
+      },
+      "controlMatched": true,
+      "receiptPresent": true
+    }
+  ]
+}

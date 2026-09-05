@@ -35,3 +35,11 @@ logs/
 
 # Docker and local data
 .docker-data/
+
+# Task-local evidence media tools
+.reliability-tools/
+
+# Full local acceptance archives; publish only curated docs/evidence exports.
+docs/overnight/
+__pycache__/
+*.py[cod]

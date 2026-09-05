@@ -1,0 +1,3 @@
+# Gitleaks 8.24.3 misidentifies the Java type ObservationV2 in a method signature.
+# This is one immutable commit/path/rule/line finding, not a credential or a path allowlist.
+90a741cb542469d13754437c8448884ab97a8b70:apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/DurableEvidenceStore.java:generic-api-key:160

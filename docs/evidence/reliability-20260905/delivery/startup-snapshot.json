@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "gateways": {
+    "GATEWAY_A": {
+      "ageBefore": 4.516,
+      "ageDuringOutage": 7.883,
+      "lkgReady": 200,
+      "lkgProbe": {
+        "requestId": "startup-lkg-GATEWAY_A",
+        "stream": false,
+        "accept": "application/json",
+        "frames": [],
+        "status": 200,
+        "contentType": "application/json",
+        "body": "{\"id\":\"chatcmpl-45428ee6-7c33-4941-a34d-52fac7edcccb\",\"object\":\"chat.completion\",\"created\":1788593664,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+        "elapsedMs": 111.59469999256544
+      },
+      "noSnapshotLive": 200,
+      "noSnapshotReady": 503,
+      "noSnapshotProbe": {
+        "requestId": "startup-unavailable-GATEWAY_A",
+        "stream": false,
+        "accept": "application/json",
+        "frames": [],
+        "status": 503,
+        "contentType": "application/json",
+        "body": "{\"error\":{\"code\":\"ROUTE_SNAPSHOT_UNAVAILABLE\",\"message\":\"No valid Route Snapshot is available\"}}",
+        "elapsedMs": 54.24900000798516
+      },
+      "recoveredReady": 200
+    },
+    "GATEWAY_B": {
+      "ageBefore": 3.803,
+      "ageDuringOutage": 7.278,
+      "lkgReady": 200,
+      "lkgProbe": {
+        "requestId": "startup-lkg-GATEWAY_B",
+        "stream": false,
+        "accept": "application/json",
+        "frames": [],
+        "status": 200,
+        "contentType": "application/json",
+        "body": "{\"id\":\"chatcmpl-2c8953ce-23bb-435b-a7cb-56d287e8aaf6\",\"object\":\"chat.completion\",\"created\":1788593664,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+        "elapsedMs": 56.137200008379295
+      },
+      "noSnapshotLive": 200,
+      "noSnapshotReady": 503,
+      "noSnapshotProbe": {
+        "requestId": "startup-unavailable-GATEWAY_B",
+        "stream": false,
+        "accept": "application/json",
+        "frames": [],
+        "status": 503,
+        "contentType": "application/json",
+        "body": "{\"error\":{\"code\":\"ROUTE_SNAPSHOT_UNAVAILABLE\",\"message\":\"No valid Route Snapshot is available\"}}",
+        "elapsedMs": 75.26549999602139
+      },
+      "recoveredReady": 200
+    }
+  }
+}

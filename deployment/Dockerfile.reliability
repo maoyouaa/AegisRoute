@@ -1,0 +1,10 @@
+# Build jars with the committed wrapper before this image build.
+# A cached compatible JRE image may be selected explicitly; record its digest in run evidence.
+ARG RUNTIME_IMAGE=eclipse-temurin:21-jre-jammy
+FROM ${RUNTIME_IMAGE}
+ARG APP
+USER root
+RUN mkdir -p /var/lib/aegis && chown 10001:10001 /var/lib/aegis
+COPY apps/${APP}/build/libs/application.jar /app/application.jar
+USER 10001
+ENTRYPOINT ["java", "-Xms64m", "-Xmx256m", "-jar", "/app/application.jar"]

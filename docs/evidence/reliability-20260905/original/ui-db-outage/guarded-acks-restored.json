@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "aegis_control_gateway_a_confirmed",
+          "instance": "control:8081",
+          "job": "control"
+        },
+        "value": [
+          1788574516.536,
+          "1"
+        ]
+      }
+    ]
+  }
+}

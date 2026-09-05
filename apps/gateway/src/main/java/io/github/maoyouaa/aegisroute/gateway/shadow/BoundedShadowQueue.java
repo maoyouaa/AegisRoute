@@ -19,6 +19,12 @@ public final class BoundedShadowQueue {
       throw new IllegalArgumentException("queue bounds must be positive");
     this.queue = new ArrayBlockingQueue<>(maxMessages);
     this.maxBytes = maxBytes;
+    io.micrometer.core.instrument.Gauge.builder(
+            "aegis_shadow_queue_messages", this, BoundedShadowQueue::size)
+        .register(registry);
+    io.micrometer.core.instrument.Gauge.builder(
+            "aegis_shadow_queue_bytes", this, BoundedShadowQueue::queuedBytes)
+        .register(registry);
     for (ShadowDropReason reason : ShadowDropReason.values()) {
       drops.put(
           reason,

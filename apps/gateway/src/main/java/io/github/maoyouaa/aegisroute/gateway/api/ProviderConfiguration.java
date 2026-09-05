@@ -15,7 +15,17 @@ public class ProviderConfiguration {
   @Bean
   @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   WebClient.Builder webClientBuilder() {
-    return WebClient.builder();
+    // Docker service addresses may change after a stopped peer returns. Bound DNS staleness.
+    var http =
+        reactor.netty.http.client.HttpClient.create()
+            .resolver(
+                spec ->
+                    spec.cacheMaxTimeToLive(java.time.Duration.ofSeconds(2))
+                        .cacheNegativeTimeToLive(java.time.Duration.ofSeconds(1)))
+            .disableRetry(true);
+    return WebClient.builder()
+        .clientConnector(
+            new org.springframework.http.client.reactive.ReactorClientHttpConnector(http));
   }
 
   @Bean

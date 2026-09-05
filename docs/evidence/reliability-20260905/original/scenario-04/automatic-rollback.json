@@ -1,0 +1,86 @@
+{
+  "phase": "ROLLED_BACK",
+  "rolloutVersion": 9,
+  "route": {
+    "routeId": "8b426727-c17f-484e-bb0b-d252cfcc1fd3",
+    "rolloutId": "40b031e4-dcc1-4d7a-885b-192dd6f7d227",
+    "version": 22,
+    "baselineDeploymentId": "baseline-v2",
+    "baselineBaseUrl": "http://baseline:8080",
+    "candidateDeploymentId": "candidate-v2",
+    "candidateBaseUrl": "http://candidate:8080",
+    "candidateRatio": 0,
+    "checksum": "f24ecc61184c03cc84843b46c2acbe49fc4063f41e21b2426c765e39a063d7e7",
+    "createdAt": "2026-09-05T02:00:11.236335Z",
+    "phase": "ROLLBACK_PROPAGATING",
+    "shadowPercentage": 0,
+    "checksumVersion": 2
+  },
+  "window": {
+    "evidence": {
+      "schemaVersion": 2,
+      "windowId": "8f174f4c-1496-36f4-9d77-f674e756b36d",
+      "windowVersion": 1,
+      "route": {
+        "routeId": "b9e9ad1a-31e5-4265-860f-c0f41b43b1b3",
+        "rolloutId": "40b031e4-dcc1-4d7a-885b-192dd6f7d227",
+        "version": 21,
+        "baselineDeploymentId": "baseline-v2",
+        "baselineBaseUrl": "http://baseline:8080",
+        "candidateDeploymentId": "candidate-v2",
+        "candidateBaseUrl": "http://candidate:8080",
+        "candidateRatio": 100,
+        "checksum": "ab7c72860f68c64e8aabc2c0fb8c4cd559fff4e0675ef41a7b9b7cad7a95c32f",
+        "createdAt": "2026-09-05T01:59:31.340668Z",
+        "phase": "FULL",
+        "shadowPercentage": 0,
+        "checksumVersion": 2
+      },
+      "windowStart": "2026-09-05T01:59:50Z",
+      "windowEnd": "2026-09-05T01:59:55Z",
+      "servingObserved": 20,
+      "candidateRequests": 20,
+      "candidateErrors": 20,
+      "completePairs": 0,
+      "baselineErrors": 0,
+      "shadowErrors": 0,
+      "unpairedSamples": 0,
+      "pendingSamples": 0,
+      "sampleDigest": "2cdf7bb99baa4995eaf34e291564571cb4bd5d5b76b53a01464316f3f21c4e9d"
+    },
+    "result": {
+      "windowId": "8f174f4c-1496-36f4-9d77-f674e756b36d",
+      "status": "ACCEPTED",
+      "eligible": false,
+      "breached": true,
+      "consecutiveBreaches": 3,
+      "decisionId": "50b41f80-01f9-4a6e-ab6f-4c1566775470",
+      "targetRouteVersion": 22,
+      "expectedServing": 20,
+      "observedServing": 20,
+      "expectedShadow": 0,
+      "completePairs": 0,
+      "unpairedSamples": 0,
+      "droppedEvents": 0,
+      "pendingSamples": 0,
+      "coverage": 1.0
+    }
+  },
+  "decision": {
+    "id": "50b41f80-01f9-4a6e-ab6f-4c1566775470",
+    "routeId": "8b426727-c17f-484e-bb0b-d252cfcc1fd3",
+    "version": 22,
+    "checksum": "f24ecc61184c03cc84843b46c2acbe49fc4063f41e21b2426c765e39a063d7e7",
+    "kind": "POLICY",
+    "createdAt": "2026-09-05T02:00:11.236335Z",
+    "required": [
+      "gateway-a",
+      "gateway-b"
+    ],
+    "confirmed": [
+      "gateway-a",
+      "gateway-b"
+    ],
+    "confirmation": "CONFIRMED"
+  }
+}

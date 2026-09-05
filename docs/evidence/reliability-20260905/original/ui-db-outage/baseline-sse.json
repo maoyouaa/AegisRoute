@@ -1,0 +1,14 @@
+{
+  "requestId": "synthetic-ui-db-outage",
+  "stream": true,
+  "accept": "text/event-stream",
+  "frames": [
+    "{\"id\":\"chatcmpl-981604fa-cc36-4af5-966c-3733453ba2bf\",\"object\":\"chat.completion.chunk\",\"created\":1788574504,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+    "{\"id\":\"chatcmpl-981604fa-cc36-4af5-966c-3733453ba2bf\",\"object\":\"chat.completion.chunk\",\"created\":1788574504,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+    "[DONE]"
+  ],
+  "status": 200,
+  "contentType": "text/event-stream;charset=UTF-8",
+  "firstFrameMs": 30.914699993445538,
+  "elapsedMs": 39.35300000011921
+}

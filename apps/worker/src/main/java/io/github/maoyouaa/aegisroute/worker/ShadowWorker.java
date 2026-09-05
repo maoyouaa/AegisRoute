@@ -1,77 +1,134 @@
 package io.github.maoyouaa.aegisroute.worker;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.maoyouaa.aegisroute.contracts.events.CandidateObservedV1;
-import io.github.maoyouaa.aegisroute.contracts.events.ObservedOutcome;
-import io.github.maoyouaa.aegisroute.contracts.events.ShadowRequestedV1;
+import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionRequest;
+import io.github.maoyouaa.aegisroute.contracts.events.*;
 import io.github.maoyouaa.aegisroute.contracts.schema.EventSchemaValidator;
-import io.github.maoyouaa.aegisroute.provider.OpenAiProviderFactory;
-import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
+import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
+import io.github.maoyouaa.aegisroute.provider.*;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public final class ShadowWorker {
-  private final ObjectMapper objectMapper;
+  private final ObjectMapper mapper;
   private final EventSchemaValidator validator;
   private final OpenAiProviderFactory providers;
   private final KafkaTemplate<String, byte[]> kafka;
-  private final String candidateBaseUrl;
+  private final DurableEvidenceStore store;
+  private final Duration deadline;
+  private final TrustedRouteResolver trusted;
 
   public ShadowWorker(
-      ObjectMapper objectMapper,
+      ObjectMapper mapper,
       EventSchemaValidator validator,
       OpenAiProviderFactory providers,
       KafkaTemplate<String, byte[]> kafka,
-      @Value("${aegis.candidate-base-url:http://candidate:8080}") String candidateBaseUrl) {
-    this.objectMapper = objectMapper;
+      DurableEvidenceStore store,
+      @Value("${aegis.candidate-deadline:20s}") Duration deadline,
+      TrustedRouteResolver trusted) {
+    this.mapper = mapper;
     this.validator = validator;
     this.providers = providers;
     this.kafka = kafka;
-    this.candidateBaseUrl = candidateBaseUrl;
+    this.store = store;
+    this.deadline = deadline;
+    this.trusted = trusted;
   }
 
-  @KafkaListener(topics = "aegis.shadow-requested.v1", groupId = "aegis-worker-v1")
-  public void consume(byte[] payload) throws Exception {
-    var tree = objectMapper.readTree(payload);
-    validator.validate("shadow-requested.schema.json", tree);
-    ShadowRequestedV1 requested = objectMapper.treeToValue(tree, ShadowRequestedV1.class);
-    Instant started = Instant.now();
-    providers
-        .provider(candidateBaseUrl)
-        .complete(
-            requested.request(),
-            new ProviderCallContext(requested.requestId(), Duration.ofSeconds(20)))
-        .map(
-            response ->
-                observation(requested, started, ObservedOutcome.SUCCESS, response.statusCode()))
-        .onErrorReturn(observation(requested, started, ObservedOutcome.HTTP_ERROR, 500))
-        .map(event -> validator.serializeAndValidate("candidate-observed.schema.json", event))
-        .doOnNext(
-            event ->
-                kafka.send("aegis.candidate-observed.v1", requested.sampleId().toString(), event))
-        .block();
+  @KafkaListener(topics = "aegis.shadow-requested.v2", groupId = "aegis-worker-v2")
+  public void consume(byte[] payload) {
+    ShadowRequestedV2 requested;
+    try {
+      var tree = mapper.readTree(payload);
+      validator.validate("v2/shadow-requested.schema.json", tree);
+      requested = mapper.treeToValue(tree, ShadowRequestedV2.class);
+    } catch (Exception invalid) {
+      store.quarantine("INVALID_SHADOW_CONTRACT", payload);
+      return;
+    }
+    if (!trusted.verify(requested.sample().route())) {
+      store.quarantine("UNTRUSTED_SHADOW_ROUTE", payload);
+      return;
+    }
+    store.requested(requested, payload);
   }
 
-  private CandidateObservedV1 observation(
-      ShadowRequestedV1 requested, Instant started, ObservedOutcome outcome, int statusCode) {
-    return new CandidateObservedV1(
-        1,
+  @Scheduled(fixedDelay = 25)
+  public void executePending() {
+    for (var work : store.pendingExecutions(32)) {
+      if (!store.executionOpen(work.key())) continue;
+      var requested = work.request();
+      RouteSnapshot route = requested.sample().route();
+      // Ingress verified the full immutable revision before durable admission.
+      // Recovery executes that persisted authority; Control availability is not required again.
+      Instant started = Instant.now();
+      ObservationV2 result;
+      try {
+        ChatCompletionRequest input = requested.request();
+        var response =
+            providers
+                .provider(route.candidateBaseUrl())
+                .complete(
+                    new ChatCompletionRequest(
+                        input.model(), input.messages(), false, input.maxTokens()),
+                    new ProviderCallContext(requested.sample().requestId(), deadline))
+                .block(deadline.plusMillis(250));
+        result =
+            observation(
+                requested,
+                started,
+                ObservedOutcome.SUCCESS,
+                response == null ? 502 : response.statusCode());
+      } catch (RuntimeException failed) {
+        int status = failed instanceof ProviderException p ? p.statusCode() : 504;
+        result =
+            observation(
+                requested,
+                started,
+                status == 504 ? ObservedOutcome.TIMEOUT : ObservedOutcome.HTTP_ERROR,
+                status);
+      }
+      byte[] bytes = validator.serializeAndValidate("v2/observation.schema.json", result);
+      store.saveResult(work.key(), result, bytes);
+    }
+  }
+
+  @Scheduled(fixedDelay = 25)
+  public void publishResults() {
+    for (var publication : store.pendingResults(128)) {
+      try {
+        kafka
+            .send("aegis.observation.v2", publication.key(), publication.payload())
+            .get(2, TimeUnit.SECONDS);
+        store.resultPublished(publication.key());
+      } catch (InterruptedException interrupted) {
+        Thread.currentThread().interrupt();
+        return;
+      } catch (Exception unavailable) {
+        return;
+      }
+    }
+  }
+
+  private ObservationV2 observation(
+      ShadowRequestedV2 requested, Instant started, ObservedOutcome outcome, int status) {
+    return new ObservationV2(
+        2,
         UUID.randomUUID(),
-        requested.sampleId(),
-        requested.requestId(),
-        requested.rolloutId(),
-        requested.routeVersion(),
-        requested.candidateDeploymentId(),
+        requested.sample(),
+        ObservationV2.Kind.SHADOW,
+        requested.sample().route().candidateDeploymentId(),
         outcome,
-        statusCode,
+        status,
         Math.max(0, Duration.between(started, Instant.now()).toMillis()),
-        true,
         Instant.now());
   }
 }

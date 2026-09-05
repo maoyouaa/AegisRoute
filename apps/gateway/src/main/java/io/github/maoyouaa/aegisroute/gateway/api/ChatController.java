@@ -1,36 +1,24 @@
 package io.github.maoyouaa.aegisroute.gateway.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.maoyouaa.aegisroute.contracts.api.ApiError;
-import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionChunk;
-import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionRequest;
-import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionResponse;
-import io.github.maoyouaa.aegisroute.contracts.api.ChatMessage;
-import io.github.maoyouaa.aegisroute.contracts.events.BaselineObservedV1;
-import io.github.maoyouaa.aegisroute.contracts.events.ObservedOutcome;
-import io.github.maoyouaa.aegisroute.contracts.events.ServingObservedV1;
-import io.github.maoyouaa.aegisroute.contracts.events.ShadowRequestedV1;
+import io.github.maoyouaa.aegisroute.contracts.api.*;
+import io.github.maoyouaa.aegisroute.contracts.events.*;
 import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
 import io.github.maoyouaa.aegisroute.domain.routing.StableSampler;
 import io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStore;
-import io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueue;
-import io.github.maoyouaa.aegisroute.gateway.shadow.ShadowEnvelope;
-import io.github.maoyouaa.aegisroute.provider.OpenAiProviderFactory;
-import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
-import io.github.maoyouaa.aegisroute.provider.ProviderStreamEvent;
+import io.github.maoyouaa.aegisroute.gateway.shadow.*;
+import io.github.maoyouaa.aegisroute.provider.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.http.codec.ServerSentEvent;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -41,249 +29,194 @@ public final class ChatController {
   private final BoundedShadowQueue shadowQueue;
   private final ObjectMapper eventMapper;
   private final OpenAiProviderFactory providers;
+  private final GatewayAdmissionLedger admission;
+  private final Duration deadline;
+  private ServingMetrics metrics;
+
+  @Autowired
+  void servingMetrics(ServingMetrics metrics) {
+    this.metrics = metrics;
+  }
 
   public ChatController(
       RouteSnapshotStore snapshots,
-      BoundedShadowQueue shadowQueue,
-      ObjectMapper objectMapper,
+      BoundedShadowQueue queue,
+      ObjectMapper mapper,
       OpenAiProviderFactory providers) {
-    this.snapshots = snapshots;
-    this.shadowQueue = shadowQueue;
-    this.eventMapper = objectMapper;
-    this.providers = providers;
+    this(
+        snapshots,
+        queue,
+        mapper,
+        providers,
+        new GatewayAdmissionLedger(
+            "gateway-test",
+            snapshots,
+            WebClient.builder(),
+            "http://localhost:1",
+            Duration.ofSeconds(35)),
+        Duration.ofSeconds(30));
   }
 
-  @PostMapping(
-      path = "/v1/chat/completions",
-      consumes = MediaType.APPLICATION_JSON_VALUE,
-      produces = MediaType.APPLICATION_JSON_VALUE,
-      headers = "Accept!=text/event-stream")
-  Mono<ResponseEntity<?>> complete(
+  @Autowired
+  public ChatController(
+      RouteSnapshotStore snapshots,
+      BoundedShadowQueue queue,
+      ObjectMapper mapper,
+      OpenAiProviderFactory providers,
+      GatewayAdmissionLedger admission,
+      @Value("${aegis.request-deadline:30s}") Duration deadline) {
+    this.snapshots = snapshots;
+    this.shadowQueue = queue;
+    this.eventMapper = mapper;
+    this.providers = providers;
+    this.admission = admission;
+    this.deadline = deadline;
+  }
+
+  @PostMapping(path = "/v1/chat/completions", consumes = MediaType.APPLICATION_JSON_VALUE)
+  Mono<ResponseEntity<?>> chat(
       @RequestBody ChatCompletionRequest request,
       @RequestHeader(name = "X-Request-Id", required = false) String requestId) {
-    RouteSnapshot route = requireRoute();
-    String resolvedRequestId = requestId == null ? UUID.randomUUID().toString() : requestId;
-    boolean candidate = StableSampler.selectsCandidate(resolvedRequestId, route.candidateRatio());
-    UUID sampleId = enqueueShadow(route, resolvedRequestId, request);
-    String deploymentId = candidate ? route.candidateDeploymentId() : route.baselineDeploymentId();
-    String baseUrl = candidate ? route.candidateBaseUrl() : route.baselineBaseUrl();
-    Instant started = Instant.now();
+    if (request.stream()) {
+      return Mono.just(
+          ResponseEntity.ok()
+              .contentType(MediaType.TEXT_EVENT_STREAM)
+              .body(stream(request, requestId)));
+    }
+    return complete(request, requestId);
+  }
+
+  Mono<ResponseEntity<?>> complete(ChatCompletionRequest request, String requestId) {
+    Call call = begin(request, requestId);
+    AtomicBoolean observed = new AtomicBoolean();
     return providers
-        .provider(baseUrl)
-        .complete(request, new ProviderCallContext(resolvedRequestId, Duration.ofSeconds(30)))
+        .provider(call.url())
+        .complete(request, new ProviderCallContext(call.sample.requestId(), deadline))
         .<ResponseEntity<?>>map(
             response -> {
-              enqueueServing(
-                  route,
-                  resolvedRequestId,
-                  deploymentId,
-                  candidate,
-                  ObservedOutcome.SUCCESS,
-                  200,
-                  started);
-              if (!candidate) {
-                enqueueBaseline(
-                    route, sampleId, resolvedRequestId, ObservedOutcome.SUCCESS, 200, started);
-              }
-              return ResponseEntity.ok(
-                  new ChatCompletionResponse(
-                      "chatcmpl-" + UUID.randomUUID(),
-                      "chat.completion",
-                      Instant.now().getEpochSecond(),
-                      response.model(),
-                      List.of(
-                          new ChatCompletionResponse.Choice(
-                              0, new ChatMessage("assistant", response.content()), "stop")),
-                      new ChatCompletionResponse.Usage(0, 0, 0)));
+              observe(observed, call, ObservedOutcome.SUCCESS, 200);
+              return ResponseEntity.ok()
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .body(
+                      new ChatCompletionResponse(
+                          "chatcmpl-" + UUID.randomUUID(),
+                          "chat.completion",
+                          Instant.now().getEpochSecond(),
+                          response.model(),
+                          List.of(
+                              new ChatCompletionResponse.Choice(
+                                  0, new ChatMessage("assistant", response.content()), "stop")),
+                          new ChatCompletionResponse.Usage(0, 0, 0)));
             })
+        .doOnCancel(() -> observe(observed, call, ObservedOutcome.CANCELLED, 499))
         .onErrorResume(
             failure -> {
-              enqueueServing(
-                  route,
-                  resolvedRequestId,
-                  deploymentId,
-                  candidate,
-                  ObservedOutcome.HTTP_ERROR,
-                  502,
-                  started);
-              if (!candidate) {
-                enqueueBaseline(
-                    route, sampleId, resolvedRequestId, ObservedOutcome.HTTP_ERROR, 502, started);
-              }
+              int status = status(failure);
+              observe(
+                  observed,
+                  call,
+                  status == 504 ? ObservedOutcome.TIMEOUT : ObservedOutcome.HTTP_ERROR,
+                  status);
               return Mono.just(
-                  ResponseEntity.status(502)
-                      .body(new ApiError("PROVIDER_FAILURE", deploymentId + " failed")));
+                  ResponseEntity.status(status)
+                      .contentType(MediaType.APPLICATION_JSON)
+                      .body(new ApiError("PROVIDER_FAILURE", "Provider request failed")));
             });
   }
 
-  @PostMapping(
-      path = "/v1/chat/completions",
-      consumes = MediaType.APPLICATION_JSON_VALUE,
-      produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-  Flux<ServerSentEvent<Object>> stream(
-      @RequestBody ChatCompletionRequest request,
-      @RequestHeader(name = "X-Request-Id", required = false) String requestId) {
-    RouteSnapshot route = requireRoute();
-    String resolvedRequestId = requestId == null ? UUID.randomUUID().toString() : requestId;
-    boolean candidate = StableSampler.selectsCandidate(resolvedRequestId, route.candidateRatio());
-    UUID sampleId = enqueueShadow(route, resolvedRequestId, request);
-    String deploymentId = candidate ? route.candidateDeploymentId() : route.baselineDeploymentId();
-    String baseUrl = candidate ? route.candidateBaseUrl() : route.baselineBaseUrl();
-    String completionId = "chatcmpl-" + UUID.randomUUID();
-    Instant started = Instant.now();
-    AtomicBoolean firstTokenEmitted = new AtomicBoolean();
+  Flux<ServerSentEvent<Object>> stream(ChatCompletionRequest request, String requestId) {
+    Call call = begin(request, requestId);
+    AtomicBoolean first = new AtomicBoolean();
     AtomicBoolean observed = new AtomicBoolean();
-    return providers.provider(baseUrl).stream(
-            request, new ProviderCallContext(resolvedRequestId, Duration.ofSeconds(30)))
+    String id = "chatcmpl-" + UUID.randomUUID();
+    return providers.provider(call.url()).stream(
+            request, new ProviderCallContext(call.sample.requestId(), deadline))
         .doOnNext(
             event -> {
-              if (event instanceof ProviderStreamEvent.Token) firstTokenEmitted.set(true);
+              if (event instanceof ProviderStreamEvent.Token) first.set(true);
             })
-        .map(event -> toSse(completionId, request.model(), event))
-        .doOnComplete(
-            () ->
-                observeStream(
-                    observed,
-                    route,
-                    sampleId,
-                    resolvedRequestId,
-                    deploymentId,
-                    candidate,
-                    ObservedOutcome.SUCCESS,
-                    200,
-                    started))
-        .doOnCancel(
-            () ->
-                observeStream(
-                    observed,
-                    route,
-                    sampleId,
-                    resolvedRequestId,
-                    deploymentId,
-                    candidate,
-                    ObservedOutcome.CANCELLED,
-                    499,
-                    started))
+        .map(event -> toSse(id, request.model(), event))
+        .concatWithValues(ServerSentEvent.builder((Object) "[DONE]").build())
+        .doOnComplete(() -> observe(observed, call, ObservedOutcome.SUCCESS, 200))
+        .doOnCancel(() -> observe(observed, call, ObservedOutcome.CANCELLED, 499))
         .doOnError(
             failure ->
-                observeStream(
+                observe(
                     observed,
-                    route,
-                    sampleId,
-                    resolvedRequestId,
-                    deploymentId,
-                    candidate,
-                    firstTokenEmitted.get()
+                    call,
+                    first.get()
                         ? ObservedOutcome.STREAM_ERROR
-                        : ObservedOutcome.HTTP_ERROR,
-                    502,
-                    started));
+                        : status(failure) == 504
+                            ? ObservedOutcome.TIMEOUT
+                            : ObservedOutcome.HTTP_ERROR,
+                    status(failure)));
   }
 
-  private RouteSnapshot requireRoute() {
-    return snapshots
-        .current()
-        .orElseThrow(
-            () ->
-                new ResponseStatusException(
-                    HttpStatus.SERVICE_UNAVAILABLE, "ROUTE_SNAPSHOT_UNAVAILABLE"));
+  private Call begin(ChatCompletionRequest request, String suppliedId) {
+    RouteSnapshot route =
+        snapshots
+            .current()
+            .orElseThrow(
+                () ->
+                    new ResponseStatusException(
+                        HttpStatus.SERVICE_UNAVAILABLE, "ROUTE_SNAPSHOT_UNAVAILABLE"));
+    String requestId = suppliedId == null ? UUID.randomUUID().toString() : suppliedId;
+    if (requestId.isBlank() || requestId.length() > 200) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid request ID");
+    }
+    boolean candidate = StableSampler.selectsCandidate(requestId, route.candidateRatio());
+    SampleIdentity sample = admission.admit(route, requestId, candidate);
+    if (sample.shadowSelected()) {
+      var shadow = new ShadowRequestedV2(2, UUID.randomUUID(), sample, request);
+      offer("aegis.shadow-requested.v2", sample, shadow);
+    }
+    return new Call(sample, candidate, System.nanoTime());
   }
 
-  private UUID enqueueShadow(RouteSnapshot route, String requestId, ChatCompletionRequest request) {
-    UUID sampleId = UUID.randomUUID();
+  private void observe(AtomicBoolean once, Call call, ObservedOutcome outcome, int status) {
+    if (!once.compareAndSet(false, true)) return;
+    if (metrics != null)
+      metrics.record(call.candidate, outcome, System.nanoTime() - call.startedNanos);
+    var sample = call.sample;
     var event =
-        new ShadowRequestedV1(
-            1,
+        new ObservationV2(
+            2,
             UUID.randomUUID(),
-            sampleId,
-            requestId,
-            route.rolloutId(),
-            route.version(),
-            route.candidateDeploymentId(),
-            Instant.now(),
-            request);
-    offerEvent("aegis.shadow-requested.v1", event.eventId(), event);
-    return sampleId;
-  }
-
-  private void enqueueBaseline(
-      RouteSnapshot route,
-      UUID sampleId,
-      String requestId,
-      ObservedOutcome outcome,
-      int statusCode,
-      Instant started) {
-    var event =
-        new BaselineObservedV1(
-            1,
-            UUID.randomUUID(),
-            sampleId,
-            requestId,
-            route.rolloutId(),
-            route.version(),
-            route.baselineDeploymentId(),
+            sample,
+            call.candidate ? ObservationV2.Kind.CANARY : ObservationV2.Kind.BASELINE,
+            call.candidate
+                ? sample.route().candidateDeploymentId()
+                : sample.route().baselineDeploymentId(),
             outcome,
-            statusCode,
-            Math.max(0, Duration.between(started, Instant.now()).toMillis()),
+            status,
+            Math.max(0, Duration.between(sample.admittedAt(), Instant.now()).toMillis()),
             Instant.now());
-    offerEvent("aegis.baseline-observed.v1", event.eventId(), event);
+    offer("aegis.observation.v2", sample, event);
   }
 
-  private void enqueueServing(
-      RouteSnapshot route,
-      String requestId,
-      String deploymentId,
-      boolean candidate,
-      ObservedOutcome outcome,
-      int statusCode,
-      Instant started) {
-    var event =
-        new ServingObservedV1(
-            1,
-            UUID.randomUUID(),
-            requestId,
-            route.rolloutId(),
-            route.version(),
-            deploymentId,
-            candidate,
-            outcome,
-            statusCode,
-            Math.max(0, Duration.between(started, Instant.now()).toMillis()),
-            Instant.now());
-    offerEvent("aegis.serving-observed.v1", event.eventId(), event);
-  }
-
-  private void offerEvent(String topic, UUID eventId, Object event) {
+  private void offer(String topic, SampleIdentity sample, Object event) {
     try {
-      byte[] bytes = eventMapper.writeValueAsBytes(event);
-      shadowQueue.offer(new ShadowEnvelope(topic, eventId.toString(), bytes));
-    } catch (RuntimeException | com.fasterxml.jackson.core.JsonProcessingException failure) {
-      // Telemetry is best-effort. Contract conformance belongs to producer tests and must never
-      // turn an observation/serialization defect into a baseline response failure.
-      shadowQueue.recordDrop(
-          io.github.maoyouaa.aegisroute.gateway.shadow.ShadowDropReason.SERIALIZATION_ERROR);
+      byte[] payload = eventMapper.writeValueAsBytes(event);
+      if (!shadowQueue.offer(new ShadowEnvelope(topic, sample.key(), payload)))
+        admission.dropped(sample);
+    } catch (Exception invalid) {
+      shadowQueue.recordDrop(ShadowDropReason.SERIALIZATION_ERROR);
+      admission.dropped(sample);
     }
   }
 
-  private void observeStream(
-      AtomicBoolean observed,
-      RouteSnapshot route,
-      UUID sampleId,
-      String requestId,
-      String deploymentId,
-      boolean candidate,
-      ObservedOutcome outcome,
-      int statusCode,
-      Instant started) {
-    if (!observed.compareAndSet(false, true)) return;
-    enqueueServing(route, requestId, deploymentId, candidate, outcome, statusCode, started);
-    if (!candidate) {
-      enqueueBaseline(route, sampleId, requestId, outcome, statusCode, started);
+  private static int status(Throwable failure) {
+    if (failure instanceof ProviderException provider) {
+      int status = provider.statusCode();
+      return status == 504
+          ? 504
+          : status == 429 ? 429 : status >= 400 && status < 500 ? status : 502;
     }
+    return failure instanceof java.util.concurrent.TimeoutException ? 504 : 502;
   }
 
   private ServerSentEvent<Object> toSse(String id, String model, ProviderStreamEvent event) {
-    ChatCompletionChunk.Choice choice =
+    var choice =
         event instanceof ProviderStreamEvent.Token token
             ? new ChatCompletionChunk.Choice(
                 0, new ChatCompletionChunk.Delta(null, token.content()), null)
@@ -300,5 +233,11 @@ public final class ChatController {
                     model,
                     List.of(choice)))
         .build();
+  }
+
+  private record Call(SampleIdentity sample, boolean candidate, long startedNanos) {
+    String url() {
+      return candidate ? sample.route().candidateBaseUrl() : sample.route().baselineBaseUrl();
+    }
   }
 }

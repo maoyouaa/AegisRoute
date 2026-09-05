@@ -56,15 +56,17 @@ Until those artifacts exist, the public status remains “implementation in prog
 
 ## Reproducible local acceptance
 
-Start from a fresh synthetic Compose database, scale Gateway to two instances, and run the acceptance harness:
+Use the isolated v2 acceptance entrypoint. It creates a fresh project with fixed
+Gateway A/B membership and keeps existing projects and evidence volumes:
 
 ```powershell
-docker compose down --volumes
-docker compose up --build --wait --scale gateway=2
 .\scripts\acceptance.ps1
 ```
 
-The harness verifies the human canary sequence, three deterministic breached windows, immutable decision and ratio-zero revision, acknowledgements from both Gateways, startup without a Snapshot, LKG behavior during a Control outage, and baseline independence during a Redpanda outage. It writes raw evidence locally and CI uploads the equivalent directory as an artifact.
+See the [current reproduction guide](../../scripts/reliability/README.md) for ports,
+fresh project names, lifecycle/transport faults, raw evidence and cleanup. The
+[status and roadmap](status-and-roadmap.md) records current evidence separately
+from the historical release targets above.
 
 ## Irish job-search narrative
 

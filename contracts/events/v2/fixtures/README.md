@@ -1,0 +1,1 @@
+These three related synthetic records were recorded from the real Worker SQLite inbox/outbox in run aegisroute-20260905-002645 (scenario-02, worker-recovered/records.json). They are protocol fixtures, not evidence that the interrupted scenario passed. Schema/correlation tests validate their exact saved content. No personal prompts or secrets are included.

@@ -8,7 +8,6 @@ import io.github.maoyouaa.aegisroute.provider.ProviderCallContext;
 import io.github.maoyouaa.aegisroute.provider.ProviderException;
 import io.github.maoyouaa.aegisroute.provider.ProviderResponse;
 import io.github.maoyouaa.aegisroute.provider.ProviderStreamEvent;
-import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -53,40 +52,82 @@ public final class OpenAiCompatibleProvider implements InferenceProvider {
   @Override
   public Flux<ProviderStreamEvent> stream(
       ChatCompletionRequest request, ProviderCallContext context) {
-    Flux<ProviderStreamEvent> source =
-        webClient
-            .post()
-            .uri("/v1/chat/completions")
-            .contentType(MediaType.APPLICATION_JSON)
-            .accept(MediaType.TEXT_EVENT_STREAM)
-            .header("X-Request-Id", context.requestId())
-            .bodyValue(request)
-            .retrieve()
-            .onStatus(
-                status -> status.isError(),
-                response ->
-                    Mono.error(
-                        new ProviderException(
-                            response.statusCode().value(), false, "Provider returned an error")))
-            .bodyToFlux(ChatCompletionChunk.class)
-            .flatMapIterable(
-                chunk ->
-                    chunk.choices().stream()
-                        .map(
-                            choice -> {
-                              if (choice.finishReason() != null) {
-                                return (ProviderStreamEvent)
-                                    new ProviderStreamEvent.Completed(choice.finishReason());
-                              }
-                              String content =
-                                  choice.delta() == null ? null : choice.delta().content();
-                              return content == null
-                                  ? null
-                                  : (ProviderStreamEvent) new ProviderStreamEvent.Token(content);
-                            })
-                        .filter(Objects::nonNull)
-                        .toList());
-    return enforceTotalDeadline(source, context.deadline());
+    return Flux.defer(
+        () -> {
+          var token = new java.util.concurrent.atomic.AtomicBoolean();
+          var finished = new java.util.concurrent.atomic.AtomicBoolean();
+          var done = new java.util.concurrent.atomic.AtomicBoolean();
+          var mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+          Flux<ProviderStreamEvent> source =
+              webClient
+                  .post()
+                  .uri("/v1/chat/completions")
+                  .contentType(MediaType.APPLICATION_JSON)
+                  .accept(MediaType.TEXT_EVENT_STREAM)
+                  .header("X-Request-Id", context.requestId())
+                  .bodyValue(request)
+                  .retrieve()
+                  .onStatus(
+                      status -> status.isError(),
+                      response ->
+                          Mono.error(
+                              new ProviderException(
+                                  response.statusCode().value(),
+                                  false,
+                                  "Provider returned an error")))
+                  .bodyToFlux(String.class)
+                  .takeUntil(frame -> "[DONE]".equals(frame.trim()))
+                  .concatMap(
+                      frame -> {
+                        if ("[DONE]".equals(frame.trim())) {
+                          done.set(true);
+                          return Flux.<ProviderStreamEvent>empty();
+                        }
+                        try {
+                          var chunk = mapper.readValue(frame, ChatCompletionChunk.class);
+                          java.util.List<ProviderStreamEvent> events = new java.util.ArrayList<>();
+                          for (var choice : chunk.choices()) {
+                            if (finished.get())
+                              return Flux.error(
+                                  new IllegalStateException("Data after stream finish"));
+                            String content =
+                                choice.delta() == null ? null : choice.delta().content();
+                            if (content != null && !content.isEmpty()) {
+                              token.set(true);
+                              events.add(new ProviderStreamEvent.Token(content));
+                            }
+                            if (choice.finishReason() != null) {
+                              finished.set(true);
+                              events.add(new ProviderStreamEvent.Completed(choice.finishReason()));
+                            }
+                          }
+                          return Flux.fromIterable(events);
+                        } catch (Exception malformed) {
+                          return Flux.error(
+                              new IllegalStateException("Malformed provider stream", malformed));
+                        }
+                      })
+                  .concatWith(
+                      Flux.defer(
+                          () ->
+                              finished.get() && done.get()
+                                  ? Flux.empty()
+                                  : Flux.error(
+                                      new IllegalStateException(
+                                          "Provider stream ended without finish and DONE"))));
+          return enforceTotalDeadline(source, context.deadline())
+              .onErrorMap(
+                  failure -> {
+                    if (failure instanceof ProviderException provider) {
+                      return new ProviderException(
+                          provider.statusCode(), token.get(), "Provider stream failed");
+                    }
+                    return new ProviderException(
+                        failure instanceof TimeoutException ? 504 : 502,
+                        token.get(),
+                        "Provider stream failed");
+                  });
+        });
   }
 
   static <T> Flux<T> enforceTotalDeadline(Flux<T> source, java.time.Duration deadline) {

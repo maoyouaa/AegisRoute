@@ -9,6 +9,7 @@ sourceSets {
 }
 
 dependencies {
+    api(project(":modules:domain"))
     api("com.fasterxml.jackson.core:jackson-annotations")
     implementation("com.fasterxml.jackson.core:jackson-databind")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")

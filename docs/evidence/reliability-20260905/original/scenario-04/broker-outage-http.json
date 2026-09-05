@@ -1,0 +1,362 @@
+[
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-0",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-f398942a-5b70-4707-82be-873c6a151bb3\",\"object\":\"chat.completion.chunk\",\"created\":1788573410,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-f398942a-5b70-4707-82be-873c6a151bb3\",\"object\":\"chat.completion.chunk\",\"created\":1788573410,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 32.46200000285171,
+    "elapsedMs": 35.62219999730587
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2d90fbdf-da5a-4705-9479-ed48c81ad841\",\"object\":\"chat.completion\",\"created\":1788573410,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.707500002463348
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-2",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-acd74850-d9d5-46a2-91db-31fa62f4c556\",\"object\":\"chat.completion.chunk\",\"created\":1788573410,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-acd74850-d9d5-46a2-91db-31fa62f4c556\",\"object\":\"chat.completion.chunk\",\"created\":1788573410,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.646099989884533,
+    "elapsedMs": 24.917599992477335
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-23eef357-68e8-412d-b313-a921ad8a5e32\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 38.44480001134798
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-4",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-b38058c0-d2e5-4986-811b-38fb2ce0053e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-b38058c0-d2e5-4986-811b-38fb2ce0053e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 18.12019999488257,
+    "elapsedMs": 26.257299992721528
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6efe0efe-e4d6-4527-9b70-5b763a8a7000\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.85310000134632
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-6",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-41a3aa50-41b6-4886-8baf-cf8777007ef8\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-41a3aa50-41b6-4886-8baf-cf8777007ef8\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 38.66159998869989,
+    "elapsedMs": 46.94970000127796
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-39d81a34-838b-40d4-8717-68533a055458\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.086800001678057
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-8",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-e992bafc-a48f-4905-8744-d3a32e2b1568\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-e992bafc-a48f-4905-8744-d3a32e2b1568\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 38.51899999426678,
+    "elapsedMs": 47.31169999286067
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-28514b6d-fadc-4e1e-adf5-7a2887f47d3e\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 36.08340000209864
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-10",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-3ad7dd66-6487-4efb-9298-6412a49d0dea\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-3ad7dd66-6487-4efb-9298-6412a49d0dea\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 33.63879999960773,
+    "elapsedMs": 41.99360001075547
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0fdb31d9-4d4e-4e15-b5b1-2af73dfc4bcd\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.264000001479872
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-12",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-e8fcb6d9-b390-4255-8ba9-0b445e9f1e0e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-e8fcb6d9-b390-4255-8ba9-0b445e9f1e0e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 17.048200010322034,
+    "elapsedMs": 27.091600000858307
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b7c5deeb-3bbd-408c-9037-161fd9bda53c\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.812299989396706
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-14",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-2bedc11d-23cd-4166-974a-3e2153199aaf\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-2bedc11d-23cd-4166-974a-3e2153199aaf\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.38960000127554,
+    "elapsedMs": 25.47999999660533
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-24cac26b-f416-4d5d-84db-1abb70b6e1d2\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 26.855200005229563
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-16",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-eacda348-b4ec-4da3-bb6d-b628383d3a6f\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-eacda348-b4ec-4da3-bb6d-b628383d3a6f\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.45789999747649,
+    "elapsedMs": 25.386499997694045
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-06c26c92-1ae7-4c5e-ab7d-80c46a56aee2\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 37.3189999954775
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-18",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-2ec6a730-ec46-4ffc-b0e8-fde380de8719\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-2ec6a730-ec46-4ffc-b0e8-fde380de8719\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 31.9961999921361,
+    "elapsedMs": 40.47859999991488
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d6b08059-89e7-4fcb-9075-a2731aed032e\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 35.882299998775125
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-20",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-207bead7-7b6b-4681-bbc5-357d1f9180a6\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-207bead7-7b6b-4681-bbc5-357d1f9180a6\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 31.55839999089949,
+    "elapsedMs": 39.71810000075493
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-21",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-678428fa-dd23-490c-b803-0f24a95c7279\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 36.89540000050329
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-22",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-9e2d0b0b-23e8-4fa1-9add-e4bb704c5f62\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-9e2d0b0b-23e8-4fa1-9add-e4bb704c5f62\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 32.498800006578676,
+    "elapsedMs": 41.30500000610482
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-23",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6e06bd71-9c06-4a28-ba8c-1108d1e2a441\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.973299989127554
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-24",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-8f7e54f5-69df-4bcf-86a5-91820453efcb\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-8f7e54f5-69df-4bcf-86a5-91820453efcb\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 37.29750000638887,
+    "elapsedMs": 45.49509999924339
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-25",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a2646bfd-274f-45c0-abe6-88fe685448ac\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 35.92360000766348
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-26",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-bf633ec4-c7a0-406a-8fcc-1003f2cc447e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-bf633ec4-c7a0-406a-8fcc-1003f2cc447e\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 32.950199994957075,
+    "elapsedMs": 41.19640000863001
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-27",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ce5b9483-f6aa-4789-8c97-b329c1a04949\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.816299993777648
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-28",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-ff8438e8-9ba0-4b39-802f-572434457142\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-ff8438e8-9ba0-4b39-802f-572434457142\",\"object\":\"chat.completion.chunk\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 37.526700005400926,
+    "elapsedMs": 46.88950000854675
+  },
+  {
+    "requestId": "scenario-e82a4d86-broker-outage-29",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-21820f59-10d8-479f-94da-aa7712cf5832\",\"object\":\"chat.completion\",\"created\":1788573411,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 37.27200000139419
+  }
+]

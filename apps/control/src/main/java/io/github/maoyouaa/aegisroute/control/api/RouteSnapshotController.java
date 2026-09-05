@@ -3,9 +3,12 @@ package io.github.maoyouaa.aegisroute.control.api;
 import io.github.maoyouaa.aegisroute.control.service.RolloutRepository;
 import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
 import java.time.Instant;
+import java.util.UUID;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/internal/v1/routes")
-public final class RouteSnapshotController {
+public class RouteSnapshotController {
   private final RolloutRepository repository;
 
   public RouteSnapshotController(RolloutRepository repository) {
@@ -32,10 +35,20 @@ public final class RouteSnapshotController {
   }
 
   @PostMapping("/applied")
+  @Transactional
   ResponseEntity<Void> applied(@RequestBody RouteAppliedRequest request) {
+    if (request.gatewayInstanceId() == null
+        || !request.gatewayInstanceId().matches("[a-zA-Z0-9_.-]{1,128}")
+        || request.appliedAt() == null
+        || request.appliedAt().isAfter(Instant.now().plusSeconds(5))) {
+      throw new ApiException(
+          org.springframework.http.HttpStatus.BAD_REQUEST,
+          "INVALID_ACK",
+          "Invalid instance or apply time");
+    }
     RouteSnapshot current =
         repository
-            .latestRoute()
+            .route(request.routeId())
             .orElseThrow(
                 () ->
                     new ApiException(
@@ -53,5 +66,13 @@ public final class RouteSnapshotController {
     repository.acknowledge(
         request.gatewayInstanceId(), current, request.appliedAt(), Instant.now());
     return ResponseEntity.accepted().build();
+  }
+
+  @GetMapping("/{routeId}")
+  ResponseEntity<RouteSnapshot> revision(@PathVariable UUID routeId) {
+    return repository
+        .route(routeId)
+        .map(ResponseEntity::ok)
+        .orElseGet(() -> ResponseEntity.notFound().build());
   }
 }

@@ -12,6 +12,7 @@ RUN --mount=type=cache,target=/root/.gradle,sharing=locked \
 FROM eclipse-temurin:21-jre-jammy
 ARG APP
 RUN useradd --system --uid 10001 --create-home aegis
+RUN mkdir -p /var/lib/aegis && chown 10001:10001 /var/lib/aegis
 WORKDIR /app
 COPY --from=build /workspace/apps/${APP}/build/libs/application.jar /app/application.jar
 USER 10001

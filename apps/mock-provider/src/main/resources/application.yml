@@ -11,6 +11,7 @@ aegis:
     fail-every: ${AEGIS_MOCK_FAIL_EVERY:0}
     latency: ${AEGIS_MOCK_LATENCY:5ms}
     response-text: ${AEGIS_MOCK_RESPONSE_TEXT:Synthetic response}
+    fault-controls-enabled: ${AEGIS_MOCK_FAULT_CONTROLS:false}
 
 management:
   endpoints:
