@@ -9,6 +9,33 @@ import java.util.UUID;
 public final class RouteChecksum {
   private RouteChecksum() {}
 
+  public static String calculate(RouteSnapshot route) {
+    String legacy =
+        calculate(
+            route.routeId(),
+            route.rolloutId(),
+            route.version(),
+            route.baselineDeploymentId(),
+            route.baselineBaseUrl(),
+            route.candidateDeploymentId(),
+            route.candidateBaseUrl(),
+            route.candidateRatio());
+    return route.checksumVersion() == 1
+        ? legacy
+        : digest("v2\n" + legacy + "\n" + route.phase() + "\n" + route.shadowPercentage());
+  }
+
+  public static String digest(String canonical) {
+    try {
+      return HexFormat.of()
+          .formatHex(
+              MessageDigest.getInstance("SHA-256")
+                  .digest(canonical.getBytes(StandardCharsets.UTF_8)));
+    } catch (NoSuchAlgorithmException impossible) {
+      throw new IllegalStateException("JVM does not provide SHA-256", impossible);
+    }
+  }
+
   public static String calculate(
       UUID routeId,
       UUID rolloutId,

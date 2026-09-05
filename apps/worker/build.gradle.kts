@@ -13,6 +13,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jackson")
     implementation("org.springframework.boot:spring-boot-starter-kafka")
     implementation("io.micrometer:micrometer-registry-prometheus")
+    implementation("org.xerial:sqlite-jdbc:3.49.1.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")

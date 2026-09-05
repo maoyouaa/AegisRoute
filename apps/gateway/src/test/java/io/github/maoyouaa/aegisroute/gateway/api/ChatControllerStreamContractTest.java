@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.maoyouaa.aegisroute.contracts.api.ChatCompletionRequest;
 import io.github.maoyouaa.aegisroute.contracts.api.ChatMessage;
+import io.github.maoyouaa.aegisroute.contracts.events.ObservationV2;
 import io.github.maoyouaa.aegisroute.contracts.events.ObservedOutcome;
-import io.github.maoyouaa.aegisroute.contracts.events.ServingObservedV1;
 import io.github.maoyouaa.aegisroute.domain.routing.RouteChecksum;
 import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
 import io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStore;
@@ -38,7 +38,7 @@ class ChatControllerStreamContractTest {
                 new ProviderStreamEvent.Token("hello"), new ProviderStreamEvent.Completed("stop")));
 
     StepVerifier.create(fixture.controller.stream(request(), "stream-success"))
-        .expectNextCount(2)
+        .expectNextCount(3)
         .verifyComplete();
 
     assertThat(servingOutcome(fixture.queue)).isEqualTo(ObservedOutcome.SUCCESS);
@@ -75,6 +75,27 @@ class ChatControllerStreamContractTest {
   }
 
   @Test
+  void streamDeadlineKeeps504CauseBeforeAndAfterFirstTokenWithoutRetry() throws Exception {
+    for (boolean emitted : List.of(false, true)) {
+      Flux<ProviderStreamEvent> source =
+          Flux.error(
+              new io.github.maoyouaa.aegisroute.provider.ProviderException(
+                  504, emitted, "synthetic deadline"));
+      if (emitted) source = Flux.concat(Flux.just(new ProviderStreamEvent.Token("hello")), source);
+      Fixture fixture = fixture(source);
+      StepVerifier.create(fixture.controller.stream(request(), "timeout-" + emitted))
+          .expectNextCount(emitted ? 1 : 0)
+          .expectError(io.github.maoyouaa.aegisroute.provider.ProviderException.class)
+          .verify();
+      var event = mapper.readValue(fixture.queue.poll().payload(), ObservationV2.class);
+      assertThat(event.statusCode()).isEqualTo(504);
+      assertThat(event.outcome())
+          .isEqualTo(emitted ? ObservedOutcome.STREAM_ERROR : ObservedOutcome.TIMEOUT);
+      verify(fixture.provider, times(1)).stream(Mockito.any(), Mockito.any());
+    }
+  }
+
+  @Test
   void clientCancellationPublishesOneCancelledObservation() throws Exception {
     Fixture fixture =
         fixture(Flux.concat(Flux.just(new ProviderStreamEvent.Token("hello")), Flux.never()));
@@ -89,9 +110,7 @@ class ChatControllerStreamContractTest {
   }
 
   private ObservedOutcome servingOutcome(BoundedShadowQueue queue) throws Exception {
-    queue.poll(); // shadow-requested
-    ServingObservedV1 serving = mapper.readValue(queue.poll().payload(), ServingObservedV1.class);
-    assertThat(queue.poll()).as("baseline observation follows serving observation").isNotNull();
+    ObservationV2 serving = mapper.readValue(queue.poll().payload(), ObservationV2.class);
     assertThat(queue.poll()).as("observation is emitted exactly once").isNull();
     return serving.outcome();
   }

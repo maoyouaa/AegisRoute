@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegisroute.local/events/v2/observation.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventId",
+    "sample",
+    "kind",
+    "deploymentId",
+    "outcome",
+    "statusCode",
+    "latencyMs",
+    "observedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "eventId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sample": {
+      "$ref": "#/$defs/sample"
+    },
+    "kind": {
+      "enum": [
+        "BASELINE",
+        "CANARY",
+        "SHADOW"
+      ]
+    },
+    "deploymentId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "outcome": {
+      "enum": [
+        "SUCCESS",
+        "HTTP_ERROR",
+        "STREAM_ERROR",
+        "TIMEOUT",
+        "CANCELLED"
+      ]
+    },
+    "statusCode": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "latencyMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "routeId",
+        "rolloutId",
+        "version",
+        "baselineDeploymentId",
+        "baselineBaseUrl",
+        "candidateDeploymentId",
+        "candidateBaseUrl",
+        "candidateRatio",
+        "checksum",
+        "createdAt",
+        "phase",
+        "shadowPercentage",
+        "checksumVersion"
+      ],
+      "properties": {
+        "routeId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "rolloutId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "baselineDeploymentId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "baselineBaseUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 1024
+        },
+        "candidateDeploymentId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "candidateBaseUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 1024
+        },
+        "candidateRatio": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "checksum": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "phase": {
+          "enum": [
+            "DRAFT",
+            "SHADOW",
+            "ELIGIBLE",
+            "BLOCKED",
+            "CANARY",
+            "FULL",
+            "PAUSED",
+            "ROLLBACK_PROPAGATING",
+            "ROLLED_BACK"
+          ]
+        },
+        "shadowPercentage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "checksumVersion": {
+          "const": 2
+        }
+      }
+    },
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gatewayInstanceId",
+        "bootId",
+        "sampleId",
+        "requestId",
+        "route",
+        "admittedAt",
+        "shadowSelected"
+      ],
+      "properties": {
+        "gatewayInstanceId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_.-]{1,128}$"
+        },
+        "bootId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sampleId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "route": {
+          "$ref": "#/$defs/route"
+        },
+        "admittedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shadowSelected": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

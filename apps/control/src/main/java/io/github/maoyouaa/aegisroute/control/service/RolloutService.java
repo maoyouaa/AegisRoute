@@ -26,22 +26,23 @@ public class RolloutService {
   private final CanonicalInput canonicalInput;
   private final ObjectMapper objectMapper;
   private final Clock clock;
+  private final ReliabilityRepository reliability;
+  private final RollbackService rollbacks;
 
   @Autowired
   public RolloutService(
-      RolloutRepository repository, CanonicalInput canonicalInput, ObjectMapper objectMapper) {
-    this(repository, canonicalInput, objectMapper, Clock.systemUTC());
-  }
-
-  RolloutService(
       RolloutRepository repository,
       CanonicalInput canonicalInput,
       ObjectMapper objectMapper,
+      ReliabilityRepository reliability,
+      RollbackService rollbacks,
       Clock clock) {
     this.repository = repository;
     this.canonicalInput = canonicalInput;
     this.objectMapper = objectMapper;
     this.clock = clock;
+    this.reliability = reliability;
+    this.rollbacks = rollbacks;
   }
 
   @Transactional
@@ -53,6 +54,9 @@ public class RolloutService {
         endpoint,
         request,
         ignored -> {
+          reliability.lockOwner();
+          if (reliability.hasActiveOwner())
+            throw stateConflict("An active rollout already owns the v0.1 route");
           Instant now = clock.instant();
           var rollout = repository.create(request, UUID.randomUUID(), now);
           var route = repository.createRouteRevision(rollout, 0, now);
@@ -81,23 +85,18 @@ public class RolloutService {
 
   @Transactional
   public RolloutResponse markEligible(UUID rolloutId, boolean eligible, String reason) {
-    var rollout = find(rolloutId);
-    RolloutState requestedState = eligible ? RolloutState.ELIGIBLE : RolloutState.BLOCKED;
-    if (rollout.state() == requestedState) {
-      return rollout.response(latestRouteVersion());
-    }
-    RolloutAction action = eligible ? RolloutAction.MARK_ELIGIBLE : RolloutAction.MARK_BLOCKED;
-    RolloutState next = transition(rollout.state(), action);
-    Instant now = clock.instant();
-    var updated = update(rollout, next, rollout.candidateRatio(), now);
-    repository.audit(
-        rollout.id(), action.name(), "worker", reason, rollout.version(), updated.version(), now);
-    return updated.response(latestRouteVersion());
+    throw ReliabilityRepository.conflict("V2_ROUTE_BOUND_EVIDENCE_REQUIRED");
   }
 
   private RolloutResponse doMutate(
       UUID rolloutId, String actionPath, long expectedVersion, MutationRequest request) {
-    var rollout = find(rolloutId);
+    var rollout =
+        repository
+            .findForUpdate(rolloutId)
+            .orElseThrow(
+                () ->
+                    new ApiException(
+                        HttpStatus.NOT_FOUND, "ROLLOUT_NOT_FOUND", "Rollout not found"));
     if (rollout.version() != expectedVersion) {
       throw new ApiException(
           HttpStatus.PRECONDITION_FAILED,
@@ -105,6 +104,9 @@ public class RolloutService {
           "If-Match does not match the current rollout version");
     }
     Instant now = clock.instant();
+    var currentRoute = repository.latestRoute().orElseThrow();
+    if (!currentRoute.rolloutId().equals(rolloutId))
+      throw stateConflict("Rollout does not own the current route");
     RolloutState next;
     int ratio = rollout.candidateRatio();
     RolloutAction action;
@@ -125,6 +127,7 @@ public class RolloutService {
         } catch (InvalidRolloutTransitionException invalid) {
           throw stateConflict(invalid.getMessage());
         }
+        reliability.consumePromotion(currentRoute, ratio, request.actor(), now);
       }
       case "pause" -> {
         action = RolloutAction.PAUSE;
@@ -134,7 +137,8 @@ public class RolloutService {
       case "rollback" -> {
         action = RolloutAction.ROLLBACK;
         next = transition(rollout.state(), action);
-        ratio = 0;
+        var rollback = rollbacks.execute(rollout, null, request.actor(), request.reason(), now);
+        return rollback.rollout().response(rollback.route().version());
       }
       default ->
           throw new ApiException(HttpStatus.NOT_FOUND, "NOT_FOUND", "Unknown rollout action");

@@ -1,23 +1,9 @@
 package io.github.maoyouaa.aegisroute.control.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.maoyouaa.aegisroute.control.api.ApiException;
-import io.github.maoyouaa.aegisroute.control.api.EvidenceSubmission;
-import io.github.maoyouaa.aegisroute.control.api.PolicyEvaluationResponse;
-import io.github.maoyouaa.aegisroute.domain.rollout.EvidenceWindow;
-import io.github.maoyouaa.aegisroute.domain.rollout.RollbackPolicy;
-import io.github.maoyouaa.aegisroute.domain.rollout.RolloutAction;
-import io.github.maoyouaa.aegisroute.domain.rollout.RolloutState;
-import io.github.maoyouaa.aegisroute.domain.rollout.RolloutTransitions;
-import io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.time.Clock;
-import java.time.Duration;
+import io.github.maoyouaa.aegisroute.contracts.events.EvidenceWindowV2;
+import io.github.maoyouaa.aegisroute.control.api.*;
+import io.github.maoyouaa.aegisroute.domain.rollout.*;
 import java.time.Instant;
-import java.util.HexFormat;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -28,105 +14,156 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EvidenceService {
   private final RolloutRepository repository;
-  private final ObjectMapper objectMapper;
-  private final Clock clock = Clock.systemUTC();
-  private final RollbackPolicy policy = RollbackPolicy.demonstrationDefault();
+  private final ReliabilityRepository reliability;
+  private final RollbackService rollbacks;
+  private final java.time.Clock clock;
 
-  public EvidenceService(RolloutRepository repository, ObjectMapper objectMapper) {
+  public EvidenceService(
+      RolloutRepository repository,
+      ReliabilityRepository reliability,
+      RollbackService rollbacks,
+      java.time.Clock clock) {
     this.repository = repository;
-    this.objectMapper = objectMapper;
+    this.reliability = reliability;
+    this.rollbacks = rollbacks;
+    this.clock = clock;
+  }
+
+  public PolicyEvaluationResponse evaluate(UUID rolloutId, EvidenceSubmission submission) {
+    throw ReliabilityRepository.conflict("V2_ROUTE_BOUND_EVIDENCE_REQUIRED");
   }
 
   @Transactional
-  public PolicyEvaluationResponse evaluate(UUID rolloutId, EvidenceSubmission submission) {
+  public WindowReceipt evaluate(EvidenceWindowV2 window) {
     var rollout =
         repository
-            .findForUpdate(rolloutId)
+            .findForUpdate(window.route().rolloutId())
             .orElseThrow(
                 () ->
                     new ApiException(
                         HttpStatus.NOT_FOUND, "ROLLOUT_NOT_FOUND", "Rollout not found"));
-    if (rollout.state() != RolloutState.CANARY && rollout.state() != RolloutState.FULL) {
-      throw new ApiException(
-          HttpStatus.CONFLICT,
-          "ROLLOUT_STATE_CONFLICT",
-          "Serving evidence is accepted only during canary or full traffic");
-    }
-    EvidenceWindow evidence;
-    try {
-      evidence =
-          new EvidenceWindow(
-              rolloutId,
-              submission.windowStart(),
-              submission.windowEnd(),
-              submission.candidateRequests(),
-              submission.candidateErrors());
-    } catch (IllegalArgumentException invalid) {
-      throw new ApiException(HttpStatus.BAD_REQUEST, "INVALID_REQUEST", invalid.getMessage());
-    }
-    String digest = digest(evidence);
+    var replay = reliability.replay(window);
+    if (replay.isPresent()) return replay.get();
+    var source =
+        repository
+            .route(window.route().routeId())
+            .orElseThrow(() -> ReliabilityRepository.conflict("UNKNOWN_ROUTE"));
+    if (!source.equals(window.route()))
+      throw ReliabilityRepository.conflict("WINDOW_ROUTE_MISMATCH");
     Instant now = clock.instant();
-    UUID evidenceId =
-        repository.saveEvidence(
-            rolloutId,
-            evidence.windowStart(),
-            evidence.windowEnd(),
-            evidence.candidateRequests(),
-            evidence.candidateErrors(),
-            evidence.errorRate(),
-            digest,
-            now);
-    boolean breached = policy.breaches(evidence);
-    int consecutive = breached ? repository.previousConsecutiveBreaches(rolloutId) + 1 : 0;
-    repository.savePolicyEvaluation(
-        rolloutId,
-        evidenceId,
-        policy.version(),
-        policy.errorRateThreshold(),
-        breached,
-        consecutive,
-        now);
-
-    if (consecutive < policy.consecutiveBreaches()) {
-      return new PolicyEvaluationResponse(evidenceId, breached, consecutive, false, null, 0);
+    if (window.windowEnd().isAfter(now)) throw ReliabilityRepository.conflict("FUTURE_WINDOW");
+    if (!window.windowEnd().isAfter(source.createdAt()))
+      throw ReliabilityRepository.conflict("WINDOW_PREDATES_ROUTE");
+    var previous = reliability.previous(source.routeId());
+    if (previous.isPresent() && window.windowStart().isBefore(previous.get().end())) {
+      throw ReliabilityRepository.conflict("OUT_OF_ORDER_OR_OVERLAPPING_WINDOW");
     }
+    var current = repository.latestRoute().orElseThrow();
+    boolean currentRoute = current.routeId().equals(source.routeId());
+    var coverage = reliability.coverage(window);
+    if (currentRoute && coverage.awaiting() && now.isBefore(window.windowEnd().plusSeconds(90))) {
+      throw new ApiException(
+          HttpStatus.SERVICE_UNAVAILABLE, "COVERAGE_PENDING", "Waiting for closed gateway reports");
+    }
+    boolean sane =
+        window.servingObserved() <= coverage.total()
+            && window.candidateRequests() <= coverage.candidate()
+            && window.completePairs() <= coverage.shadow();
+    double fraction =
+        coverage.known() && coverage.total() > 0
+            ? (double) window.servingObserved() / coverage.total()
+            : 0;
+    boolean sufficient = coverage.known() && sane && fraction >= 0.95;
+    boolean fresh = now.isBefore(window.windowEnd().plusSeconds(120));
+    boolean phaseAllows =
+        rollout.state() == RolloutState.SHADOW
+            || rollout.state() == RolloutState.ELIGIBLE
+            || rollout.state() == RolloutState.CANARY
+            || rollout.state() == RolloutState.FULL;
+    String status =
+        !currentRoute
+            ? "STALE_ROUTE"
+            : !fresh
+                ? "EXPIRED"
+                : !phaseAllows ? "INACTIVE" : !sufficient ? "INSUFFICIENT_EVIDENCE" : "ACCEPTED";
+    boolean actionable = status.equals("ACCEPTED");
+    boolean eligible =
+        actionable
+            && window.completePairs() >= 10
+            && coverage.shadow() > 0
+            && (double) window.completePairs() / coverage.shadow() >= 0.95
+            && window.baselineErrors() == 0
+            && (double) window.shadowErrors() / window.completePairs() <= 0.05
+            && window.pendingSamples() == 0;
+    boolean candidateCovered =
+        coverage.candidate() > 0
+            && (double) window.candidateRequests() / coverage.candidate() >= 0.95;
+    if (rollout.state() == RolloutState.CANARY) {
+      eligible =
+          eligible
+              && candidateCovered
+              && window.candidateRequests() >= 10
+              && (double) window.candidateErrors() / window.candidateRequests() <= 0.05;
+    }
+    boolean breached =
+        actionable
+            && candidateCovered
+            && window.candidateRequests() >= 10
+            && (double) window.candidateErrors() / window.candidateRequests() > 0.05
+            && (rollout.state() == RolloutState.CANARY || rollout.state() == RolloutState.FULL);
+    int preceding =
+        previous
+            .filter(value -> value.end().equals(window.windowStart()))
+            .map(ReliabilityRepository.Previous::consecutive)
+            .orElse(0);
+    int consecutive = breached ? preceding + 1 : 0;
 
-    RouteSnapshot fromRoute = repository.latestRoute().orElseThrow();
-    var propagating =
-        repository.updateState(
-            rollout.id(),
-            rollout.version(),
-            RolloutTransitions.apply(rollout.state(), RolloutAction.ROLLBACK),
-            0,
-            now);
-    long targetRouteVersion = repository.reserveRouteVersion();
-    List<String> activeInstances = repository.activeInstances(now.minus(Duration.ofSeconds(15)));
-    UUID decisionId =
-        repository.saveRollbackDecision(
-            rolloutId,
-            fromRoute.version(),
-            targetRouteVersion,
-            evidence.windowStart(),
-            evidence.windowEnd(),
-            evidence.candidateRequests(),
-            evidence.candidateErrors(),
-            evidence.errorRate(),
-            policy.errorRateThreshold(),
-            policy.version(),
-            digest,
-            activeInstances,
-            now);
-    RouteSnapshot toRoute = repository.createRouteRevision(propagating, 0, targetRouteVersion, now);
-    repository.audit(
-        rolloutId,
-        "AUTOMATIC_ROLLBACK",
-        "deterministic-policy-v" + policy.version(),
-        "Three consecutive breached evidence windows",
-        rollout.version(),
-        propagating.version(),
-        now);
-    return new PolicyEvaluationResponse(
-        evidenceId, true, consecutive, true, decisionId, toRoute.version());
+    reliability.saveWindow(window, now);
+    reliability.savePolicy(
+        window.windowId(), status, eligible, breached, consecutive, fraction, now);
+    UUID decision = null;
+    long targetVersion = 0;
+    if (consecutive >= 3) {
+      var rollback =
+          rollbacks.execute(
+              rollout,
+              window,
+              "deterministic-policy-v2",
+              "Three adjacent sufficient breached windows on the current route",
+              now);
+      decision = rollback.decisionId();
+      targetVersion = rollback.route().version();
+    } else if (eligible && rollout.state() == RolloutState.SHADOW) {
+      var updated =
+          repository.updateState(rollout.id(), rollout.version(), RolloutState.ELIGIBLE, 0, now);
+      repository.audit(
+          rollout.id(),
+          "MARK_ELIGIBLE",
+          "deterministic-policy-v2",
+          "Fresh route-bound window " + window.windowId(),
+          rollout.version(),
+          updated.version(),
+          now);
+    }
+    var result =
+        new WindowReceipt(
+            window.windowId(),
+            status,
+            eligible,
+            breached,
+            consecutive,
+            decision,
+            targetVersion,
+            coverage.total(),
+            window.servingObserved(),
+            coverage.shadow(),
+            window.completePairs(),
+            window.unpairedSamples(),
+            coverage.dropped(),
+            window.pendingSamples(),
+            fraction);
+    reliability.saveResult(result, now);
+    return result;
   }
 
   @Scheduled(fixedDelay = 500)
@@ -134,60 +171,28 @@ public class EvidenceService {
   public void detectConvergence() {
     Instant now = clock.instant();
     for (var decision : repository.pendingDecisions()) {
+      var rollout = repository.findForUpdate(decision.rolloutId()).orElseThrow();
+      if (rollout.state() != RolloutState.ROLLBACK_PROPAGATING) continue;
       List<String> required = repository.decisionTargets(decision.decisionId());
       List<String> converged =
           repository.convergedTargets(decision.decisionId(), decision.targetRouteVersion());
-      if (converged.containsAll(required)) {
-        try {
-          repository.saveConvergence(
-              decision.rolloutId(),
-              decision.targetRouteVersion(),
-              objectMapper.writeValueAsString(required),
-              objectMapper.writeValueAsString(converged),
-              now);
-        } catch (JsonProcessingException e) {
-          throw new IllegalStateException("Cannot serialize convergence evidence", e);
-        }
-        var rollout = repository.find(decision.rolloutId()).orElseThrow();
-        if (rollout.state() == RolloutState.ROLLBACK_PROPAGATING) {
-          var rolledBack =
-              repository.updateState(
-                  rollout.id(),
-                  rollout.version(),
-                  RolloutTransitions.apply(rollout.state(), RolloutAction.CONFIRM_ROLLBACK),
-                  0,
-                  now);
-          repository.audit(
-              rollout.id(),
-              "ROLLBACK_CONVERGED",
-              "control",
-              "All decision-time gateways applied the rollback route",
-              rollout.version(),
-              rolledBack.version(),
-              now);
-        }
-      }
-    }
-  }
-
-  private String digest(EvidenceWindow evidence) {
-    String canonical =
-        evidence.rolloutId()
-            + "\n"
-            + evidence.windowStart()
-            + "\n"
-            + evidence.windowEnd()
-            + "\n"
-            + evidence.candidateRequests()
-            + "\n"
-            + evidence.candidateErrors();
-    try {
-      return HexFormat.of()
-          .formatHex(
-              MessageDigest.getInstance("SHA-256")
-                  .digest(canonical.getBytes(StandardCharsets.UTF_8)));
-    } catch (NoSuchAlgorithmException impossible) {
-      throw new IllegalStateException("JVM does not provide SHA-256", impossible);
+      if (required.isEmpty() || !converged.containsAll(required)) continue;
+      repository.saveConvergence(
+          rollout.id(),
+          decision.targetRouteVersion(),
+          reliability.json(required),
+          reliability.json(converged),
+          now);
+      var updated =
+          repository.updateState(rollout.id(), rollout.version(), RolloutState.ROLLED_BACK, 0, now);
+      repository.audit(
+          rollout.id(),
+          "ROLLBACK_CONVERGED",
+          "control",
+          "Every target applied the exact rollback route",
+          rollout.version(),
+          updated.version(),
+          now);
     }
   }
 }

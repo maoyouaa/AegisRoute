@@ -54,7 +54,7 @@ public final class RolloutTransitions {
         if (steps[index] == currentRatio) expected = steps[index + 1];
       }
     }
-    if (requestedRatio != expected) {
+    if (expected < 0 || requestedRatio != expected) {
       throw new InvalidRolloutTransitionException(current, RolloutAction.APPROVE_CANARY);
     }
     return requestedRatio == 100 ? RolloutState.FULL : RolloutState.CANARY;

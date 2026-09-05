@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 public final class EventSchemaValidator {
   private final ObjectMapper objectMapper;
   private final JsonSchemaFactory schemaFactory;
+  private final java.util.concurrent.ConcurrentHashMap<String, com.networknt.schema.JsonSchema>
+      schemas = new java.util.concurrent.ConcurrentHashMap<>();
 
   public EventSchemaValidator(ObjectMapper objectMapper) {
     this.objectMapper =
@@ -46,18 +48,25 @@ public final class EventSchemaValidator {
   }
 
   public void validate(String schemaFile, JsonNode event) {
-    String resource = "events/v1/" + schemaFile;
-    try (InputStream schemaStream = resource(resource)) {
-      Set<ValidationMessage> messages = schemaFactory.getSchema(schemaStream).validate(event);
-      if (!messages.isEmpty()) {
-        throw new EventContractViolationException(
-            messages.stream()
-                .map(ValidationMessage::getMessage)
-                .sorted()
-                .collect(Collectors.joining("; ")));
-      }
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot close schema resource " + resource, e);
+    String resource =
+        schemaFile.startsWith("v2/") ? "events/" + schemaFile : "events/v1/" + schemaFile;
+    var schema =
+        schemas.computeIfAbsent(
+            resource,
+            path -> {
+              try (InputStream stream = resource(path)) {
+                return schemaFactory.getSchema(stream);
+              } catch (IOException e) {
+                throw new IllegalStateException("Cannot read schema " + path, e);
+              }
+            });
+    Set<ValidationMessage> messages = schema.validate(event);
+    if (!messages.isEmpty()) {
+      throw new EventContractViolationException(
+          messages.stream()
+              .map(ValidationMessage::getMessage)
+              .sorted()
+              .collect(Collectors.joining("; ")));
     }
   }
 

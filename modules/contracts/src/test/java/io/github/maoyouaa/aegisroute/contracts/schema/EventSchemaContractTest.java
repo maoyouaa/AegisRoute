@@ -133,6 +133,45 @@ class EventSchemaContractTest {
     assertThat(routeApplied.gatewayInstanceId()).isEqualTo("gateway-1");
   }
 
+  @Test
+  void recordedV2ConsumerFixturesBindCompleteIdentityAndRejectWrongCandidate() throws Exception {
+    var request =
+        v2Fixture(
+            "shadow-requested",
+            "shadow-requested",
+            io.github.maoyouaa.aegisroute.contracts.events.ShadowRequestedV2.class);
+    var baseline =
+        v2Fixture(
+            "baseline-observation",
+            "observation",
+            io.github.maoyouaa.aegisroute.contracts.events.ObservationV2.class);
+    var shadow =
+        v2Fixture(
+            "shadow-observation",
+            "observation",
+            io.github.maoyouaa.aegisroute.contracts.events.ObservationV2.class);
+    assertThat(request.sample()).isEqualTo(baseline.sample()).isEqualTo(shadow.sample());
+    assertThat(request.sample().route().validChecksum()).isTrue();
+    assertThat(request.sample().shadowSelected()).isTrue();
+    assertThat(baseline.deploymentId()).isEqualTo(request.sample().route().baselineDeploymentId());
+    assertThat(shadow.deploymentId()).isEqualTo(request.sample().route().candidateDeploymentId());
+    var wrong = objectMapper.valueToTree(shadow);
+    ((com.fasterxml.jackson.databind.node.ObjectNode) wrong)
+        .put("deploymentId", "untrusted-candidate");
+    org.assertj.core.api.Assertions.assertThatThrownBy(
+            () ->
+                objectMapper.treeToValue(
+                    wrong, io.github.maoyouaa.aegisroute.contracts.events.ObservationV2.class))
+        .hasRootCauseInstanceOf(IllegalArgumentException.class);
+  }
+
+  private <T> T v2Fixture(String name, String schema, Class<T> type) throws Exception {
+    try (var input = getClass().getResourceAsStream("/events/v2/fixtures/" + name + ".json")) {
+      return objectMapper.treeToValue(
+          validator.readAndValidate("v2/" + schema + ".schema.json", input), type);
+    }
+  }
+
   private <T> T fixture(String name, Class<T> type) throws Exception {
     try (var input = getClass().getResourceAsStream("/events/v1/fixtures/" + name + ".json")) {
       var json = validator.readAndValidate(name + ".schema.json", input);

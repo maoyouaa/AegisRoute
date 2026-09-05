@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import io.github.maoyouaa.aegisroute.control.api.CreateRolloutRequest;
-import io.github.maoyouaa.aegisroute.control.api.EvidenceSubmission;
 import io.github.maoyouaa.aegisroute.control.api.MutationRequest;
 import io.github.maoyouaa.aegisroute.control.service.EvidenceService;
 import io.github.maoyouaa.aegisroute.control.service.RolloutRepository;
@@ -25,10 +24,16 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+@org.springframework.test.annotation.DirtiesContext(
+    classMode = org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_CLASS)
 @Testcontainers
 @SpringBootTest(properties = {"aegis.demo-bootstrap=false", "spring.task.scheduling.enabled=false"})
 @Transactional
+@org.springframework.context.annotation.Import(ReliabilityIntegrationTest.TimeConfiguration.class)
 class ControlPersistenceIntegrationTest {
+  @Autowired ReliabilityIntegrationTest.MutableClock clock;
+  @Autowired io.github.maoyouaa.aegisroute.control.service.ReliabilityRepository reliability;
+
   @Container
   static final PostgreSQLContainer<?> POSTGRES =
       new PostgreSQLContainer<>("postgres:17.6-alpine")
@@ -63,6 +68,7 @@ class ControlPersistenceIntegrationTest {
 
   @BeforeEach
   void reset() {
+    clock.now = Instant.parse("2026-09-05T00:00:00Z");
     jdbc.execute(
         "TRUNCATE gateway_convergence_evidence, rollback_decision_targets, rollout_decisions, policy_evaluations, evidence_windows, gateway_route_acks, rollout_audit_events, idempotency_records, route_revisions, rollouts CASCADE");
   }
@@ -81,7 +87,9 @@ class ControlPersistenceIntegrationTest {
             "integration evidence");
     var rollout = repository.create(request, UUID.randomUUID(), now);
     long first = repository.createRouteRevision(rollout, 0, now).version();
-    long second = repository.createRouteRevision(rollout, 10, now.plusSeconds(1)).version();
+    var canaryFixture =
+        repository.updateState(rollout.id(), rollout.version(), RolloutState.CANARY, 10, now);
+    long second = repository.createRouteRevision(canaryFixture, 10, now.plusSeconds(1)).version();
     assertThat(second).isGreaterThan(first);
 
     UUID decision =
@@ -116,7 +124,7 @@ class ControlPersistenceIntegrationTest {
   @Test
   void idempotentMutationReplaysOnceAndRejectsCrossRolloutReuse() {
     var first = createRollout("first");
-    var second = createRollout("second");
+    UUID second = UUID.randomUUID();
     var request = new MutationRequest("test", "start synthetic shadow", null);
 
     var initial = rollouts.mutate(first.id(), "shadow:start", "same-key", "\"1\"", request);
@@ -124,8 +132,7 @@ class ControlPersistenceIntegrationTest {
 
     assertThat(replay).isEqualTo(initial);
     assertThat(repository.find(first.id()).orElseThrow().version()).isEqualTo(2);
-    assertThatThrownBy(
-            () -> rollouts.mutate(second.id(), "shadow:start", "same-key", "\"1\"", request))
+    assertThatThrownBy(() -> rollouts.mutate(second, "shadow:start", "same-key", "\"1\"", request))
         .isInstanceOf(io.github.maoyouaa.aegisroute.control.api.ApiException.class)
         .hasMessageContaining("different endpoint or payload");
   }
@@ -152,7 +159,10 @@ class ControlPersistenceIntegrationTest {
             "rollback-shadow",
             "\"1\"",
             new MutationRequest("test", "start shadow", null));
-    var eligible = rollouts.markEligible(rollout.id(), true, "synthetic paired evidence");
+    var shadowRoute = repository.latestRoute().orElseThrow();
+    repository.acknowledge("gateway-test", shadowRoute, clock.instant(), clock.instant());
+    submitWindow(shadowRoute, 0, 0, 20);
+    var eligible = repository.find(rollout.id()).orElseThrow();
     var canary =
         rollouts.mutate(
             rollout.id(),
@@ -163,13 +173,12 @@ class ControlPersistenceIntegrationTest {
     assertThat(shadow.state()).isEqualTo(RolloutState.SHADOW);
     assertThat(canary.state()).isEqualTo(RolloutState.CANARY);
 
-    Instant start = Instant.parse("2026-08-12T00:00:00Z");
-    assertThat(evidence.evaluate(rollout.id(), window(start)).rollbackTriggered()).isFalse();
-    assertThat(evidence.evaluate(rollout.id(), window(start.plusSeconds(5))).rollbackTriggered())
-        .isFalse();
-    var triggered = evidence.evaluate(rollout.id(), window(start.plusSeconds(10)));
+    var canaryRoute = repository.latestRoute().orElseThrow();
+    assertThat(submitWindow(canaryRoute, 12, 4, 20).decisionId()).isNull();
+    assertThat(submitWindow(canaryRoute, 12, 4, 20).decisionId()).isNull();
+    var triggered = submitWindow(canaryRoute, 12, 4, 20);
 
-    assertThat(triggered.rollbackTriggered()).isTrue();
+    assertThat(triggered.consecutiveBreaches()).isEqualTo(3);
     assertThat(triggered.decisionId()).isNotNull();
     assertThat(repository.find(rollout.id()).orElseThrow().state())
         .isEqualTo(RolloutState.ROLLBACK_PROPAGATING);
@@ -203,7 +212,45 @@ class ControlPersistenceIntegrationTest {
     return rollout;
   }
 
-  private EvidenceSubmission window(Instant start) {
-    return new EvidenceSubmission(start, start.plusSeconds(5), 12, 4);
+  private io.github.maoyouaa.aegisroute.control.api.WindowReceipt submitWindow(
+      io.github.maoyouaa.aegisroute.domain.routing.RouteSnapshot route,
+      int candidates,
+      int errors,
+      int pairs) {
+    Instant start =
+        io.github.maoyouaa.aegisroute.contracts.events.SampleIdentity.bucket(clock.instant());
+    clock.now = start.plusSeconds(5);
+    reliability.report(
+        new io.github.maoyouaa.aegisroute.contracts.events.GatewayWindowReport(
+            2,
+            "gateway-test",
+            UUID.fromString("aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"),
+            route.routeId(),
+            route.version(),
+            route.checksum(),
+            start,
+            start.plusSeconds(5),
+            candidates + pairs,
+            candidates,
+            pairs,
+            0));
+    return evidence.evaluate(
+        new io.github.maoyouaa.aegisroute.contracts.events.EvidenceWindowV2(
+            2,
+            io.github.maoyouaa.aegisroute.contracts.events.SampleIdentity.windowId(
+                route.routeId(), start),
+            1,
+            route,
+            start,
+            start.plusSeconds(5),
+            candidates + pairs,
+            candidates,
+            errors,
+            pairs,
+            0,
+            0,
+            0,
+            0,
+            "a".repeat(64)));
   }
 }

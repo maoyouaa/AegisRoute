@@ -19,6 +19,10 @@ public final class ShadowPublisher {
   private final BoundedShadowQueue queue;
   private final KafkaTemplate<String, byte[]> kafkaTemplate;
   private final Duration deliveryTimeout;
+  private final com.fasterxml.jackson.databind.ObjectMapper mapper =
+      new com.fasterxml.jackson.databind.ObjectMapper();
+  private final io.github.maoyouaa.aegisroute.contracts.schema.EventSchemaValidator validator =
+      new io.github.maoyouaa.aegisroute.contracts.schema.EventSchemaValidator(mapper);
   private final AtomicBoolean running = new AtomicBoolean();
   private final ExecutorService publisher =
       Executors.newSingleThreadExecutor(
@@ -69,6 +73,18 @@ public final class ShadowPublisher {
   }
 
   private void publishWithBoundedRetry(ShadowEnvelope envelope) {
+    try {
+      String schema =
+          switch (envelope.topic()) {
+            case "aegis.shadow-requested.v2" -> "v2/shadow-requested.schema.json";
+            case "aegis.observation.v2" -> "v2/observation.schema.json";
+            default -> envelope.topic().replace("aegis.", "").replace(".v1", ".schema.json");
+          };
+      validator.validate(schema, mapper.readTree(envelope.payload()));
+    } catch (Exception invalid) {
+      queue.recordDrop(ShadowDropReason.SERIALIZATION_ERROR);
+      return;
+    }
     for (int attempt = 0; attempt < 2 && running.get(); attempt++) {
       try {
         CompletableFuture<?> send =

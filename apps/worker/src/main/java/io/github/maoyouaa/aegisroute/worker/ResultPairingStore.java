@@ -55,15 +55,19 @@ public final class ResultPairingStore {
     private final Instant createdAt;
     private BaselineObservedV1 baseline;
     private CandidateObservedV1 candidate;
+    private boolean completed;
 
     private Partial(Instant createdAt) {
       this.createdAt = createdAt;
     }
 
     private Optional<Pair> pair() {
-      return baseline == null || candidate == null
-          ? Optional.empty()
-          : Optional.of(new Pair(baseline, candidate));
+      if (completed || baseline == null || candidate == null) return Optional.empty();
+      if (!baseline.rolloutId().equals(candidate.rolloutId())
+          || baseline.routeVersion() != candidate.routeVersion()
+          || !baseline.requestId().equals(candidate.requestId())) return Optional.empty();
+      completed = true;
+      return Optional.of(new Pair(baseline, candidate));
     }
   }
 

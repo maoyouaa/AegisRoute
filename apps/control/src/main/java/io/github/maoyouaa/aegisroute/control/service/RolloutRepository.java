@@ -10,7 +10,6 @@ import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
@@ -87,8 +86,13 @@ public class RolloutRepository {
   public RouteSnapshot createRouteRevision(
       RolloutRow rollout, int candidateRatio, long version, Instant now) {
     UUID routeId = UUID.randomUUID();
-    String checksum =
-        io.github.maoyouaa.aegisroute.domain.routing.RouteChecksum.calculate(
+    int shadow =
+        switch (rollout.state()) {
+          case SHADOW, ELIGIBLE, CANARY -> 100;
+          default -> 0;
+        };
+    var snapshot =
+        RouteSnapshot.create(
             routeId,
             rollout.id(),
             version,
@@ -96,55 +100,69 @@ public class RolloutRepository {
             rollout.baselineBaseUrl(),
             rollout.candidateDeploymentId(),
             rollout.candidateBaseUrl(),
-            candidateRatio);
+            candidateRatio,
+            now,
+            rollout.state(),
+            shadow);
+    return insertRoute(snapshot);
+  }
+
+  public RouteSnapshot insertRoute(RouteSnapshot snapshot) {
     jdbc.sql(
             """
             INSERT INTO route_revisions (
               route_id, rollout_id, version, baseline_deployment_id, baseline_base_url,
-              candidate_deployment_id, candidate_base_url, candidate_ratio, checksum, created_at
+              candidate_deployment_id, candidate_base_url, candidate_ratio, checksum, created_at,
+              phase, shadow_percentage, checksum_version
             ) VALUES (:routeId, :rolloutId, :version, :baselineId, :baselineUrl,
-                      :candidateId, :candidateUrl, :ratio, :checksum, :now)
+                      :candidateId, :candidateUrl, :ratio, :checksum, :now, :phase, :shadow, :checksumVersion)
             """)
-        .param("routeId", routeId)
-        .param("rolloutId", rollout.id())
-        .param("version", version)
-        .param("baselineId", rollout.baselineDeploymentId())
-        .param("baselineUrl", rollout.baselineBaseUrl())
-        .param("candidateId", rollout.candidateDeploymentId())
-        .param("candidateUrl", rollout.candidateBaseUrl())
-        .param("ratio", candidateRatio)
-        .param("checksum", checksum)
-        .param("now", timestamp(now))
+        .param("routeId", snapshot.routeId())
+        .param("rolloutId", snapshot.rolloutId())
+        .param("version", snapshot.version())
+        .param("baselineId", snapshot.baselineDeploymentId())
+        .param("baselineUrl", snapshot.baselineBaseUrl())
+        .param("candidateId", snapshot.candidateDeploymentId())
+        .param("candidateUrl", snapshot.candidateBaseUrl())
+        .param("ratio", snapshot.candidateRatio())
+        .param("checksum", snapshot.checksum())
+        .param("now", timestamp(snapshot.createdAt()))
+        .param("phase", snapshot.phase().name())
+        .param("shadow", snapshot.shadowPercentage())
+        .param("checksumVersion", snapshot.checksumVersion())
         .update();
-    return new RouteSnapshot(
-        routeId,
-        rollout.id(),
-        version,
-        rollout.baselineDeploymentId(),
-        rollout.baselineBaseUrl(),
-        rollout.candidateDeploymentId(),
-        rollout.candidateBaseUrl(),
-        candidateRatio,
-        checksum,
-        now);
+    return snapshot;
   }
 
   public Optional<RouteSnapshot> latestRoute() {
     return jdbc.sql("SELECT * FROM route_revisions ORDER BY version DESC LIMIT 1")
-        .query(
-            (rs, ignored) ->
-                new RouteSnapshot(
-                    rs.getObject("route_id", UUID.class),
-                    rs.getObject("rollout_id", UUID.class),
-                    rs.getLong("version"),
-                    rs.getString("baseline_deployment_id"),
-                    rs.getString("baseline_base_url"),
-                    rs.getString("candidate_deployment_id"),
-                    rs.getString("candidate_base_url"),
-                    rs.getInt("candidate_ratio"),
-                    rs.getString("checksum"),
-                    rs.getTimestamp("created_at").toInstant()))
+        .query(RolloutRepository::mapRoute)
         .optional();
+  }
+
+  public Optional<RouteSnapshot> route(UUID id) {
+    return jdbc.sql("SELECT * FROM route_revisions WHERE route_id = :id")
+        .param("id", id)
+        .query(RolloutRepository::mapRoute)
+        .optional();
+  }
+
+  private static RouteSnapshot mapRoute(java.sql.ResultSet rs, int ignored)
+      throws java.sql.SQLException {
+    return new RouteSnapshot(
+        rs.getObject("route_id", UUID.class),
+        rs.getObject("rollout_id", UUID.class),
+        rs.getLong("version"),
+        rs.getString("baseline_deployment_id"),
+        rs.getString("baseline_base_url"),
+        rs.getString("candidate_deployment_id"),
+        rs.getString("candidate_base_url"),
+        rs.getInt("candidate_ratio"),
+        rs.getString("checksum"),
+        rs.getTimestamp("created_at").toInstant(),
+        RolloutState.valueOf(rs.getString("phase")),
+        rs.getInt("shadow_percentage"),
+        rs.getInt("checksum_version"));
   }
 
   public void audit(
@@ -195,35 +213,49 @@ public class RolloutRepository {
 
   public void saveIdempotency(
       String key, String requestHash, int statusCode, String responseBody, Instant now) {
-    try {
-      jdbc.sql(
-              """
+    jdbc.sql("DELETE FROM idempotency_records WHERE idempotency_key=:key AND expires_at <= :now")
+        .param("key", key)
+        .param("now", timestamp(now))
+        .update();
+    jdbc.sql(
+            """
               INSERT INTO idempotency_records (
                 idempotency_key, request_hash, status_code, response_body, created_at, expires_at
               ) VALUES (:key, :hash, :status, CAST(:body AS jsonb), :now, :expires)
               """)
-          .param("key", key)
-          .param("hash", requestHash)
-          .param("status", statusCode)
-          .param("body", responseBody)
-          .param("now", timestamp(now))
-          .param("expires", timestamp(now.plusSeconds(24 * 60 * 60)))
-          .update();
-    } catch (DuplicateKeyException ignored) {
-      // A concurrent identical request will read the committed record on retry.
-    }
+        .param("key", key)
+        .param("hash", requestHash)
+        .param("status", statusCode)
+        .param("body", responseBody)
+        .param("now", timestamp(now))
+        .param("expires", timestamp(now.plusSeconds(24 * 60 * 60)))
+        .update();
   }
 
   public void acknowledge(
       String instanceId, RouteSnapshot route, Instant appliedAt, Instant seenAt) {
     jdbc.sql(
             """
+        INSERT INTO gateway_ack_history (gateway_instance_id, route_id, route_version, checksum, applied_at, recorded_at)
+        VALUES (:instance, :route, :version, :checksum, :applied, :now) ON CONFLICT DO NOTHING
+        """)
+        .param("instance", instanceId)
+        .param("route", route.routeId())
+        .param("version", route.version())
+        .param("checksum", route.checksum())
+        .param("applied", timestamp(appliedAt))
+        .param("now", timestamp(seenAt))
+        .update();
+    jdbc.sql(
+            """
             INSERT INTO gateway_route_acks (
               gateway_instance_id, route_id, route_version, checksum, applied_at, last_seen_at
             ) VALUES (:instanceId, :routeId, :version, :checksum, :appliedAt, :seenAt)
             ON CONFLICT (gateway_instance_id) DO UPDATE SET
-              route_id = EXCLUDED.route_id, route_version = EXCLUDED.route_version,
-              checksum = EXCLUDED.checksum, applied_at = EXCLUDED.applied_at,
+              route_id = CASE WHEN EXCLUDED.route_version >= gateway_route_acks.route_version THEN EXCLUDED.route_id ELSE gateway_route_acks.route_id END,
+              route_version = GREATEST(EXCLUDED.route_version, gateway_route_acks.route_version),
+              checksum = CASE WHEN EXCLUDED.route_version >= gateway_route_acks.route_version THEN EXCLUDED.checksum ELSE gateway_route_acks.checksum END,
+              applied_at = CASE WHEN EXCLUDED.route_version >= gateway_route_acks.route_version THEN EXCLUDED.applied_at ELSE gateway_route_acks.applied_at END,
               last_seen_at = EXCLUDED.last_seen_at
             """)
         .param("instanceId", instanceId)
@@ -394,8 +426,10 @@ public class RolloutRepository {
     return jdbc.sql(
             """
             SELECT t.gateway_instance_id FROM rollback_decision_targets t
-            JOIN gateway_route_acks a ON a.gateway_instance_id = t.gateway_instance_id
-            WHERE t.decision_id = :id AND a.route_version >= :version
+            JOIN rollback_route_targets r ON r.decision_id = t.decision_id
+            JOIN gateway_ack_history a ON a.gateway_instance_id = t.gateway_instance_id
+              AND a.route_id = r.route_id AND a.route_version = r.route_version AND a.checksum = r.checksum
+            WHERE t.decision_id = :id AND a.route_version = :version
             """)
         .param("id", decisionId)
         .param("version", routeVersion)
