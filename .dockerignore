@@ -6,3 +6,6 @@
 build-evidence
 .docker-data
 *.log
+docs/overnight
+.reliability-tools
+**/__pycache__

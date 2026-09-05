@@ -1,0 +1,8 @@
+**
+!deployment/
+!deployment/Dockerfile.reliability
+!apps/
+!apps/*/
+!apps/*/build/
+!apps/*/build/libs/
+!apps/*/build/libs/application.jar

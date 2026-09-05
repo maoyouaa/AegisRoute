@@ -46,4 +46,13 @@ if ($null -ne $controlPorts -and @($controlPorts).Count -gt 0) {
   throw "Control must not publish a host port in the default Compose topology"
 }
 
-Write-Host "Verified restart policy for $($longRunningServices.Count) services, dependency healthchecks, and the internal-only Control boundary."
+$workerStore = $config.services.worker.environment.AEGIS_WORKER_STORE
+if ($workerStore -ne '/var/lib/aegis/evidence.sqlite') {
+  throw 'Worker must use its explicit durable store path'
+}
+$storeVolume = @($config.services.worker.volumes | Where-Object {
+  $_.type -eq 'volume' -and $_.target -eq '/var/lib/aegis' -and -not $_.read_only
+})
+if ($storeVolume.Count -ne 1) { throw 'Worker needs one writable evidence volume' }
+
+Write-Host "Verified restart policy for $($longRunningServices.Count) services, dependency healthchecks, durable Worker storage, and the internal-only Control boundary."

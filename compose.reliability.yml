@@ -1,0 +1,145 @@
+name: aegis-reliability
+
+x-java: &java
+  restart: unless-stopped
+  networks: [aegis-internal]
+  mem_limit: 512m
+
+x-gateway: &gateway
+  <<: *java
+  build:
+    context: .
+    dockerfile: deployment/Dockerfile.reliability
+    args:
+      APP: gateway
+      RUNTIME_IMAGE: ${AEGIS_RUNTIME_IMAGE:-eclipse-temurin:21-jre-jammy}
+  depends_on: [control, redpanda]
+
+services:
+  inspector:
+    image: nginx:1.29.0-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${AEGIS_GATEWAY_A_PORT:-18080}:8080"
+      - "127.0.0.1:${AEGIS_GATEWAY_B_PORT:-18083}:8083"
+      - "127.0.0.1:${AEGIS_CONTROL_PORT:-18081}:8081"
+      - "127.0.0.1:${AEGIS_WORKER_PORT:-18082}:8082"
+      - "127.0.0.1:${AEGIS_BASELINE_PORT:-18084}:8084"
+      - "127.0.0.1:${AEGIS_CANDIDATE_PORT:-18085}:8085"
+      - "127.0.0.1:${AEGIS_GRAFANA_PORT:-13000}:3000"
+      - "127.0.0.1:${AEGIS_PROMETHEUS_PORT:-19090}:9090"
+    volumes: [./deployment/nginx/reliability.conf:/etc/nginx/nginx.conf:ro]
+    networks: [aegis-entry, aegis-internal]
+    depends_on: [gateway-a, gateway-b, control, worker, baseline, candidate, grafana, prometheus]
+  gateway-a:
+    <<: *gateway
+    environment:
+      AEGIS_CONTROL_BASE_URL: http://control:8081
+      AEGIS_REDPANDA_BOOTSTRAP: redpanda:9092
+      AEGIS_GATEWAY_INSTANCE_ID: gateway-a
+      AEGIS_REQUEST_DEADLINE: 2s
+      AEGIS_EVIDENCE_GRACE: 15s
+  gateway-b:
+    <<: *gateway
+    environment:
+      AEGIS_CONTROL_BASE_URL: http://control:8081
+      AEGIS_REDPANDA_BOOTSTRAP: redpanda:9092
+      AEGIS_GATEWAY_INSTANCE_ID: gateway-b
+      AEGIS_REQUEST_DEADLINE: 2s
+      AEGIS_EVIDENCE_GRACE: 15s
+  control:
+    <<: *java
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.reliability
+      args: {APP: control, RUNTIME_IMAGE: "${AEGIS_RUNTIME_IMAGE:-eclipse-temurin:21-jre-jammy}"}
+    environment:
+      AEGIS_DATABASE_URL: jdbc:postgresql://postgres:5432/aegisroute
+      AEGIS_DATABASE_USERNAME: aegis
+      AEGIS_DATABASE_PASSWORD: aegis-synthetic-local
+      AEGIS_DEMO_BOOTSTRAP: "true"
+      AEGIS_DEMO_BASELINE_BASE_URL: http://baseline:8080
+      AEGIS_DEMO_CANDIDATE_BASE_URL: http://candidate:8080
+      AEGIS_EXPECTED_GATEWAYS: gateway-a,gateway-b
+    depends_on:
+      postgres: {condition: service_healthy}
+  worker:
+    <<: *java
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.reliability
+      args: {APP: worker, RUNTIME_IMAGE: "${AEGIS_RUNTIME_IMAGE:-eclipse-temurin:21-jre-jammy}"}
+    environment:
+      AEGIS_CONTROL_BASE_URL: http://control:8081
+      AEGIS_REDPANDA_BOOTSTRAP: redpanda:9092
+      AEGIS_WORKER_STORE: /var/lib/aegis/evidence.sqlite
+      AEGIS_CANDIDATE_DEADLINE: 2s
+      AEGIS_EVIDENCE_GRACE: 15s
+    volumes: [worker-evidence:/var/lib/aegis]
+    depends_on: [control, redpanda, candidate]
+  baseline:
+    <<: *java
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.reliability
+      args: {APP: mock-provider, RUNTIME_IMAGE: "${AEGIS_RUNTIME_IMAGE:-eclipse-temurin:21-jre-jammy}"}
+    environment:
+      AEGIS_MOCK_NAME: baseline
+      AEGIS_MOCK_RESPONSE_TEXT: Synthetic baseline response
+      AEGIS_MOCK_FAULT_CONTROLS: "true"
+  candidate:
+    <<: *java
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.reliability
+      args: {APP: mock-provider, RUNTIME_IMAGE: "${AEGIS_RUNTIME_IMAGE:-eclipse-temurin:21-jre-jammy}"}
+    environment:
+      AEGIS_MOCK_NAME: candidate
+      AEGIS_MOCK_RESPONSE_TEXT: Synthetic candidate response
+      AEGIS_MOCK_FAULT_CONTROLS: "true"
+  postgres:
+    image: postgres:17.6-alpine
+    restart: unless-stopped
+    environment: {POSTGRES_DB: aegisroute, POSTGRES_USER: aegis, POSTGRES_PASSWORD: aegis-synthetic-local}
+    volumes: [postgres-evidence:/var/lib/postgresql/data]
+    networks: [aegis-internal]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U aegis -d aegisroute]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  redpanda:
+    image: redpandadata/redpanda:v25.2.6
+    restart: unless-stopped
+    command: [redpanda, start, --overprovisioned, --smp, "1", --memory, 512M, --reserve-memory, 0M, --node-id, "0", --check=false, --kafka-addr, internal://0.0.0.0:9092, --advertise-kafka-addr, internal://redpanda:9092]
+    volumes: [broker-evidence:/var/lib/redpanda/data]
+    networks: [aegis-internal]
+    healthcheck:
+      test: [CMD, rpk, cluster, health, -X, brokers=localhost:9092]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    restart: unless-stopped
+    volumes: [./deployment/prometheus/reliability.yml:/etc/prometheus/prometheus.yml:ro]
+    networks: [aegis-internal]
+  grafana:
+    image: grafana/grafana:12.1.0
+    restart: unless-stopped
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_SECURITY_ADMIN_PASSWORD: aegis-synthetic-local
+    volumes:
+      - ./deployment/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./deployment/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks: [aegis-internal]
+
+networks:
+  aegis-entry:
+  aegis-internal: {internal: true}
+volumes:
+  postgres-evidence:
+  broker-evidence:
+  worker-evidence:

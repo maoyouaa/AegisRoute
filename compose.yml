@@ -73,6 +73,9 @@ services:
       AEGIS_CONTROL_BASE_URL: http://control:8081
       AEGIS_CANDIDATE_BASE_URL: http://candidate:8080
       AEGIS_REDPANDA_BOOTSTRAP: redpanda:9092
+      AEGIS_WORKER_STORE: /var/lib/aegis/evidence.sqlite
+    volumes:
+      - worker-evidence:/var/lib/aegis
     depends_on:
       - control
       - redpanda
@@ -188,3 +191,4 @@ networks:
 
 volumes:
   postgres-data:
+  worker-evidence:

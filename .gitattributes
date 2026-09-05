@@ -8,3 +8,7 @@
 *.zip binary
 gradlew text eol=lf
 gradlew.bat text eol=crlf
+
+# Evidence digests refer to exact original bytes on every platform.
+docs/evidence/reliability-20260905/original/** -text
+*.gz binary
