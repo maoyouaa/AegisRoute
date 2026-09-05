@@ -19,6 +19,11 @@
 
 ## 明确不声明
 
+`.gitleaksignore` 仅豁免一个精确指纹：Gitleaks 8.24.3 将提交 `90a741c` 中
+`saveResult(String key, ...)` 的 Java 类型 `ObservationV2` 误判为 API key。
+例外绑定不可变的 commit/path/rule/line，不全局排除文件或规则。本地对照复现原命中、
+确认只去除该条误报，并仍检出合成凭据形状的值及不同提交中的相同方法签名。
+
 本文不证明 GDPR、租户隔离、公网 IAM、渗透测试覆盖或生产就绪。这些能力需要不同的数据、身份、托管和运维边界。
 
 

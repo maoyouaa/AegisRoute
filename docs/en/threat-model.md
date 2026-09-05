@@ -19,6 +19,13 @@ Assets are route integrity, rollout decisions, synthetic event integrity, releas
 
 ## Explicit non-claims
 
+The secret scanner has one exact fingerprint exception in `.gitleaksignore`:
+Gitleaks 8.24.3 mistakes the Java type `ObservationV2` in `saveResult(String key, ...)`
+for a generic API key in commit `90a741c`. The exception fixes that immutable
+commit/path/rule/line only; no file or rule is globally excluded. Local controls
+reproduce the original finding, remove only that finding, and still detect a
+synthetic credential-shaped value and the same signature in a different commit.
+
 This model does not establish GDPR compliance, tenant isolation, Internet-safe IAM, penetration-test coverage, or production readiness. Those require different data, identity, hosting, and operational boundaries.
 
 
