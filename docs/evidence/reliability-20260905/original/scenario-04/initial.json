@@ -1,0 +1,21 @@
+{
+  "phase": "DRAFT",
+  "rolloutVersion": 1,
+  "route": {
+    "routeId": "de4036e7-b5d5-4319-b60f-4d817481d25a",
+    "rolloutId": "40b031e4-dcc1-4d7a-885b-192dd6f7d227",
+    "version": 16,
+    "baselineDeploymentId": "baseline-v2",
+    "baselineBaseUrl": "http://baseline:8080",
+    "candidateDeploymentId": "candidate-v2",
+    "candidateBaseUrl": "http://candidate:8080",
+    "candidateRatio": 0,
+    "checksum": "5534702738faf494cea226e1acc6cdc9d695ac21734dfba1765a9f973cc5d6af",
+    "createdAt": "2026-09-05T01:54:57.541275Z",
+    "phase": "DRAFT",
+    "shadowPercentage": 0,
+    "checksumVersion": 2
+  },
+  "window": null,
+  "decision": null
+}

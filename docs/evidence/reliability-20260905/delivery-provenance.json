@@ -1,0 +1,84 @@
+{
+  "run": "delivery-03",
+  "scope": "New delivery run, separate from the original frozen run. Full raw output and failed attempts remain local.",
+  "artifacts": [
+    {
+      "path": "delivery/RESULT.json",
+      "sourcePath": "build-evidence/delivery-03/RESULT.json",
+      "sha256": "c577a008e663de0db4716996f3f32c42d0350167570d541f3ea52560b46ce8f9",
+      "bytes": 78
+    },
+    {
+      "path": "delivery/parameters.json",
+      "sourcePath": "build-evidence/delivery-03/parameters.json",
+      "sha256": "8b3b6520ea10af8453f51398f5ca9840051e2844e65ea083b40a8c1f96459bb9",
+      "bytes": 488
+    },
+    {
+      "path": "delivery/runtime-binding.json",
+      "sourcePath": "build-evidence/delivery-03/runtime-binding.json",
+      "sha256": "fb57c3ad8ffb2be4f0c444d3b602aaea12f7e71aafba68da08e4990cde616d04",
+      "bytes": 37247
+    },
+    {
+      "path": "delivery/startup-snapshot.json",
+      "sourcePath": "build-evidence/delivery-03/startup-snapshot.json",
+      "sha256": "d7c01eca493c28a6e4f4fa0d8d0938de614163e3cfb6a9bb009833647f751b38",
+      "bytes": 2570
+    },
+    {
+      "path": "delivery/automatic-recovery.json",
+      "sourcePath": "build-evidence/delivery-03/automatic-recovery.json",
+      "sha256": "37c2efa1846683fa750cc9a1d15213ddcfd7fb8c9a9d0bdfc01e01236d5e4342",
+      "bytes": 4120
+    },
+    {
+      "path": "delivery/transport/PASS.json",
+      "sourcePath": "build-evidence/delivery-03/transport/PASS.json",
+      "sha256": "fdb48972038b39f3d66840ec7cd92cee72e91302e88149ed00a40a655f85c36f",
+      "bytes": 69
+    },
+    {
+      "path": "delivery/scenario/PASS.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/PASS.json",
+      "sha256": "9f689993554fd7ceebb7b05d9c1147f90884aec275d1aacad58c9f0c2e5b2bd4",
+      "bytes": 128
+    },
+    {
+      "path": "delivery/scenario/reconciliation.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/reconciliation.json",
+      "sha256": "44755f99c92f54b01991c5920fb1718e5234a63eef3e90a347fa0a408bfbbd42",
+      "bytes": 8954
+    },
+    {
+      "path": "delivery/scenario/broker-isolation.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/broker-isolation.json",
+      "sha256": "d382381169d94cb428022e56ac8d5cbe39dc3cc6d9e721895097c4355c519a4e",
+      "bytes": 127
+    },
+    {
+      "path": "delivery/scenario/online-convergence.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/online-convergence.json",
+      "sha256": "91aa35a8ae62d6ee397af0a75c337056ebb7f6659a13db7e8a9c737de87a7548",
+      "bytes": 303
+    },
+    {
+      "path": "delivery/scenario/final-status.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/final-status.json",
+      "sha256": "44b4c12fc3492ec36a77aa03f0d92d3ea455b5a4a2f8d039d02e8d9273e62b29",
+      "bytes": 1140
+    },
+    {
+      "path": "delivery/scenario/timeline.json",
+      "sourcePath": "build-evidence/delivery-03/scenario/timeline.json",
+      "sha256": "5c864baaeae3f5914ab5680bf91cc08f3a71d2486e0302c43a9aa11976726b98",
+      "bytes": 9481
+    },
+    {
+      "path": "delivery/jar-content-comparison.json",
+      "sourcePath": "docs/overnight/aegisroute-delivery-20260905/jar-content-comparison.json",
+      "sha256": "52a5648d646574046bf429e21ca7a2461edc5218df230261aad6521bd277f6b1",
+      "bytes": 1907
+    }
+  ]
+}

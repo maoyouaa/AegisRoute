@@ -1,0 +1,764 @@
+[
+  {
+    "epoch": 1788574163.439273,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 455kB",
+        "CPUPerc": "4.69%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "37.20%",
+        "MemUsage": "190.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "357kB / 364kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "0.09%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 352kB",
+        "CPUPerc": "0.61%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.84%",
+        "MemUsage": "260.3MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "7.94MB / 17.4MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 500kB",
+        "CPUPerc": "8.60%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "53.79%",
+        "MemUsage": "275.4MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "1.79MB / 58.6MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "0.45%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.06%",
+        "MemUsage": "225.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "391kB / 22.2MB",
+        "PIDs": "36"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "0.16%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "119.7MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.3MB / 27.7MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "0.84%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.03%",
+        "MemUsage": "6.02MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36MB / 36.7MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 150MB",
+        "CPUPerc": "1.61%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.04MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 18.9MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "0.31%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "64.16MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "691MB / 10.3MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "31.1MB / 10.5MB",
+        "CPUPerc": "3.62%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "112.7MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "3.84MB / 50.7MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 9.73MB",
+        "CPUPerc": "14.88%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.27%",
+        "MemUsage": "293.2MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.37MB / 50.1MB",
+        "PIDs": "62"
+      }
+    ]
+  },
+  {
+    "epoch": 1788574165.609168,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 455kB",
+        "CPUPerc": "4.43%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "37.32%",
+        "MemUsage": "191.1MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "375kB / 382kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "0.09%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 352kB",
+        "CPUPerc": "0.69%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.89%",
+        "MemUsage": "260.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "7.96MB / 17.4MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 500kB",
+        "CPUPerc": "26.87%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "55.88%",
+        "MemUsage": "286.1MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "1.84MB / 58.8MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "0.51%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.06%",
+        "MemUsage": "225.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "392kB / 22.2MB",
+        "PIDs": "36"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "0.09%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "119.1MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.3MB / 27.7MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "0.83%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.02%",
+        "MemUsage": "5.781MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36.1MB / 36.7MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 150MB",
+        "CPUPerc": "1.57%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.33MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 18.9MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "0.30%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "63.79MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "692MB / 10.3MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "31.7MB / 10.8MB",
+        "CPUPerc": "5.53%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "113.1MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "3.91MB / 50.9MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 9.73MB",
+        "CPUPerc": "14.85%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.32%",
+        "MemUsage": "293.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.43MB / 50.3MB",
+        "PIDs": "62"
+      }
+    ]
+  },
+  {
+    "epoch": 1788574167.654308,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 455kB",
+        "CPUPerc": "3.32%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "37.14%",
+        "MemUsage": "190.1MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "393kB / 400kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "0.11%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 352kB",
+        "CPUPerc": "0.93%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.75%",
+        "MemUsage": "259.8MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "7.97MB / 17.4MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 500kB",
+        "CPUPerc": "14.13%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "54.47%",
+        "MemUsage": "278.9MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "1.9MB / 59MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "0.69%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.06%",
+        "MemUsage": "225.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "394kB / 22.3MB",
+        "PIDs": "36"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "9.87%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "120.4MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.3MB / 27.8MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "1.67%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.02%",
+        "MemUsage": "5.406MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36.2MB / 36.9MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 150MB",
+        "CPUPerc": "1.67%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.11MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 18.9MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "7.36%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "65.77MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "692MB / 10.3MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "32.6MB / 11MB",
+        "CPUPerc": "6.37%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "112MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "3.99MB / 51.1MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 9.73MB",
+        "CPUPerc": "16.76%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.27%",
+        "MemUsage": "293.2MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.49MB / 50.4MB",
+        "PIDs": "62"
+      }
+    ]
+  },
+  {
+    "epoch": 1788574169.7017143,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 455kB",
+        "CPUPerc": "7.76%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "38.57%",
+        "MemUsage": "197.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "411kB / 418kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "0.08%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 352kB",
+        "CPUPerc": "0.89%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.90%",
+        "MemUsage": "260.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "7.99MB / 17.5MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 500kB",
+        "CPUPerc": "7.84%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "54.35%",
+        "MemUsage": "278.3MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "1.95MB / 59.2MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "2.23%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.16%",
+        "MemUsage": "226.1MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "395kB / 22.4MB",
+        "PIDs": "37"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "0.14%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "119MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.3MB / 27.8MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "0.82%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.02%",
+        "MemUsage": "6.004MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36.3MB / 37MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 150MB",
+        "CPUPerc": "1.70%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.21MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 19MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "0.27%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "64.73MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "693MB / 10.3MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "33.6MB / 11.3MB",
+        "CPUPerc": "5.96%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "112.6MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "4.06MB / 51.3MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 10.5MB",
+        "CPUPerc": "15.62%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.52%",
+        "MemUsage": "294.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.55MB / 50.6MB",
+        "PIDs": "62"
+      }
+    ]
+  },
+  {
+    "epoch": 1788574171.7481687,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "8.67%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "38.68%",
+        "MemUsage": "198MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "428kB / 436kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 475kB",
+        "CPUPerc": "0.09%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 365kB",
+        "CPUPerc": "0.64%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.84%",
+        "MemUsage": "260.3MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "8.01MB / 17.5MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 512kB",
+        "CPUPerc": "7.23%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "54.44%",
+        "MemUsage": "278.7MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "2MB / 59.4MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "0.50%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.10%",
+        "MemUsage": "225.8MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "396kB / 22.5MB",
+        "PIDs": "37"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "0.73%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "119.2MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.3MB / 27.8MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "0.81%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.02%",
+        "MemUsage": "5.809MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36.4MB / 37MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 150MB",
+        "CPUPerc": "1.59%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.79MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 19MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "0.30%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "64.86MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "693MB / 10.3MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "34.9MB / 11.6MB",
+        "CPUPerc": "5.90%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "112.2MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "4.14MB / 51.5MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 10.5MB",
+        "CPUPerc": "15.93%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.34%",
+        "MemUsage": "293.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.61MB / 50.7MB",
+        "PIDs": "62"
+      }
+    ]
+  },
+  {
+    "epoch": 1788574173.7901347,
+    "exitCode": 0,
+    "containers": [
+      {
+        "BlockIO": "0B / 467kB",
+        "CPUPerc": "6.61%",
+        "Container": "64b9b9d0d5e1c32e2c6e4c68246c828607b317970a8438d2f648ad9755b094f5",
+        "ID": "64b9b9d0d5e1",
+        "MemPerc": "38.63%",
+        "MemUsage": "197.8MiB / 512MiB",
+        "Name": "aegis-20260905-002645-baseline-1",
+        "NetIO": "446kB / 454kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 475kB",
+        "CPUPerc": "0.09%",
+        "Container": "57dfed760435ae51b1f57eaa8c5bbd3ee1034715e09e0d0d1f60a848a0d31827",
+        "ID": "57dfed760435",
+        "MemPerc": "36.82%",
+        "MemUsage": "188.5MiB / 512MiB",
+        "Name": "aegis-20260905-002645-candidate-1",
+        "NetIO": "251kB / 256kB",
+        "PIDs": "48"
+      },
+      {
+        "BlockIO": "0B / 365kB",
+        "CPUPerc": "0.74%",
+        "Container": "1616eda93db5f1c7cedd0dbe8645765ae16241691582104ee18d2baabe3a3a6a",
+        "ID": "1616eda93db5",
+        "MemPerc": "50.79%",
+        "MemUsage": "260.1MiB / 512MiB",
+        "Name": "aegis-20260905-002645-control-1",
+        "NetIO": "8.02MB / 17.6MB",
+        "PIDs": "32"
+      },
+      {
+        "BlockIO": "0B / 512kB",
+        "CPUPerc": "23.43%",
+        "Container": "4b1a40b9a8b9d0fe6f60954211ee5c0feeaac8be37e8d064931b0ffc7ec026b8",
+        "ID": "4b1a40b9a8b9",
+        "MemPerc": "54.52%",
+        "MemUsage": "279.2MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-a-1",
+        "NetIO": "2.06MB / 59.7MB",
+        "PIDs": "54"
+      },
+      {
+        "BlockIO": "0B / 340kB",
+        "CPUPerc": "0.80%",
+        "Container": "036576f0883ccfe841cbbc3266c2975b4b54991f0fd2ba3f504686eb08755013",
+        "ID": "036576f0883c",
+        "MemPerc": "44.21%",
+        "MemUsage": "226.3MiB / 512MiB",
+        "Name": "aegis-20260905-002645-gateway-b-1",
+        "NetIO": "399kB / 22.6MB",
+        "PIDs": "37"
+      },
+      {
+        "BlockIO": "13.3MB / 31.7MB",
+        "CPUPerc": "0.13%",
+        "Container": "2b2079c9f3aef461af44fa270a2ceb0f64008cf9a3cd6cbc268dbcec5e6dbdb4",
+        "ID": "2b2079c9f3ae",
+        "MemPerc": "0.50%",
+        "MemUsage": "119MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-grafana-1",
+        "NetIO": "12.4MB / 27.8MB",
+        "PIDs": "22"
+      },
+      {
+        "BlockIO": "0B / 4.1kB",
+        "CPUPerc": "0.79%",
+        "Container": "68b64574cb696f68ad9978acd65a7e274d4dce6991343c79c030976d9c55d139",
+        "ID": "68b64574cb69",
+        "MemPerc": "0.02%",
+        "MemUsage": "5.305MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-inspector-1",
+        "NetIO": "36.5MB / 37.2MB",
+        "PIDs": "2"
+      },
+      {
+        "BlockIO": "12.3MB / 151MB",
+        "CPUPerc": "1.60%",
+        "Container": "ee36cc19697248395a6763656ad6e09aa83e4bf51524550fa05c18c633ac8a2e",
+        "ID": "ee36cc196972",
+        "MemPerc": "0.31%",
+        "MemUsage": "74.31MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-postgres-1",
+        "NetIO": "18.5MB / 19MB",
+        "PIDs": "16"
+      },
+      {
+        "BlockIO": "0B / 34.9MB",
+        "CPUPerc": "0.38%",
+        "Container": "06b22bf792433fbda97029f9d2922520c6986c8de85f794aa2e1a42263c4f4f6",
+        "ID": "06b22bf79243",
+        "MemPerc": "0.27%",
+        "MemUsage": "65.15MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-prometheus-1",
+        "NetIO": "694MB / 10.4MB",
+        "PIDs": "21"
+      },
+      {
+        "BlockIO": "35.2MB / 11.9MB",
+        "CPUPerc": "5.97%",
+        "Container": "8f97a8a3f481e52d0095c55517b17f46a4a91a78bc9d71838cce01960f643326",
+        "ID": "8f97a8a3f481",
+        "MemPerc": "0.47%",
+        "MemUsage": "112.3MiB / 23.47GiB",
+        "Name": "aegis-20260905-002645-redpanda-1",
+        "NetIO": "4.21MB / 51.7MB",
+        "PIDs": "3"
+      },
+      {
+        "BlockIO": "0B / 11.2MB",
+        "CPUPerc": "15.23%",
+        "Container": "c5f67cec080211e1f750bd352f96051bf9d7426e920a7eea814c111916768d44",
+        "ID": "c5f67cec0802",
+        "MemPerc": "57.53%",
+        "MemUsage": "294.6MiB / 512MiB",
+        "Name": "aegis-20260905-002645-worker-1",
+        "NetIO": "3.67MB / 50.9MB",
+        "PIDs": "62"
+      }
+    ]
+  }
+]

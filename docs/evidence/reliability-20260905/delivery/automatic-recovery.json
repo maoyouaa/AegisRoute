@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "routeBefore": 11,
+  "dependencies": {
+    "postgres": {
+      "containerId": "9c61a665a55e2456608ba60cf689ced4c90980c1a0837f2ef58a27870aaa5379",
+      "restartsBefore": 0,
+      "restartsAfter": 1,
+      "healthAfter": "healthy"
+    },
+    "redpanda": {
+      "containerId": "9a97d391c84ea7312ece79d7cee8f6a1b21f69a796dab35b3889d115026a7bbf",
+      "restartsBefore": 0,
+      "restartsAfter": 1,
+      "healthAfter": "healthy"
+    }
+  },
+  "probes": [
+    {
+      "requestId": "dependency-recovery-0",
+      "stream": false,
+      "accept": "application/json",
+      "frames": [],
+      "status": 200,
+      "contentType": "application/json",
+      "body": "{\"id\":\"chatcmpl-8c5a6cf9-2c3e-46c6-966f-6f1ae73dbf11\",\"object\":\"chat.completion\",\"created\":1788594040,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+      "elapsedMs": 13.202300004195422
+    },
+    {
+      "requestId": "dependency-recovery-1",
+      "stream": true,
+      "accept": "text/event-stream",
+      "frames": [
+        "{\"id\":\"chatcmpl-0679c170-88c7-4be9-9327-9ccf7f725ece\",\"object\":\"chat.completion.chunk\",\"created\":1788594040,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+        "{\"id\":\"chatcmpl-0679c170-88c7-4be9-9327-9ccf7f725ece\",\"object\":\"chat.completion.chunk\",\"created\":1788594040,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+        "[DONE]"
+      ],
+      "status": 200,
+      "contentType": "text/event-stream;charset=UTF-8",
+      "firstFrameMs": 37.21830001450144,
+      "elapsedMs": 47.28540001087822
+    },
+    {
+      "requestId": "dependency-recovery-2",
+      "stream": false,
+      "accept": "application/json",
+      "frames": [],
+      "status": 200,
+      "contentType": "application/json",
+      "body": "{\"id\":\"chatcmpl-6309c148-633d-4df2-b55a-c8ca35e24a7a\",\"object\":\"chat.completion\",\"created\":1788594040,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+      "elapsedMs": 11.42460000119172
+    },
+    {
+      "requestId": "dependency-recovery-3",
+      "stream": true,
+      "accept": "text/event-stream",
+      "frames": [
+        "{\"id\":\"chatcmpl-f7215f2e-4ac7-4e77-a44c-5558b0834b3b\",\"object\":\"chat.completion.chunk\",\"created\":1788594041,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+        "{\"id\":\"chatcmpl-f7215f2e-4ac7-4e77-a44c-5558b0834b3b\",\"object\":\"chat.completion.chunk\",\"created\":1788594041,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+        "[DONE]"
+      ],
+      "status": 200,
+      "contentType": "text/event-stream;charset=UTF-8",
+      "firstFrameMs": 23.633799981325865,
+      "elapsedMs": 33.975500002270564
+    },
+    {
+      "requestId": "dependency-recovery-4",
+      "stream": false,
+      "accept": "application/json",
+      "frames": [],
+      "status": 200,
+      "contentType": "application/json",
+      "body": "{\"id\":\"chatcmpl-1fa9621c-f0bf-455b-bbe4-83ab59e43d59\",\"object\":\"chat.completion\",\"created\":1788594041,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+      "elapsedMs": 12.157599994679913
+    }
+  ],
+  "routeAfter": 11,
+  "controlHealth": "UP",
+  "workerHealth": "UP"
+}

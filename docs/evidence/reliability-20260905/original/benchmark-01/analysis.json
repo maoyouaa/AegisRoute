@@ -1,0 +1,482 @@
+{
+  "status": "PASS",
+  "totalMeasuredRequests": 1440,
+  "sameRequestFixtureSha256": "59830ac6e8a5b49403e0de31ea985fe3e02472a46a394f5386f399b4b6f39047",
+  "rows": [
+    {
+      "repeat": 1,
+      "mode": "off",
+      "routeVersion": 27,
+      "p50ms": 21.31405000545783,
+      "p95ms": 35.569140008010436,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 0,
+      "resources": {
+        "baseline": {
+          "samples": 6,
+          "cpuMeanPercent": 7.691666666666666,
+          "cpuPeakPercent": 12.59,
+          "memoryPeakMiB": 199.2
+        },
+        "candidate": {
+          "samples": 6,
+          "cpuMeanPercent": 0.09833333333333333,
+          "cpuPeakPercent": 0.13,
+          "memoryPeakMiB": 175.9
+        },
+        "control": {
+          "samples": 6,
+          "cpuMeanPercent": 1.055,
+          "cpuPeakPercent": 2.19,
+          "memoryPeakMiB": 259.9
+        },
+        "gateway-a": {
+          "samples": 6,
+          "cpuMeanPercent": 10.916666666666666,
+          "cpuPeakPercent": 13.43,
+          "memoryPeakMiB": 273.2
+        },
+        "gateway-b": {
+          "samples": 6,
+          "cpuMeanPercent": 0.6783333333333333,
+          "cpuPeakPercent": 1.14,
+          "memoryPeakMiB": 220.0
+        },
+        "grafana": {
+          "samples": 6,
+          "cpuMeanPercent": 2.8216666666666668,
+          "cpuPeakPercent": 9.18,
+          "memoryPeakMiB": 120.9
+        },
+        "inspector": {
+          "samples": 6,
+          "cpuMeanPercent": 1.0,
+          "cpuPeakPercent": 1.4,
+          "memoryPeakMiB": 5.949
+        },
+        "postgres": {
+          "samples": 6,
+          "cpuMeanPercent": 1.825,
+          "cpuPeakPercent": 2.14,
+          "memoryPeakMiB": 73.79
+        },
+        "prometheus": {
+          "samples": 6,
+          "cpuMeanPercent": 2.1,
+          "cpuPeakPercent": 7.27,
+          "memoryPeakMiB": 66.27
+        },
+        "redpanda": {
+          "samples": 6,
+          "cpuMeanPercent": 2.255,
+          "cpuPeakPercent": 2.84,
+          "memoryPeakMiB": 112.2
+        },
+        "worker": {
+          "samples": 6,
+          "cpuMeanPercent": 17.47833333333333,
+          "cpuPeakPercent": 25.91,
+          "memoryPeakMiB": 283.0
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "mode": "on",
+      "routeVersion": 28,
+      "p50ms": 12.011700004222803,
+      "p95ms": 33.845490009116475,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 240,
+      "resources": {
+        "baseline": {
+          "samples": 6,
+          "cpuMeanPercent": 3.8716666666666666,
+          "cpuPeakPercent": 4.56,
+          "memoryPeakMiB": 190.6
+        },
+        "candidate": {
+          "samples": 6,
+          "cpuMeanPercent": 6.373333333333333,
+          "cpuPeakPercent": 11.26,
+          "memoryPeakMiB": 193.0
+        },
+        "control": {
+          "samples": 6,
+          "cpuMeanPercent": 1.05,
+          "cpuPeakPercent": 1.76,
+          "memoryPeakMiB": 259.9
+        },
+        "gateway-a": {
+          "samples": 6,
+          "cpuMeanPercent": 11.323333333333334,
+          "cpuPeakPercent": 24.44,
+          "memoryPeakMiB": 274.5
+        },
+        "gateway-b": {
+          "samples": 6,
+          "cpuMeanPercent": 1.1183333333333334,
+          "cpuPeakPercent": 1.54,
+          "memoryPeakMiB": 221.5
+        },
+        "grafana": {
+          "samples": 6,
+          "cpuMeanPercent": 1.3183333333333334,
+          "cpuPeakPercent": 6.52,
+          "memoryPeakMiB": 119.8
+        },
+        "inspector": {
+          "samples": 6,
+          "cpuMeanPercent": 0.8516666666666667,
+          "cpuPeakPercent": 1.26,
+          "memoryPeakMiB": 5.703
+        },
+        "postgres": {
+          "samples": 6,
+          "cpuMeanPercent": 0.2866666666666667,
+          "cpuPeakPercent": 0.38,
+          "memoryPeakMiB": 73.83
+        },
+        "prometheus": {
+          "samples": 6,
+          "cpuMeanPercent": 1.4466666666666665,
+          "cpuPeakPercent": 6.84,
+          "memoryPeakMiB": 68.68
+        },
+        "redpanda": {
+          "samples": 6,
+          "cpuMeanPercent": 8.846666666666666,
+          "cpuPeakPercent": 9.1,
+          "memoryPeakMiB": 112.5
+        },
+        "worker": {
+          "samples": 6,
+          "cpuMeanPercent": 28.315,
+          "cpuPeakPercent": 31.63,
+          "memoryPeakMiB": 292.7
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "mode": "off",
+      "routeVersion": 31,
+      "p50ms": 20.590749991242774,
+      "p95ms": 34.058405010728166,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 0,
+      "resources": {
+        "baseline": {
+          "samples": 6,
+          "cpuMeanPercent": 5.913333333333333,
+          "cpuPeakPercent": 8.67,
+          "memoryPeakMiB": 198.0
+        },
+        "candidate": {
+          "samples": 6,
+          "cpuMeanPercent": 0.09166666666666666,
+          "cpuPeakPercent": 0.11,
+          "memoryPeakMiB": 188.5
+        },
+        "control": {
+          "samples": 6,
+          "cpuMeanPercent": 0.75,
+          "cpuPeakPercent": 0.93,
+          "memoryPeakMiB": 260.6
+        },
+        "gateway-a": {
+          "samples": 6,
+          "cpuMeanPercent": 14.683333333333334,
+          "cpuPeakPercent": 26.87,
+          "memoryPeakMiB": 286.1
+        },
+        "gateway-b": {
+          "samples": 6,
+          "cpuMeanPercent": 0.8633333333333333,
+          "cpuPeakPercent": 2.23,
+          "memoryPeakMiB": 226.3
+        },
+        "grafana": {
+          "samples": 6,
+          "cpuMeanPercent": 1.8533333333333333,
+          "cpuPeakPercent": 9.87,
+          "memoryPeakMiB": 120.4
+        },
+        "inspector": {
+          "samples": 6,
+          "cpuMeanPercent": 0.96,
+          "cpuPeakPercent": 1.67,
+          "memoryPeakMiB": 6.02
+        },
+        "postgres": {
+          "samples": 6,
+          "cpuMeanPercent": 1.6233333333333333,
+          "cpuPeakPercent": 1.7,
+          "memoryPeakMiB": 74.79
+        },
+        "prometheus": {
+          "samples": 6,
+          "cpuMeanPercent": 1.4866666666666668,
+          "cpuPeakPercent": 7.36,
+          "memoryPeakMiB": 65.77
+        },
+        "redpanda": {
+          "samples": 6,
+          "cpuMeanPercent": 5.558333333333334,
+          "cpuPeakPercent": 6.37,
+          "memoryPeakMiB": 113.1
+        },
+        "worker": {
+          "samples": 6,
+          "cpuMeanPercent": 15.545,
+          "cpuPeakPercent": 16.76,
+          "memoryPeakMiB": 294.6
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "mode": "on",
+      "routeVersion": 32,
+      "p50ms": 12.292949999391567,
+      "p95ms": 33.7337499964633,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 240,
+      "resources": {
+        "baseline": {
+          "samples": 6,
+          "cpuMeanPercent": 3.5966666666666667,
+          "cpuPeakPercent": 7.44,
+          "memoryPeakMiB": 198.6
+        },
+        "candidate": {
+          "samples": 6,
+          "cpuMeanPercent": 3.796666666666667,
+          "cpuPeakPercent": 5.69,
+          "memoryPeakMiB": 189.6
+        },
+        "control": {
+          "samples": 6,
+          "cpuMeanPercent": 0.7949999999999999,
+          "cpuPeakPercent": 1.19,
+          "memoryPeakMiB": 260.6
+        },
+        "gateway-a": {
+          "samples": 6,
+          "cpuMeanPercent": 10.343333333333334,
+          "cpuPeakPercent": 23.39,
+          "memoryPeakMiB": 282.7
+        },
+        "gateway-b": {
+          "samples": 6,
+          "cpuMeanPercent": 0.53,
+          "cpuPeakPercent": 0.63,
+          "memoryPeakMiB": 226.2
+        },
+        "grafana": {
+          "samples": 6,
+          "cpuMeanPercent": 1.7866666666666666,
+          "cpuPeakPercent": 5.96,
+          "memoryPeakMiB": 119.8
+        },
+        "inspector": {
+          "samples": 6,
+          "cpuMeanPercent": 0.92,
+          "cpuPeakPercent": 1.23,
+          "memoryPeakMiB": 6.125
+        },
+        "postgres": {
+          "samples": 6,
+          "cpuMeanPercent": 0.2966666666666667,
+          "cpuPeakPercent": 0.41,
+          "memoryPeakMiB": 74.57
+        },
+        "prometheus": {
+          "samples": 6,
+          "cpuMeanPercent": 3.2816666666666667,
+          "cpuPeakPercent": 9.39,
+          "memoryPeakMiB": 72.01
+        },
+        "redpanda": {
+          "samples": 6,
+          "cpuMeanPercent": 4.708333333333333,
+          "cpuPeakPercent": 5.11,
+          "memoryPeakMiB": 113.9
+        },
+        "worker": {
+          "samples": 6,
+          "cpuMeanPercent": 26.95,
+          "cpuPeakPercent": 31.02,
+          "memoryPeakMiB": 300.8
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "mode": "off",
+      "routeVersion": 35,
+      "p50ms": 10.404799999378156,
+      "p95ms": 32.85591500243754,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 0,
+      "resources": {
+        "baseline": {
+          "samples": 6,
+          "cpuMeanPercent": 4.421666666666667,
+          "cpuPeakPercent": 9.97,
+          "memoryPeakMiB": 200.4
+        },
+        "candidate": {
+          "samples": 6,
+          "cpuMeanPercent": 0.09166666666666666,
+          "cpuPeakPercent": 0.1,
+          "memoryPeakMiB": 188.8
+        },
+        "control": {
+          "samples": 6,
+          "cpuMeanPercent": 0.7383333333333333,
+          "cpuPeakPercent": 1.96,
+          "memoryPeakMiB": 261.6
+        },
+        "gateway-a": {
+          "samples": 6,
+          "cpuMeanPercent": 7.3133333333333335,
+          "cpuPeakPercent": 10.4,
+          "memoryPeakMiB": 283.4
+        },
+        "gateway-b": {
+          "samples": 6,
+          "cpuMeanPercent": 1.0166666666666666,
+          "cpuPeakPercent": 1.95,
+          "memoryPeakMiB": 227.2
+        },
+        "grafana": {
+          "samples": 6,
+          "cpuMeanPercent": 1.9583333333333335,
+          "cpuPeakPercent": 10.96,
+          "memoryPeakMiB": 120.5
+        },
+        "inspector": {
+          "samples": 6,
+          "cpuMeanPercent": 1.0716666666666668,
+          "cpuPeakPercent": 1.7,
+          "memoryPeakMiB": 6.133
+        },
+        "postgres": {
+          "samples": 6,
+          "cpuMeanPercent": 0.28,
+          "cpuPeakPercent": 0.4,
+          "memoryPeakMiB": 75.43
+        },
+        "prometheus": {
+          "samples": 6,
+          "cpuMeanPercent": 1.9533333333333334,
+          "cpuPeakPercent": 10.59,
+          "memoryPeakMiB": 64.82
+        },
+        "redpanda": {
+          "samples": 6,
+          "cpuMeanPercent": 2.105,
+          "cpuPeakPercent": 2.21,
+          "memoryPeakMiB": 114.2
+        },
+        "worker": {
+          "samples": 6,
+          "cpuMeanPercent": 18.481666666666666,
+          "cpuPeakPercent": 19.82,
+          "memoryPeakMiB": 301.6
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "mode": "on",
+      "routeVersion": 36,
+      "p50ms": 20.44755000679288,
+      "p95ms": 33.50901499579777,
+      "errors": 0,
+      "dropsDelta": 0.0,
+      "servingFacts": 240,
+      "completeShadowFacts": 240,
+      "resources": {
+        "baseline": {
+          "samples": 7,
+          "cpuMeanPercent": 2.7742857142857145,
+          "cpuPeakPercent": 3.58,
+          "memoryPeakMiB": 200.5
+        },
+        "candidate": {
+          "samples": 7,
+          "cpuMeanPercent": 4.247142857142857,
+          "cpuPeakPercent": 6.91,
+          "memoryPeakMiB": 191.7
+        },
+        "control": {
+          "samples": 7,
+          "cpuMeanPercent": 1.3485714285714285,
+          "cpuPeakPercent": 4.54,
+          "memoryPeakMiB": 265.2
+        },
+        "gateway-a": {
+          "samples": 7,
+          "cpuMeanPercent": 7.232857142857143,
+          "cpuPeakPercent": 11.66,
+          "memoryPeakMiB": 283.7
+        },
+        "gateway-b": {
+          "samples": 7,
+          "cpuMeanPercent": 0.5314285714285715,
+          "cpuPeakPercent": 0.74,
+          "memoryPeakMiB": 227.2
+        },
+        "grafana": {
+          "samples": 7,
+          "cpuMeanPercent": 1.872857142857143,
+          "cpuPeakPercent": 11.74,
+          "memoryPeakMiB": 120.6
+        },
+        "inspector": {
+          "samples": 7,
+          "cpuMeanPercent": 0.8057142857142857,
+          "cpuPeakPercent": 1.73,
+          "memoryPeakMiB": 5.969
+        },
+        "postgres": {
+          "samples": 7,
+          "cpuMeanPercent": 0.30428571428571427,
+          "cpuPeakPercent": 0.41,
+          "memoryPeakMiB": 74.81
+        },
+        "prometheus": {
+          "samples": 7,
+          "cpuMeanPercent": 1.5142857142857142,
+          "cpuPeakPercent": 9.52,
+          "memoryPeakMiB": 74.63
+        },
+        "redpanda": {
+          "samples": 7,
+          "cpuMeanPercent": 4.921428571428572,
+          "cpuPeakPercent": 6.93,
+          "memoryPeakMiB": 115.3
+        },
+        "worker": {
+          "samples": 7,
+          "cpuMeanPercent": 27.484285714285715,
+          "cpuPeakPercent": 34.91,
+          "memoryPeakMiB": 306.0
+        }
+      }
+    }
+  ],
+  "resourceMeaning": "Docker CPU percent: 100% is one logical CPU. Sparse samples per measured run; memory peak is only the largest observed sample, not a continuous maximum."
+}

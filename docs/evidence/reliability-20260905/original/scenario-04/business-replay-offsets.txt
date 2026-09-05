@@ -1,0 +1,5 @@
+TOPIC                 PARTITION  CURRENT-OFFSET  LOG-START-OFFSET  LOG-END-OFFSET  LAG   MEMBER-ID                                                         CLIENT-ID                    HOST
+aegis.observation.v2  0          840             0                 840             0     consumer-aegis-pairing-v2-1-0eaabf12-f4b9-4960-8a7f-11d60f61910a  consumer-aegis-pairing-v2-1  172.23.0.8
+
+TOPIC                      PARTITION  CURRENT-OFFSET  LOG-START-OFFSET  LOG-END-OFFSET  LAG   MEMBER-ID                                                        CLIENT-ID                   HOST
+aegis.shadow-requested.v2  0          296             0                 296             0     consumer-aegis-worker-v2-2-6a5edc80-95dc-4754-b9a3-a3b7044fb773  consumer-aegis-worker-v2-2  172.23.0.8

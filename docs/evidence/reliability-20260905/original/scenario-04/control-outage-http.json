@@ -1,0 +1,202 @@
+[
+  {
+    "requestId": "scenario-e82a4d86-control-outage-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ad9d505e-c2eb-44ba-b32e-49275837980a\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 38.06799999438226
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4cee7871-14c0-4c94-b3ca-98d388aaef3f\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.136700000264682
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fa4b3d5e-0149-4fe2-abfe-9d5b4d71c458\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 29.555799992522225
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-03c15ba9-3096-4bc9-807c-cfa1b54d7196\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.840800002682954
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8df3c5d4-1144-453a-af31-38ed210c5f7f\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 29.503599987947382
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2576b87e-92ce-482e-b653-220983f4225d\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 29.67589999025222
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-c9adefb6-56f2-4598-8859-85ce6afadc13\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.591499996138737
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-9de73c22-d0de-4269-9e09-4ba0c99b24cb\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.775799998664297
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-66de49d4-cba7-4537-986a-ee01922cbf55\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 28.763599999365397
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1dbe19da-bb08-4b45-b4ff-2434d8569f27\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.581100000417791
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d73fa010-c7dc-4810-a682-109ba288981d\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 31.432200004928745
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d89033cf-1efd-43e6-b5e8-bfe83f4e8d7c\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.921500001568347
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-050662db-e85e-4aed-bf91-364f318cca21\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.29519999551121
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d300d1c2-fbbc-4eb4-9c09-f88d0c4627f1\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.173599990201183
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b5d4a83c-4003-46ac-8203-61d1f8cdac2e\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.046599990455434
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-c03fdc5b-1721-44d4-bbf4-45288f5c0be5\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.11459998821374
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-05764947-e1d4-4f65-a3e2-ca17c398f9d5\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.05079999717418
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5fee7610-2b30-477f-97e4-f3b37c911ca3\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.852099997573532
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-eca8d5e9-2c36-4e97-9817-9d6cd983410a\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.507000003708526
+  },
+  {
+    "requestId": "scenario-e82a4d86-control-outage-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3d9f1b73-6e34-4aac-be54-a8e83462c686\",\"object\":\"chat.completion\",\"created\":1788573341,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 39.56340000149794
+  }
+]

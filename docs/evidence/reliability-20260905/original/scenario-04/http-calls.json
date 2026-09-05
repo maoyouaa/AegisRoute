@@ -1,0 +1,2914 @@
+[
+  {
+    "requestId": "scenario-e82a4d86-draft-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a0db333f-6ff2-47aa-a91f-57dce0ec29ca\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 37.04979999747593
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-47a66e01-e811-4095-92fa-4d607b591811\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 120.78220001421869
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-16e9a9e2-5e28-4923-88d3-95b3450fae53\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 18.92059999227058
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-88b15961-deea-4fad-ab35-5117ee5d9f8a\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 120.46069999632891
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a33ab35c-cb4c-4bdd-8500-609def232625\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.431400003260933
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-83ec56f9-b677-4bc1-8fac-32f11a3d2461\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 84.53770000778604
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-17f5e822-47aa-42a1-b983-34f6e14ca971\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.357400007313117
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-58b07306-dd65-4984-8eda-9461d848a079\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 66.2400000001071
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6852f379-78ae-47bf-8e37-8802c60877e1\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.939599994453602
+  },
+  {
+    "requestId": "scenario-e82a4d86-draft-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-223a75cb-5a50-436f-9917-9765533b9a7c\",\"object\":\"chat.completion\",\"created\":1788573310,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.090400007669814
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0a96bb25-642f-44ac-876d-34798c319ba3\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 78.1699000071967
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b4fd8315-c8b3-4453-9198-b4938eb465d9\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 77.27330000489019
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-610b7768-134e-4f94-936d-1fd79bc4cab8\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 76.26810000510886
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-708608fd-6ed3-44b8-99c1-b831b3e8cf1e\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 75.82660000480246
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0c571255-2164-4c9f-a676-1e8ba6826efc\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.927600004943088
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-72fb4bd6-5773-42f8-8a32-69aa70b2f291\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 22.47199999692384
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-83df5488-6658-4d71-98e2-b7f219c81bb3\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.84349999029655
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fc79bdea-e464-4145-b7c7-adde92fb105d\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 20.7347999967169
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-e08f03d6-2394-4e80-8c16-6a94f09e5836\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.707099992549047
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-dccf5362-9e50-49bc-bc29-c22d1e9ae99a\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 21.073099997011013
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2cf51883-c739-4394-b7a7-dfe47ac63895\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 18.66359999985434
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-586fc9c2-6f30-4df0-93fa-a246077bbf01\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 18.8919999927748
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5c473a57-2ecc-44da-bf2d-07d6fbfef6d4\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 18.814600000041537
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8f1aa878-62d4-4876-a491-bb93061a3866\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 22.182600005180575
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-953b54f1-fcb0-4d44-b401-440da162f1f1\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.219699999666773
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d019c6a0-625b-47b1-aa8e-8c09a02e88ab\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.979099990450777
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-95833d70-4b29-4045-b567-3e92edc5211b\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 33.839900002931245
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2961045c-9ab2-4513-b441-a4bbec724d21\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.136000005644746
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b8857120-750c-4d87-8a11-8ab46719f9dd\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.672199995606206
+  },
+  {
+    "requestId": "scenario-e82a4d86-initial-shadow-b-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6e5a83c3-5eed-40a9-b7d2-a960be44d344\",\"object\":\"chat.completion\",\"created\":1788573320,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.39639999868814
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-0",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-2b94c506-4330-4594-a216-ad4bfd076581\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-2b94c506-4330-4594-a216-ad4bfd076581\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 36.874999990686774,
+    "elapsedMs": 44.7476999979699
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-1",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-c9950962-88ca-4d5f-80e9-023f36ca77bb\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-c9950962-88ca-4d5f-80e9-023f36ca77bb\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 53.4851999982493,
+    "elapsedMs": 53.667999993194826
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-2",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-89af03a8-7997-4497-b9be-350c400eb441\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-89af03a8-7997-4497-b9be-350c400eb441\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.302499992889352,
+    "elapsedMs": 25.906800001394004
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-3",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-00ce4f83-ab73-4c1c-aac5-b2a018994ea3\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-00ce4f83-ab73-4c1c-aac5-b2a018994ea3\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 52.87790000147652,
+    "elapsedMs": 53.346000000601634
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-4",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-d312b454-a0fc-432e-8880-ceed8098569c\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-d312b454-a0fc-432e-8880-ceed8098569c\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.706199996406212,
+    "elapsedMs": 27.91319999960251
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-5",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-b22c14ca-7844-468f-ae5e-c6698a6aae08\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-b22c14ca-7844-468f-ae5e-c6698a6aae08\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 19.12090000405442,
+    "elapsedMs": 27.682799991453066
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-6",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-87eb418d-4393-488e-9a42-c62979a35e89\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-87eb418d-4393-488e-9a42-c62979a35e89\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 16.641800000797957,
+    "elapsedMs": 25.81990000908263
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-timeout-b-7",
+    "stream": true,
+    "accept": "text/event-stream",
+    "frames": [
+      "{\"id\":\"chatcmpl-39871f95-98da-4d94-b691-30e58121c284\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":\"Synthetic baseline response\"},\"finish_reason\":null}]}",
+      "{\"id\":\"chatcmpl-39871f95-98da-4d94-b691-30e58121c284\",\"object\":\"chat.completion.chunk\",\"created\":1788573425,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"delta\":{\"role\":null,\"content\":null},\"finish_reason\":\"stop\"}]}",
+      "[DONE]"
+    ],
+    "status": 200,
+    "contentType": "text/event-stream;charset=UTF-8",
+    "firstFrameMs": 17.005200003040954,
+    "elapsedMs": 25.3487000009045
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-45b12e8e-beae-4a3a-b4d2-d0961ef11f06\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 23.10810000926722
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d99d12a7-3261-459b-81c1-9dcb79cc1c1d\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 32.10739999485668
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1ca2fc74-9ad0-43ab-b004-f65996413afe\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 21.712299989303574
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-da823348-f76e-496f-ba0a-5bbcf414c71a\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 21.885800000745803
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5514aadd-a2f9-4a8f-bb99-26397eac42be\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.703299999586307
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7e0f6272-2265-47b3-abb7-fbbb9e2cb3b6\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.994100008858368
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-20444ee9-4c21-4947-92cf-cc926b982f9b\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.598100009607151
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-36b5e1e3-f1b1-46a5-a4c6-8486b1dfdd46\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.532099997974
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-23e569e5-46b7-41d9-93ba-39f77aff9695\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.718100006575696
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a36c480b-791d-4b4a-b87e-ab6e3d8e6b43\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.189199995598756
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-09de3c12-ec97-4673-8615-7e3f3878bb3e\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.250099993660115
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-101ae442-473a-4ca5-99b2-9ca60d3a95be\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.807200004928745
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5160a186-3e9e-4ea3-9727-278969300f32\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.89150000270456
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ea85666a-8264-4ed9-85ec-4f532a436fd4\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.086600003996864
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ceea668e-f524-4fb2-99e6-91a36346cfb2\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.94490000186488
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-cf600d13-2c1d-4450-af35-f54331fc6e3b\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.741600010893308
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b0ae5459-0e1a-4d00-b521-991a5c68408d\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.12569999229163
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ae13eb2c-68c7-40bb-84d6-2963d0f6cdcf\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.849100010702386
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-93b47b86-06bf-4f2d-ad99-7371cc645edf\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.645799990626983
+  },
+  {
+    "requestId": "scenario-e82a4d86-shadow-http500-b-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5ab6e2b7-dbc0-4f51-880f-906c6f6af9ac\",\"object\":\"chat.completion\",\"created\":1788573450,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.110800009802915
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-e2206eca-61bf-4142-be12-ca6d297e702a\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 20.221200000378303
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b9d17e66-c5ae-442e-8465-fd33f524cd36\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.491299986839294
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0d451b55-b113-4ed4-b406-d948b90b09b1\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.766299999901094
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1a1797bf-5925-4114-a1be-393dbfe98ea6\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.55580001231283
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0752264a-0aa8-4948-9591-30eae98e49f0\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.25159999821335
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-900e579e-3d1a-4918-a398-8a5e9034b68e\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 20.190099996398203
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ab6e4bc9-eb0b-41ce-8b41-9ad5e6fd939d\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.541900007519871
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ffad56a2-b9f8-430c-a02b-70d08919607b\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.186400003382005
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4eb3b4db-0988-497c-a924-3c15bff7efff\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 31.383900000946596
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-20cb711a-959f-45cc-9313-12864dd5d22f\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.17379999475088
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-bfedbc98-df0c-4b5a-bfec-cb9430e0ca15\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.219400007277727
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-015181d3-269b-42b7-9393-164b77ec1dc7\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.963000004878268
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-66b238b1-43e0-4983-81e4-602b3b880e65\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.532499993569218
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fcfdf706-fecd-4d11-95a3-26af195135be\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 29.85409999382682
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fe2d63cb-41f2-4718-ac56-558be408b551\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 25.41200000268873
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-bfff99ee-e03a-4f92-9d62-b3bd4e798746\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.108299990766682
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8e7a0c2d-9f3b-4e60-aabf-86ae18d04562\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.566800004104152
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b73fb66d-c723-4ac7-81a3-ebdf143a9414\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.364699993166141
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7c453d7d-923f-42a8-822b-345fa0e28b40\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.186400003382005
+  },
+  {
+    "requestId": "scenario-e82a4d86-recovered-shadow-b-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-cc969a43-7fbc-4acf-96fb-e773be7e210d\",\"object\":\"chat.completion\",\"created\":1788573475,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.146800007438287
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d1f9128a-13c2-4ab7-a0e0-f4041ec78a4f\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 17.068000001017936
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4b14f743-997b-41c7-97a2-4f4a8561b929\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.889399994397536
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7def34d4-1ef5-4542-bbba-e76d3ab78cde\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.474300005938858
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ab22716c-6e8e-4b9f-934f-71fd2088b953\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.97680000064429
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b82aa50b-a23b-4aea-9e83-0eb0b9346072\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.603700008592568
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d9f72b3f-2be2-49cb-b91b-464b38e13c21\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.575799999875017
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-70e47321-b197-4719-a5dc-ceb03b7fe3dd\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 37.830000001122244
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-e5012662-9cf9-4c88-96b8-770362259819\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.382300000055693
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3c0e7f85-2ede-46ed-b5c5-db8d5b52d326\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 42.158399999607354
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a2075a31-e09c-48dc-a2be-977acd56bf2e\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.23750000342261
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-69e2e616-c7f3-462b-b286-9b6120f7c3ae\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.776199994026683
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-00a57632-915f-46c1-9f58-d58b06700101\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.980899999500252
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-67ff6689-a701-46e6-af74-5e593ff9e7b0\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.26729999750387
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8337589f-1826-4d65-a6be-5f7830522465\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.77609999710694
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-61a2431e-f896-4a60-86f8-b169781af1b9\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.121700005489402
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ce14eb57-6d1e-42b2-b062-294286f76a38\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.201100002741441
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-c43fb3e3-8e30-40f5-be29-09b2f9e3af7c\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 25.972900009946898
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4180e2b7-fc5f-4203-bad2-7e450a3fc281\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.695599991478957
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0b728047-5bb8-45f9-9f0e-be8da1ca9dbe\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.362999990931712
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-b-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a1837d22-c04b-4c15-89cb-cf7cab2e5037\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 31.42640000442043
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-163",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8ec40bf1-ce77-4d03-9d14-92fd7401d4ba\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 29.88560000085272
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-247",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-be2f3128-5b23-4855-a89b-5496b4a21125\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 27.46379999734927
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-294",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-187b77c2-7f17-4e7a-a129-0983cec93d23\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.268799993791617
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-517",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b9e185b5-6609-4e79-ad61-84cbb0d8dc04\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.24420000310056
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-582",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-583d5a59-6d64-48fb-82e2-54a9ce10c142\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.862100003985688
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-627",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b269e054-83a3-4ed2-aecb-1178d2891af8\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.487199994619004
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-713",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7e72a228-8c1c-428a-8f86-fb046c72720a\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.429499991820194
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-742",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ec0454c4-062d-4096-8d20-14c13ee88ade\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.180400005192496
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-824",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f69d8c08-de6a-4037-a6f4-d60d42437605\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.061099995160475
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-915",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-94074446-ae76-431e-8939-8d0405608c2e\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.88590000756085
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1046",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2da0fb59-2d67-4ed1-b3b3-15a290f89ac6\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.532700006384403
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1122",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a23a68bc-697d-40cb-9ba1-1e3b2fc887e0\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.6210999955656
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1329",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-581f06ab-7f2d-4684-8243-5af546c6c50d\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.602899998659268
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1552",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7643df32-4585-449c-82c1-864cad0b73fb\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.963200006401166
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1646",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-9b8f626c-07a8-40ca-8f8f-3944e16479bb\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.156099990941584
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1860",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a483747c-6d63-469e-977e-e0223c2c0007\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 27.87650001118891
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1878",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-00cabe36-9535-4530-b8df-517bc4caaf27\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.11440000811126
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1933",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8746201e-b693-4521-8e7d-06524b9b38a6\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.309099999489263
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-1959",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-dc34df34-db42-4628-8a74-2d72b318741b\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.739300004090182
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-1-c-2142",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-bf62de2a-c47b-4ea4-8036-a7f6e749892d\",\"object\":\"chat.completion\",\"created\":1788573500,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.566699999500997
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-72cb13e8-cdd2-452d-9cc8-78c24301509f\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.528499996638857
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-017df1d7-068e-44c8-8fd5-e84e71e1326b\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.473099996801466
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-07ba8532-d2e6-4101-a2bb-b3d8f49f2045\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.793600003235042
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0b8db1c7-723b-4135-95b0-2b7c1683f31e\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.94660000409931
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-cb31f22d-9c11-4254-a604-0ed3c61d44db\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.828199986368418
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b1640b10-cd10-4616-a4fc-015ee1fc893f\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.618100001825951
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-aae5a272-6dbb-43bd-940d-67452d3d3f9f\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.586700010113418
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f5bbe73f-08ce-4045-9949-a2dab0a68958\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.632499991217628
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fa19d4c7-138f-4bb5-af63-1e09432dd744\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.549400002579205
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-859e9f7b-d533-40d0-b222-a86d20f73f37\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.14249998924788
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-770444be-2b6e-4305-84d8-fcabf8107c10\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.657599993166514
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-e4e9237d-617f-4236-99f2-cb73ed8a9645\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.110900010564364
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3e774513-9bba-4bb1-a536-b84a6184b7b3\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.584299991838634
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-21db7d87-5028-4f8d-8a66-cd3c55c0043f\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.219999997294508
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-60b790e3-4dcf-4e39-bac3-63544827c969\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.123600005405024
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a872364f-0c05-4bcb-bf70-b1b79b8c6689\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.270300001953728
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-89155b2b-e967-4de3-99bb-8ac7a2b3d3b2\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 24.35910000349395
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-158d482a-6c1e-4baf-842c-5fc75c6a1b97\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.717800004291348
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-20",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-84647f1a-7b44-4a4a-a622-ff94a15e6317\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.341200003400445
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-b-21",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f0fa8376-7493-4a7a-92ee-f30334f525d3\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.851900002919137
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-dcd5628c-9005-4b61-a26e-3569ab41d634\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.763899991521612
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-47172b0b-0fee-47d6-b15f-cfcb0d3070cb\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.658500003861263
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-22",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5fe22810-ac93-4224-957d-d7a0501d6453\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.507600004435517
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-25",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1018356d-4718-41e6-8f88-f7f6349fa861\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.75820000958629
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-28",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b636e0da-1063-4bdb-9d5b-aefc6172821d\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.53159999800846
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-40",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b6e8fcbb-f41b-44ab-a453-8a4a1f273e18\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.289700004155748
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-43",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6bc2fa8e-4933-4e56-9204-5e937ff525f3\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.521399993100204
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-44",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7db73b16-c8b3-4918-a5aa-092f95d4b19c\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 11.729199992259964
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-49",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-71ac1dbc-cf5b-48c1-8fc8-b10cc5e8306a\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 11.96620000700932
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-52",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4f84b6f4-ff53-4606-982b-e6c9b6965cc2\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 11.29660000151489
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-57",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-63b48889-0e88-46e7-bcaa-d214bc1483aa\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.346499996259809
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-64",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-42ed8b80-3a87-4d76-919b-32277b1c698d\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.069200002471916
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-77",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ab0ffd01-bb21-4708-9a22-b6580e3830c2\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.064399987342767
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-78",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-60e7a3e6-62b8-4a82-a3ee-ec802850ce26\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.03079999727197
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-87",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b4be8e5d-45e4-4b4f-9740-f4f16cefc3c0\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.827799997874536
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-89",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-71799e03-3b1d-47e1-bf7a-8cb60f27c3f7\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.600200011045672
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-93",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5d59b7ec-7f8f-4167-8f14-30f703b1e7c8\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.674800007720478
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-146",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-39576fb0-dce6-4f37-be28-3d180c3295ef\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 26.8008999992162
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-164",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-95fe0908-572d-4ec9-a749-13f82dc62efe\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.91959999455139
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-10-c-168",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3e394baa-2d66-4f95-8dcd-ce63587821ed\",\"object\":\"chat.completion\",\"created\":1788573525,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.54489999357611
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0b73e694-581b-4110-a168-7b860bab4d1e\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 20.363400006317534
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b4b7b50e-760f-4abb-aa1a-c39d7cb26688\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 35.1432999887038
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8540d014-f13f-45b1-9381-f61e0a967166\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 18.897799993283115
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3a18f3a7-ef77-44f2-8c95-93244a47a563\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 19.11409999593161
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a960f7d0-2367-4735-b970-6360916ac9e6\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.556300011463463
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-9a965936-7991-4a8c-baad-32e28e3e02b0\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.835099995252676
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a9d90ffa-30e5-4bde-bd3f-01c935165142\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.109399999142624
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1f13582b-70a4-438b-80ba-f90920d95141\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.93540000228677
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-20",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-74fc12c7-a592-44c6-8b6e-cf62454c30bf\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.198099994449876
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-21",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-c7e7126d-d5af-41c8-9efa-88f8ee6b9536\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.928899996448308
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-24",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fa32dd7b-2752-4ef0-8976-9d3f7e94172f\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.222099998733029
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-25",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ea23eec3-ef77-48f7-a718-1f913671da8f\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.21590000973083
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-30",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f0f1723c-4357-4eb7-9593-5cc4bb1dfebd\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.160899998387322
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-31",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-ec02e436-11a0-4f87-8477-f041931dfc2a\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.86199999251403
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-32",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-e63c1180-8277-4252-a743-8e5d57c8a0f4\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 26.70380000199657
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-33",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0ed83683-0d2b-4471-91ed-877d6e3d4350\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.563000000431202
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-34",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-92786d0c-78bd-437c-a32d-7d8268f5db9a\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.1070999923395
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-35",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-3442472a-1678-48f2-90ac-71bbcf6aecbd\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.075800001388416
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-36",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-d146326c-363c-4b2a-a804-5aa45c4909bd\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.64780000585597
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-b-38",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-9c5fa95f-1518-430a-a8c6-3c62415e581b\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.16919999953825
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-25374d7c-7e9e-4f80-b703-a072fd4c19de\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.67809998919256
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-20297654-73f4-4e8f-bd04-f26d41fb0360\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.927500007208437
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-968a54ff-2d34-4a46-a71a-8a342e73ecb2\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.653299989528023
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b6abc3af-f8b0-431b-948f-fd0a3a9338ec\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.65819999773521
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f0b6c71c-1ec2-40cd-b719-cac15f76d4cb\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.15150001028087
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5f66141d-df8e-40e4-910d-608daf8cc51f\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.791199987987056
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-1da49939-c76b-45b3-9071-b6d971f765df\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.482699996326119
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5659adc0-440e-4659-b8bb-4e05ffd0f0c5\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.578499998198822
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-987cfbac-0893-4916-8930-ffbd53a81229\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.374600002658553
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-bf06c419-88d3-4af5-aec7-3296d571458a\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.493000001995824
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-01457a7f-d08c-416e-8c16-e75baeb972ff\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.561799995135516
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-69bcc5bd-0219-45dc-846f-2380dd8f0fed\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.328199991723523
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-21",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5da6515a-e0cf-456d-ac3c-18f644aa5d25\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.784599999780767
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-24",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-43a6b5f0-5e28-4fe2-84ba-4f96989fa5c0\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.800900007481687
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-28",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-702454da-787d-4a6f-9f74-d76d1268277d\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.637199997901917
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-31",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a667707a-efd1-441d-b9b5-aac76c2a30ec\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.614700001198798
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-32",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-52c1aae5-2c9b-4e38-8600-122b317ef0c8\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.997700003325008
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-37",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6b482a18-3ec6-4ae4-829d-5fdd9358651c\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.579799997387454
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-39",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-6122af61-2cdd-4191-985d-1acd7c347176\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.380799995502457
+  },
+  {
+    "requestId": "scenario-e82a4d86-canary-50-c-40",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a350ee1e-5f21-49af-b3d3-35892664eb3a\",\"object\":\"chat.completion\",\"created\":1788573550,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.248000002931803
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a58ef958-953b-4d44-9b6b-879229fab167\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.647000007447787
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-24def782-9c30-45fb-be7a-4d68734bcf1d\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.10059999418445
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a73287d5-4aa4-4e73-a84b-8124c9e7d1a2\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.832899993052706
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-76c913e9-07ec-439b-b38e-9ff8aa4e8ebd\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 16.577200003666803
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-064695ee-0a82-44f4-a677-35b9af137dd6\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.5706000108039
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-4914dd41-8e55-4e52-a07d-0dc627411b73\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.23969999793917
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-7a887a94-6aac-4d35-833a-e585fe3dd14d\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.609500001417473
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-5b963614-aaae-440a-a82a-91e4e61e4b0b\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 33.93299999879673
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-364e497b-1ba3-4d4c-827e-bf3bad75346f\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.672199998633005
+  },
+  {
+    "requestId": "scenario-e82a4d86-full-once-c-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-a896112f-4550-4181-b2cf-bc1d3aa8f4bb\",\"object\":\"chat.completion\",\"created\":1788573575,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic candidate response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.49719999032095
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 14.432099997065961
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 29.603000002680346
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 14.27289999264758
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 14.026000004378147
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 15.256300001055934
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 15.177799999946728
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 32.388499996159226
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.650299991946667
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.66330000362359
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.637600011657923
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.93349999084603
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 23.816599990823306
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.807099988800474
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.522599994554184
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.19580000906717
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.991699997452088
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.673600009293295
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.335299994447269
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.119100007112138
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-0-c-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.11670000338927
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 15.771999998833053
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 30.01810000569094
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 15.036600001621991
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 15.020199993159622
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.498499989509583
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.58559999789577
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.747599994530901
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.470400004531257
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.325299991061911
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.217499999678694
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 24.102199997287244
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.873900006525218
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.516299990238622
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.199899996630847
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.94400000188034
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.465099997119978
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.233299992862158
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.621299989405088
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.588899990078062
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-1-c-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 24.16099999391008
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.509399999747984
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.835699992137961
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.64979998813942
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 24.965000004158355
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.485800005379133
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.678500002948567
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.53500000166241
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 13.336900010472164
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 24.708999990252778
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.955199999851175
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-10",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 12.7440999931423
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-11",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 23.254300002008677
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-12",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.39349999721162
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-13",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.415300003136508
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-14",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 22.71580000524409
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-15",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.483500013127923
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-16",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.281399987637997
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-17",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 11.267900001257658
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-18",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 26.1398000002373
+  },
+  {
+    "requestId": "scenario-e82a4d86-breach-2-c-19",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 502,
+    "contentType": "application/json",
+    "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+    "elapsedMs": 10.998099998687394
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-47c98cf5-5b7c-4726-b763-944099b63ffe\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.977800004999153
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-eecc0e34-c1df-4bc1-aa27-d6ac2b6a8908\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.600499998778105
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-60fc3496-bc41-4c3b-8eb4-6fda85b6a616\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 31.09200000471901
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-722541e3-9fe1-45b0-bbeb-bf889185f1cb\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.298899986897595
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-47515ec9-6a5f-44f1-b65b-3b78a9b7426e\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.077499995939434
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-425ab346-7445-49e9-8681-95ff3aa1ed24\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.255299996468239
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-266c7d3b-a232-48a6-ad42-a6f2597e8c7d\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 30.998700007330626
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-2e4941c1-f98e-404a-9b14-c8fb8b047eda\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.589400008437224
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-fd87c48f-7962-4729-a21e-8eea9de39c6a\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 12.299599999096245
+  },
+  {
+    "requestId": "scenario-e82a4d86-rolled-back-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-b34c0ae6-d1d6-498f-b584-6fad066c77f3\",\"object\":\"chat.completion\",\"created\":1788573620,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.163800002075732
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-0",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-de55d7fc-8418-4e35-9cdf-acb3240d5d47\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.54639999428764
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-1",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-64887e8e-1473-4039-b97f-55c5b99f6514\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 15.124400000786409
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-2",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-8bc1ed8d-049c-4093-9502-6c8cf9821abd\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.96410001325421
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-3",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0b4ba4ec-2cf3-4d72-a019-79090cf31954\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.896599994041026
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-4",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-555575b5-89c0-47af-8463-3d9dfa8d171e\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.138500002445653
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-5",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-f31911f4-2715-401f-8bdb-0aac38b0f70d\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 14.149499998893589
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-6",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-adce72a5-3e31-4c66-96cf-cb3ee6da4b6f\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.186599986511283
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-7",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-9c042ce1-13b3-4b94-907c-b9e604deef1d\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.495299994247034
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-8",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-0b72ae39-40ba-4b35-9d84-fe122a40c834\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.58549999713432
+  },
+  {
+    "requestId": "scenario-e82a4d86-paused-b-9",
+    "stream": false,
+    "accept": "application/json",
+    "frames": [],
+    "status": 200,
+    "contentType": "application/json",
+    "body": "{\"id\":\"chatcmpl-757a1f57-2219-4896-a8e8-9fd6e13e22c9\",\"object\":\"chat.completion\",\"created\":1788573625,\"model\":\"synthetic\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"Synthetic baseline response\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":0,\"completion_tokens\":0,\"total_tokens\":0}}",
+    "elapsedMs": 13.29289999557659
+  }
+]

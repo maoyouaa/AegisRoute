@@ -1,0 +1,8 @@
+{
+  "seed": 20260905,
+  "count": 240,
+  "concurrency": 4,
+  "ratePerSecond": 20,
+  "warmupRequests": 20,
+  "client": "Python http.client; new TCP connection per request; Nginx in both modes"
+}

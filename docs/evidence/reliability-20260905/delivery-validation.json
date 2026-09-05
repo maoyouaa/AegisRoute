@@ -1,0 +1,66 @@
+{
+  "capturedUtc": "2026-09-05T07:55:54.746045+00:00",
+  "status": "LOCAL_PREPARATION_PASS",
+  "branch": "fix/0-reliability-delivery-20260905",
+  "head": "9983b647225cd4ec6ba6702785c1839be3225df9",
+  "sourceTreeSha256": "29b0dbc77ec06351732d2921ee0640c9801eb70429c4adb72f3396c1c3be7bb2",
+  "sourceFiles": 226,
+  "committed": false,
+  "pushed": false,
+  "pullRequestCreated": false,
+  "remoteCi": "NOT_RUN",
+  "wrapper": {
+    "tasksExecuted": 94,
+    "tests": 85,
+    "integration": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "rawLogSha256": "54954feec0a55dfa7862e3b11180cb7f514c47b16e92e1843c8ca96fa468a1c9"
+  },
+  "runtime": {
+    "project": "aegis-delivery-20260905-03",
+    "result": "PASS",
+    "transportCases": 14,
+    "sealedWindows": 20,
+    "policyAndManualDecisions": 2,
+    "onlineConvergenceMs": 1101.66,
+    "startupLkgColdProcess": "PASS",
+    "brokerLossAndLatencyBound": "PASS",
+    "pid1AutomaticRecovery": "PASS",
+    "allCapturedSamplesSealed": true,
+    "sixJavaServiceJarsBound": true,
+    "jarEqualityWithOriginalFrozenBuild": {
+      "gateway-a": false,
+      "gateway-b": false,
+      "control": false,
+      "worker": false,
+      "baseline": false,
+      "candidate": false
+    },
+    "recursiveJarEntryContentEquality": "PASS: all four app JARs and nested JAR contents match; archive hashes differ",
+    "cleanup": "Own project stopped; volumes retained; original projects not recreated."
+  },
+  "offlineBundle": "PASS: 113 original artifacts independently recomputed",
+  "preflight": "5 refusal cases PASS",
+  "staticChecks": [
+    "default/dev/reliability Compose",
+    "runtime storage/restart/Control boundary policy",
+    "Python/PowerShell syntax",
+    "workflow YAML and pinned read-only actions",
+    "documentation relative links",
+    "git diff --check"
+  ],
+  "review": "Independent read-only review; all reported in-scope blockers addressed.",
+  "retainedFailures": [
+    "Initial Docker discovery failure",
+    "delivery-01 host/server bucket alignment",
+    "delivery-02 final snapshot ordering"
+  ],
+  "limits": [
+    "No new benchmark or UI recording in delivery preparation; original evidence is historical.",
+    "Remote CI/merge/release not performed.",
+    "Default dynamic Gateway recreation and expired idempotency-key replacement remain separate.",
+    "Synthetic-only; no disk-loss/HA/production/security-compliance claim."
+  ]
+}

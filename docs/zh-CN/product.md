@@ -56,15 +56,15 @@ Worker 先用仓库内 JSON Schema 校验事件，再调用 candidate；它负�
 
 ## 可复现本地验收
 
-从全新的合成 Compose 数据库开始，将 Gateway 扩为两个实例并运行验收脚本：
+使用隔离的 v2 验收入口；它创建新项目并固定 Gateway A/B 成员，保留已有项目和证据卷：
 
 ```powershell
-docker compose down --volumes
-docker compose up --build --wait --scale gateway=2
 .\scripts\acceptance.ps1
 ```
 
-脚本验证人工 Canary 阶梯、连续三个确定性 breach window、不可变 decision 和 ratio-zero revision、两个 Gateway acknowledgement、无 Snapshot 启动、Control 故障时 LKG，以及 Redpanda 故障时 baseline 独立性。它在本地保存原始 evidence，CI 会上传等价目录作为 artifact。
+端口、新项目名、生命周期/传输故障、原始证据及清理命令见
+[当前复现指南](../../scripts/reliability/README.md)。[状态与路线图](status-and-roadmap.md)
+单独记录当前证据，不将上文的历史发布目标写成已完成结果。
 
 ## 爱尔兰求职叙事
 

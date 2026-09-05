@@ -1,0 +1,70 @@
+{
+  "phase": "ELIGIBLE",
+  "rolloutVersion": 3,
+  "route": {
+    "routeId": "7d11b17f-6e8f-4886-a258-c562ec22193b",
+    "rolloutId": "40b031e4-dcc1-4d7a-885b-192dd6f7d227",
+    "version": 17,
+    "baselineDeploymentId": "baseline-v2",
+    "baselineBaseUrl": "http://baseline:8080",
+    "candidateDeploymentId": "candidate-v2",
+    "candidateBaseUrl": "http://candidate:8080",
+    "candidateRatio": 0,
+    "checksum": "c6719925d58fac95e620e12df4da1e7ed6cc438d523a27514501506f782fb621",
+    "createdAt": "2026-09-05T01:55:16.063318Z",
+    "phase": "SHADOW",
+    "shadowPercentage": 100,
+    "checksumVersion": 2
+  },
+  "window": {
+    "evidence": {
+      "schemaVersion": 2,
+      "windowId": "c7fba0eb-ca3a-3ba5-b68e-d7f9b8005d2f",
+      "windowVersion": 1,
+      "route": {
+        "routeId": "7d11b17f-6e8f-4886-a258-c562ec22193b",
+        "rolloutId": "40b031e4-dcc1-4d7a-885b-192dd6f7d227",
+        "version": 17,
+        "baselineDeploymentId": "baseline-v2",
+        "baselineBaseUrl": "http://baseline:8080",
+        "candidateDeploymentId": "candidate-v2",
+        "candidateBaseUrl": "http://candidate:8080",
+        "candidateRatio": 0,
+        "checksum": "c6719925d58fac95e620e12df4da1e7ed6cc438d523a27514501506f782fb621",
+        "createdAt": "2026-09-05T01:55:16.063318Z",
+        "phase": "SHADOW",
+        "shadowPercentage": 100,
+        "checksumVersion": 2
+      },
+      "windowStart": "2026-09-05T01:57:05Z",
+      "windowEnd": "2026-09-05T01:57:10Z",
+      "servingObserved": 8,
+      "candidateRequests": 0,
+      "candidateErrors": 0,
+      "completePairs": 8,
+      "baselineErrors": 0,
+      "shadowErrors": 8,
+      "unpairedSamples": 0,
+      "pendingSamples": 0,
+      "sampleDigest": "48a4ecba6d4028d2984cd91a504fb19cc1242c2cf70c6ac8bdeeda7c3fad524f"
+    },
+    "result": {
+      "windowId": "c7fba0eb-ca3a-3ba5-b68e-d7f9b8005d2f",
+      "status": "ACCEPTED",
+      "eligible": false,
+      "breached": false,
+      "consecutiveBreaches": 0,
+      "decisionId": null,
+      "targetRouteVersion": 0,
+      "expectedServing": 8,
+      "observedServing": 8,
+      "expectedShadow": 8,
+      "completePairs": 8,
+      "unpairedSamples": 0,
+      "droppedEvents": 0,
+      "pendingSamples": 0,
+      "coverage": 1.0
+    }
+  },
+  "decision": null
+}

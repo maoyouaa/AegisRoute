@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "decisionId": "d5695ea7-8cee-460b-acf1-465d60a75d7a",
+  "targetRouteVersion": 7,
+  "convergenceMilliseconds": 1101.66,
+  "strictUpperBoundMilliseconds": 5000,
+  "scope": "Selected online policy rollback only; offline manual rollback has a separate pending-state gate."
+}

@@ -1,0 +1,196 @@
+{
+  "capturedAt": "2026-09-05T01:55:48.431608+00:00",
+  "source": "full-check-02.log",
+  "suites": [
+    {
+      "suite": "io.github.maoyouaa.aegisroute.control.ControlPersistenceIntegrationTest",
+      "path": "apps\\control\\build\\test-results\\integrationTest\\TEST-io.github.maoyouaa.aegisroute.control.ControlPersistenceIntegrationTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.control.ReliabilityIntegrationTest",
+      "path": "apps\\control\\build\\test-results\\integrationTest\\TEST-io.github.maoyouaa.aegisroute.control.ReliabilityIntegrationTest.xml",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.control.api.RolloutControllerContractTest",
+      "path": "apps\\control\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.control.api.RolloutControllerContractTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.control.persistence.CanonicalInputTest",
+      "path": "apps\\control\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.control.persistence.CanonicalInputTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.control.service.ReliabilityMetricsTest",
+      "path": "apps\\control\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.control.service.ReliabilityMetricsTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.api.ChatControllerEventCorrelationTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.api.ChatControllerEventCorrelationTest.xml",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.api.ChatControllerStreamContractTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.api.ChatControllerStreamContractTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.GatewayApplicationContextTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.GatewayApplicationContextTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotPollerTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotPollerTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStoreTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.routing.RouteSnapshotStoreTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueueTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.shadow.BoundedShadowQueueTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.gateway.shadow.GatewayAdmissionLedgerTest",
+      "path": "apps\\gateway\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.gateway.shadow.GatewayAdmissionLedgerTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.mockprovider.MockFaultControlTest",
+      "path": "apps\\mock-provider\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.mockprovider.MockFaultControlTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.worker.DurableEvidenceStoreTest",
+      "path": "apps\\worker\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.worker.DurableEvidenceStoreTest.xml",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.worker.ResultPairingStoreTest",
+      "path": "apps\\worker\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.worker.ResultPairingStoreTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.worker.ShadowEligibilityEvaluatorTest",
+      "path": "apps\\worker\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.worker.ShadowEligibilityEvaluatorTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.worker.WorkerApplicationContextTest",
+      "path": "apps\\worker\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.worker.WorkerApplicationContextTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.contracts.schema.EventSchemaContractTest",
+      "path": "modules\\contracts\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.contracts.schema.EventSchemaContractTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.domain.provider.FailureClassifierTest",
+      "path": "modules\\domain\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.domain.provider.FailureClassifierTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.domain.rollout.RolloutTransitionsTest",
+      "path": "modules\\domain\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.domain.rollout.RolloutTransitionsTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.domain.routing.ShadowLifecycleTest",
+      "path": "modules\\domain\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.domain.routing.ShadowLifecycleTest.xml",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.domain.routing.StableSamplerTest",
+      "path": "modules\\domain\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.domain.routing.StableSamplerTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "io.github.maoyouaa.aegisroute.provider.openai.OpenAiCompatibleProviderDeadlineTest",
+      "path": "modules\\provider-spi\\build\\test-results\\test\\TEST-io.github.maoyouaa.aegisroute.provider.openai.OpenAiCompatibleProviderDeadlineTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "totals": {
+    "tests": 85,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

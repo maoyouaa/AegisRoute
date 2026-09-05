@@ -1,0 +1,1135 @@
+{
+  "sourceTreeSha256": "39086a2711ffa095286abffb8ab9cbf81f4ddfc4533962217641c5c28dcf4778",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 73,
+      "sha256": "8d051cfa515065c2c44668da46a5e43dcd3a6ed41e27964819a4a30563306706"
+    },
+    {
+      "path": ".editorconfig",
+      "bytes": 272,
+      "sha256": "fdbdcf428eaeb9d1d45120152ac2806bfbce836cebecc0e510aeae91ca72e86e"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 171,
+      "sha256": "48de60059ed6fb88108b75d075303b3d25ba89dfada70908c7b53d3c9765453b"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "bytes": 12,
+      "sha256": "f7368d6e6e5440f894889f49888f00086615eeb08a3c6d53cff0c900ba1f2f47"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug.yml",
+      "bytes": 632,
+      "sha256": "fe5234c7153ed78fe9bcf2b15ad2524a0aeabacd3324d94f5eda0de8a7114c08"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature.yml",
+      "bytes": 855,
+      "sha256": "8b3d643882ab46228ce7bfe59d19eac2aff0d2a825b4fb90e5feb1239676e065"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "bytes": 594,
+      "sha256": "b29c5d6e34887777c65d3c076653167ee40824cdb25b7569eecc3075ec863cea"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 2590,
+      "sha256": "7974137238abb7e5a44831f383730c0e38f6f5f01af30a5209602abfbac11f15"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "bytes": 656,
+      "sha256": "70ef333372c47dc655c884c864039e57e350acf387ab654477bb4a11baeb2157"
+    },
+    {
+      "path": ".github/workflows/compose-chaos.yml",
+      "bytes": 1357,
+      "sha256": "63f3dced40e12ab362f8819d6ff7906b59bbff7d061dac320f987583a3c0d97e"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "bytes": 2458,
+      "sha256": "9d306997435214804c121c10eed1eef6aa462ee22183489b76ac33fa4abb6a1d"
+    },
+    {
+      "path": ".github/workflows/supply-chain.yml",
+      "bytes": 765,
+      "sha256": "dd06fd65b832005f1b081d39f3fc75f92aadc8d7cfe99e59f556d4d9a17fc1ed"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 492,
+      "sha256": "ea2d2c5dc2c94aa5f9cdd410805760b7451b11dd26eff33eb258e2277ea20b16"
+    },
+    {
+      "path": ".release-please-manifest.json",
+      "bytes": 19,
+      "sha256": "b9c66e0126774ab9fa34536f15972438356e7035724a2c0f0ca3b125967e6399"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 6938,
+      "sha256": "bf96e30067c20c7afc6495695b66b4d77d09338b3b49f8261d3a158f79357abb"
+    },
+    {
+      "path": "apps/control/build.gradle.kts",
+      "bytes": 1380,
+      "sha256": "6d71003174d95581944bb68db1efc5987abd64ed0b2447d71bec8bc742304a19"
+    },
+    {
+      "path": "apps/control/src/integrationTest/java/io/github/maoyouaa/aegisroute/control/ControlPersistenceIntegrationTest.java",
+      "bytes": 10024,
+      "sha256": "bb3c3a1cc89b0897a3d20c5bf8f7b1d9dc12b9bb865f89163149687a8c1f022e"
+    },
+    {
+      "path": "apps/control/src/integrationTest/java/io/github/maoyouaa/aegisroute/control/ReliabilityIntegrationTest.java",
+      "bytes": 17595,
+      "sha256": "639ba5ba199af8dc8a5f18d7545711d478b38a92f8d933caf933a63583572a83"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/ApiException.java",
+      "bytes": 469,
+      "sha256": "3952130d712c2cd443970c5835c66a5162eefbd861a91cb6cf8f74f0a4dc44a2"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/ApiExceptionHandler.java",
+      "bytes": 1773,
+      "sha256": "696e5e1dab09d1cf08a794b8da99ccfa4e776f4aa97fa562d9f99945d1aa21dd"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/CreateRolloutRequest.java",
+      "bytes": 269,
+      "sha256": "3b38b8dccbe5a1bb1de31022d9a8479e24e5e6dd8daf57381c90b2018fe1b0e1"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/EligibilityController.java",
+      "bytes": 1264,
+      "sha256": "b95d3633063d50e9b40a3745ff0226ee255b30ba260914a8a749404dc776080b"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/EligibilitySubmission.java",
+      "bytes": 124,
+      "sha256": "2d5803fe700e7c09c170a6a6bcd715d248df789e9ed61e35b16023f6fd8d3b94"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/EvidenceController.java",
+      "bytes": 980,
+      "sha256": "8a64c9b37fe82332ea186130f59f9751ec9f1fd421a7d945be89f8ad7c517c39"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/EvidenceSubmission.java",
+      "bytes": 204,
+      "sha256": "5e7763b000029af56707646542b056529f21405c25259ecf1ad218756b9cdea9"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/MutationRequest.java",
+      "bytes": 138,
+      "sha256": "cfd470b514f934a3464f86469e475e208818ca4dce5e23948cbca2d1e983ccdc"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/PolicyEvaluationResponse.java",
+      "bytes": 272,
+      "sha256": "eb84fd6845fe8016b7a1972ed6441cba34b41f26516dd4a08aa4e9ea95694bd2"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/ReliabilityController.java",
+      "bytes": 1468,
+      "sha256": "7e48b502fcb26bce1e1a06d9332eca09715e4f81690100e3a8c60a4e8148aa62"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/RolloutController.java",
+      "bytes": 1730,
+      "sha256": "82b71cf56c2568cb7215b37f55c41643bd797623cb6b48f38fe2b1392d9c3d98"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/RolloutResponse.java",
+      "bytes": 344,
+      "sha256": "6e8b6fef28776db42cc4e62fdcbd3c9877e42423c398b6c6f37399f0b83b1e14"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/RouteAppliedRequest.java",
+      "bytes": 255,
+      "sha256": "59eb20bb081acc964a981dbc125142e11ade250a5dfc874269b1623f390ed7a7"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/RouteSnapshotController.java",
+      "bytes": 3185,
+      "sha256": "414255b63274bd82282eabeae7ef7a6cb2bfd02864bd9a4c70d7bd549a431aec"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/api/WindowReceipt.java",
+      "bytes": 462,
+      "sha256": "565b7dcab335aa18bea40482d835db86d1a02e93d2ccde67346b25e3df325360"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/ControlApplication.java",
+      "bytes": 419,
+      "sha256": "ac520eaf94f797b4a00477b6bded7ea75646f3a58074e3f3f382ce49969cfbfe"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/persistence/CanonicalInput.java",
+      "bytes": 1082,
+      "sha256": "241cb39a184687fbd67bcd29cabe03f6ae75eed29d811e9a357bcd4213aceb8d"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/persistence/ControlConfiguration.java",
+      "bytes": 793,
+      "sha256": "36a3babb6ecb7314a57946ad83443aecb52d60f2e9a9ee8bee4e53bd8b9aaee0"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/DemoBootstrap.java",
+      "bytes": 1877,
+      "sha256": "868307af2289ec4345d904e67fc2646ddc4cdb3a3bb61c27f87f0be4a71fccaf"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/EvidenceService.java",
+      "bytes": 7875,
+      "sha256": "cbad5f4c4ab65a838aa363fdb50df58a17b04cdf5d65199e77938da22bf2fc65"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/ReliabilityMetrics.java",
+      "bytes": 4744,
+      "sha256": "4fabb669a7f6ecd7836ab79d90aec237cac2000fda986365f7825d1dcc696a9e"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/ReliabilityRepository.java",
+      "bytes": 12075,
+      "sha256": "bf4fbf1bc52b4140bd7911ed0b2297151b076c7079cee663a8c06ef6893a4eb7"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/ReliabilityStatus.java",
+      "bytes": 3684,
+      "sha256": "b065ad91b2516406e91d9df49aba464efae0b764c554282c02dae929e17a12fe"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/RollbackService.java",
+      "bytes": 3209,
+      "sha256": "d981adc48c6f4eb28e79e4261e9e7c64a7259682f9dcf1f29d4f6826fc9401e5"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/RolloutRepository.java",
+      "bytes": 18651,
+      "sha256": "4141c4ad3e843923f2d539d777246cccf827ca2e8255677fd80861d8652d46ca"
+    },
+    {
+      "path": "apps/control/src/main/java/io/github/maoyouaa/aegisroute/control/service/RolloutService.java",
+      "bytes": 9953,
+      "sha256": "9ff2a12e6d93a43f29d055bfd24283decf7302da20c6c67c56e1f37b72a23369"
+    },
+    {
+      "path": "apps/control/src/main/resources/application.yml",
+      "bytes": 416,
+      "sha256": "4a3e2ef3aa926f47ddbaf92c93b444d9702bb462200f136d5496545db3f6bb32"
+    },
+    {
+      "path": "apps/control/src/main/resources/db/migration/V1__control_schema.sql",
+      "bytes": 4332,
+      "sha256": "8acc9abe04a4aa8f31f4e172660c3518540252931d13e65b38541a92f78f7663"
+    },
+    {
+      "path": "apps/control/src/main/resources/db/migration/V2__recoverable_evidence_and_exact_acks.sql",
+      "bytes": 5749,
+      "sha256": "6a8d2a56a00b65f59deb894aa3469c27344bc56254b5ddd0e090eef66a6a8444"
+    },
+    {
+      "path": "apps/control/src/test/java/io/github/maoyouaa/aegisroute/control/api/RolloutControllerContractTest.java",
+      "bytes": 2395,
+      "sha256": "32341fd89fa4a3315af240ee42a5ef550baabe104e43729a8969edf0de4f7604"
+    },
+    {
+      "path": "apps/control/src/test/java/io/github/maoyouaa/aegisroute/control/persistence/CanonicalInputTest.java",
+      "bytes": 733,
+      "sha256": "0caa03f191fed24a3cdb15da865b9e650dfa17030e50edd1a9bc00a8209a0c5a"
+    },
+    {
+      "path": "apps/control/src/test/java/io/github/maoyouaa/aegisroute/control/service/ReliabilityMetricsTest.java",
+      "bytes": 1161,
+      "sha256": "630504422d037a8b86e0a535bc6fb5ddab98336a5720ad3336d904c09eb6b235"
+    },
+    {
+      "path": "apps/gateway/build.gradle.kts",
+      "bytes": 1069,
+      "sha256": "a45e501dd28c58379a339fd9661d25c738233bf9e12d1fcce0e25cf8d79b5a1c"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/ChatController.java",
+      "bytes": 9603,
+      "sha256": "dd3bbf7d0d2d74b9591eca2404488ad3cd0971bdb1b61f9604e45b675c3e5ee7"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/GatewayExceptionHandler.java",
+      "bytes": 1894,
+      "sha256": "876e3ea029f05f4c48433f3adc7efa770c35de8cf3283b2ae777f43f1d7ec99d"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/ProviderConfiguration.java",
+      "bytes": 1637,
+      "sha256": "09e95e77cff6408a0bcdda8fbd4b0ca8409f64f39136400d1925ddf1bfec937a"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/ServingMetrics.java",
+      "bytes": 1095,
+      "sha256": "c508d2523a2e1f2f8d74bee4c9363e796264f7a3626232c42c84ad10a885e1dd"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/GatewayApplication.java",
+      "bytes": 419,
+      "sha256": "f79f79320b293108415492b7185ed9762d7d39b60007b842f832206a743f0f6f"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/routing/GatewayHealthController.java",
+      "bytes": 874,
+      "sha256": "97b8f954d265d28d4e7851b863e22c2979fec91a7b59498c9a0bb6bdf8fe8711"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteMetrics.java",
+      "bytes": 716,
+      "sha256": "02af5bb23e155a26c362f2e2936f0f27d448eb56c57f00efaa23d647d3c85215"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotPoller.java",
+      "bytes": 3679,
+      "sha256": "d9070089983691c4cb6fa84b117eb3abc78cfef358d382561b349e603054efc1"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotStore.java",
+      "bytes": 1771,
+      "sha256": "096bd05c15a794d204c6c1fe56cb87303e511504ddaff34c5e1da7294951c32a"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/BoundedShadowQueue.java",
+      "bytes": 2610,
+      "sha256": "babe193ad2031af7566dda7cd8d0286a91b7b6fe18646484caace760c4b2635f"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/GatewayAdmissionLedger.java",
+      "bytes": 6219,
+      "sha256": "4a1d93186b3b820edb9020a6744d16f9eb820a89381003009403068f03110855"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/ShadowDropReason.java",
+      "bytes": 506,
+      "sha256": "b2a701e3cfceb8d8c2c08d82b6794bbb414a3376395a0e6d253fcd7fecbc063d"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/ShadowEnvelope.java",
+      "bytes": 318,
+      "sha256": "48e56d493cb2ada272319373f6c4f2ef9a856d01ea68cbf7701091418ccc0401"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/ShadowPublisher.java",
+      "bytes": 3871,
+      "sha256": "76d4e175d221d7149f7b3383b73a1b942c36d0158b09fbf87459a4443cb3340e"
+    },
+    {
+      "path": "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/shadow/ShadowQueueConfiguration.java",
+      "bytes": 616,
+      "sha256": "3200e14e082f9c4b1e9460fc2df60ef9ab8cc6dbac278ef19e7b3314cb600e2a"
+    },
+    {
+      "path": "apps/gateway/src/main/resources/application.yml",
+      "bytes": 913,
+      "sha256": "58c6f517782bf6c6cc5557ce6882a4ee8b571260c597930edfb0d28ed81eb650"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/api/ChatControllerEventCorrelationTest.java",
+      "bytes": 5446,
+      "sha256": "bb2a078b736204af6033cb145ffc0e455f4a0cd687cea3aade7be8dadd413773"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/api/ChatControllerStreamContractTest.java",
+      "bytes": 6602,
+      "sha256": "75a1da5aa7994c3e6c25afd301e4d98d78745f436d897b10c5bf256b64b493de"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/GatewayApplicationContextTest.java",
+      "bytes": 1964,
+      "sha256": "fc3b8a1d98857796e7ee082b9ad181af4ca818ab183cad3317db179cc25c1519"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotPollerTest.java",
+      "bytes": 3785,
+      "sha256": "ca8d65fa62e5d645cbbd9fb327a92f09bd9bcd5bf365c8452976d44ec494f66d"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotStoreTest.java",
+      "bytes": 1706,
+      "sha256": "d82b9aeab15af9f2712e68eda86ab438de1cbc5b7b102b3d493f6561cddc2d8a"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/shadow/BoundedShadowQueueTest.java",
+      "bytes": 1313,
+      "sha256": "c9968a3ceb3f9141cf4a8d165de80e945717a3fed59ac7a0dddbbba51e02989e"
+    },
+    {
+      "path": "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/shadow/GatewayAdmissionLedgerTest.java",
+      "bytes": 3990,
+      "sha256": "3ff3c100b49ce673749bbeefc25dfadb9e89013a0dbdbb2c2e6a637fb4220b56"
+    },
+    {
+      "path": "apps/mock-provider/build.gradle.kts",
+      "bytes": 686,
+      "sha256": "7a1a6a41190f2cfb69cadd2ef08bdd4633511d69f6d9aba457617fe1b6ea6004"
+    },
+    {
+      "path": "apps/mock-provider/src/main/java/io/github/maoyouaa/aegisroute/mockprovider/MockProviderApplication.java",
+      "bytes": 349,
+      "sha256": "da895f1fa65ab9dcdb0a7f764be1b21f894589051792cb74e73709cffa127795"
+    },
+    {
+      "path": "apps/mock-provider/src/main/java/io/github/maoyouaa/aegisroute/mockprovider/MockProviderController.java",
+      "bytes": 7585,
+      "sha256": "f675029ffd181154753911b40660b2e8f05e65b7db13f7e5ccc6aefe75467f95"
+    },
+    {
+      "path": "apps/mock-provider/src/main/java/io/github/maoyouaa/aegisroute/mockprovider/MockProviderProperties.java",
+      "bytes": 571,
+      "sha256": "7b5f134e6bfad089aba6536cfd784cc9d25ca85a2f34115cde6cd41ca37d4294"
+    },
+    {
+      "path": "apps/mock-provider/src/main/resources/application.yml",
+      "bytes": 441,
+      "sha256": "aa29c97c0afc3706065026c202d4fe54e90a9dc7478b611b86095c34ef92ed80"
+    },
+    {
+      "path": "apps/mock-provider/src/test/java/io/github/maoyouaa/aegisroute/mockprovider/MockFaultControlTest.java",
+      "bytes": 1966,
+      "sha256": "230a670633da7e777032c08276b4369365509d7ba70557243146a9b4949368da"
+    },
+    {
+      "path": "apps/worker/build.gradle.kts",
+      "bytes": 1190,
+      "sha256": "62519017640c0c92a1cff152bdef177f4eebc91ed463fa75543f202df0ff311b"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/DurableEvidenceStore.java",
+      "bytes": 17628,
+      "sha256": "ae6a21ec69daa8b4e58f5c34534ff03e5262bd5c61fd1706e5290795882c7494"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/PairingConsumer.java",
+      "bytes": 1472,
+      "sha256": "eb63f8e29508236cf06ee03637f29f197de0a2d7e0c50f9f86e96c9f5578fb65"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/ResultPairingStore.java",
+      "bytes": 2606,
+      "sha256": "61951ec7dae30432ce45730dda184110489ccf9f0d3664043e854b3e1445e067"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/ServingEvidenceAggregator.java",
+      "bytes": 2047,
+      "sha256": "2e668e6cd21cefb35288114a83bf3c62d15959d678a06e3919b610591ede2b9b"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/ShadowEligibilityEvaluator.java",
+      "bytes": 2700,
+      "sha256": "ba84a2555514e5af894ba037570a2fdd07a3e79c4848ec0b5d03e5e5b0a3c920"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/ShadowWorker.java",
+      "bytes": 4942,
+      "sha256": "486a5847acc4b333b8f94da7e0ac7c63f26077e9ba6c30dc73df9c288f72f75f"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/TrustedRouteResolver.java",
+      "bytes": 1925,
+      "sha256": "e4afea9f6d2391bbdf4cbf8103f3de515bb20210a9055b9f0bcfc8407989942b"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/WorkerApplication.java",
+      "bytes": 416,
+      "sha256": "e9c65e7649cea08e7502e33ef55153fbd17a40d8dc472ebe5c0f7b0f29131a07"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/WorkerConfiguration.java",
+      "bytes": 2483,
+      "sha256": "48ca0419680a5e7d8e778d07cec00b1b268141c431d2f512280992e12927406f"
+    },
+    {
+      "path": "apps/worker/src/main/java/io/github/maoyouaa/aegisroute/worker/WorkerMetrics.java",
+      "bytes": 891,
+      "sha256": "63978680b11d6220ae4a6bcb0e5a2a15ef0e5ebc603837fccef544be84d1864f"
+    },
+    {
+      "path": "apps/worker/src/main/resources/application.yml",
+      "bytes": 1009,
+      "sha256": "1b06f11891ecb0acb2c34faf6c9994c34e18b6eb4060092ed01c26427f0badf7"
+    },
+    {
+      "path": "apps/worker/src/test/java/io/github/maoyouaa/aegisroute/worker/DurableEvidenceStoreTest.java",
+      "bytes": 14790,
+      "sha256": "c4d32919352b7c4016d8e6a665cf03d5340e4a39fbb4632b07539b5335c6d5d5"
+    },
+    {
+      "path": "apps/worker/src/test/java/io/github/maoyouaa/aegisroute/worker/ResultPairingStoreTest.java",
+      "bytes": 3940,
+      "sha256": "fe2ae9109daaf5a4d2bcb6bc29206aa627e44af64003ff6a4a90b1bed249d81b"
+    },
+    {
+      "path": "apps/worker/src/test/java/io/github/maoyouaa/aegisroute/worker/ShadowEligibilityEvaluatorTest.java",
+      "bytes": 2482,
+      "sha256": "1119c2cdaea45a32cc34cec063834975deb472d7b6f12ee656b51605e0edc3b5"
+    },
+    {
+      "path": "apps/worker/src/test/java/io/github/maoyouaa/aegisroute/worker/WorkerApplicationContextTest.java",
+      "bytes": 483,
+      "sha256": "dba158b1c8ddc176cabe1bb282ff0cf8f60eb2e22b6247724992ac60e1b6769e"
+    },
+    {
+      "path": "build.gradle.kts",
+      "bytes": 5236,
+      "sha256": "ba74ffd509cde7a28018de26ec09383096b66afc56deb716d1bda1efef65bc7d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 82,
+      "sha256": "73e95cc4515abfcb359ddd67bc608d9a4226b3540e72f85a991acb6cadef0d55"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "bytes": 1090,
+      "sha256": "c0172f3aa9742c7cdc8857113e31186f4eb804607e0b48832c033abb9a8af06b"
+    },
+    {
+      "path": "compose.dev.yml",
+      "bytes": 169,
+      "sha256": "0904aed54194b67bd07a3d408e320a9b2436a1c86ddc139938814a9d2371afbb"
+    },
+    {
+      "path": "compose.reliability.yml",
+      "bytes": 5168,
+      "sha256": "ad3621246cd5e0404ca8469b4e7db3e4589f6e0c34b5aada184acd81ef578ec9"
+    },
+    {
+      "path": "compose.yml",
+      "bytes": 4262,
+      "sha256": "a33459f09e81e14fa20747c12f67059a9036a0d08f454cab103653e4b7cfaf04"
+    },
+    {
+      "path": "contracts/events/v1/baseline-observed.schema.json",
+      "bytes": 1080,
+      "sha256": "20b64d75a7e1b3b366d0ecd6f12450d8c40d9298532943107fc225c586cdeb39"
+    },
+    {
+      "path": "contracts/events/v1/candidate-observed.schema.json",
+      "bytes": 1139,
+      "sha256": "2dc2354f1c9a26b366b299e8114336e6d3bc8cb4221ccf08530b0e2bbc90087c"
+    },
+    {
+      "path": "contracts/events/v1/fixtures/baseline-observed.json",
+      "bytes": 381,
+      "sha256": "46a6506f8f79728c26e75a58b67ea0559404b459f1df6cf861ffdaad3cf68d28"
+    },
+    {
+      "path": "contracts/events/v1/fixtures/candidate-observed.json",
+      "bytes": 408,
+      "sha256": "1cab3e3c5763763a6c121a6e6723484a942c026849cdd6208fd1cf91ba7e8d56"
+    },
+    {
+      "path": "contracts/events/v1/fixtures/route-applied.json",
+      "bytes": 309,
+      "sha256": "2fa28a6db278e4528320bf2d09d3d19de08927ff6c876b067b3535f0de916c01"
+    },
+    {
+      "path": "contracts/events/v1/fixtures/serving-observed.json",
+      "bytes": 352,
+      "sha256": "53becdcf5a6628672c0ff7629fb7fc7962881ec8ef7a177d23a1ddf9cafb5bf2"
+    },
+    {
+      "path": "contracts/events/v1/fixtures/shadow-requested.json",
+      "bytes": 495,
+      "sha256": "d532673ccccb6a044c68700cd82d89b977a4ddefbea7e1ca703362d36994e6d7"
+    },
+    {
+      "path": "contracts/events/v1/route-applied.schema.json",
+      "bytes": 780,
+      "sha256": "c08007d37bf0263c60868b6a607023f3bef36ae7b6f6cf50a8df551ba593da35"
+    },
+    {
+      "path": "contracts/events/v1/serving-observed.schema.json",
+      "bytes": 1063,
+      "sha256": "ec34b05ea6c6a5f7fa09b43a85a02b65dd9864f98b534747ba931beaafa919e2"
+    },
+    {
+      "path": "contracts/events/v1/shadow-requested.schema.json",
+      "bytes": 1700,
+      "sha256": "e59791e5607e169a7fd622c82f38a10e314be1fc6873a531094e4eae268accb6"
+    },
+    {
+      "path": "contracts/events/v2/fixtures/baseline-observation.json",
+      "bytes": 1179,
+      "sha256": "963b53b86cf174c1228404f8961a91f412da0d86b3b4f132f0567ba7965c0984"
+    },
+    {
+      "path": "contracts/events/v2/fixtures/README.md",
+      "bytes": 359,
+      "sha256": "d30ce13a505735cf387fca1510a44bdc7c63652eaf171559279ea9d2d50de9e3"
+    },
+    {
+      "path": "contracts/events/v2/fixtures/shadow-observation.json",
+      "bytes": 1178,
+      "sha256": "f0b60f038a0a1e27633e382b86bb64cd624dd463b1abca3cc61fd0aab4bc7766"
+    },
+    {
+      "path": "contracts/events/v2/fixtures/shadow-requested.json",
+      "bytes": 1219,
+      "sha256": "e54311799a454fa61b3b03fe8be423535cf9995eada241b8335c90f5fdf88c1d"
+    },
+    {
+      "path": "contracts/events/v2/observation.schema.json",
+      "bytes": 4075,
+      "sha256": "93d911b7836c0bdaa0c09425da88dd8fc853cc439044cb20b92066274d062953"
+    },
+    {
+      "path": "contracts/events/v2/shadow-requested.schema.json",
+      "bytes": 4766,
+      "sha256": "b1ec89eb639374f4cb904ddf31aa022fec41321c1c6d055a6a175af7247e013c"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1598,
+      "sha256": "af60bd6a200da3dce875da3496e5c7ce7c34b60c4297360a5f67508d8f36372f"
+    },
+    {
+      "path": "deployment/Dockerfile",
+      "bytes": 646,
+      "sha256": "75a14cd469d8afbfe6e978bfb3518a45a7dc98bf08fe4cab0b8a27e02e6d9d13"
+    },
+    {
+      "path": "deployment/Dockerfile.reliability",
+      "bytes": 462,
+      "sha256": "cf84a7b71585bdd2354f0f7cb49cbaf37c65bd77ac7be9eeea147c2f7d4bf642"
+    },
+    {
+      "path": "deployment/Dockerfile.reliability.dockerignore",
+      "bytes": 137,
+      "sha256": "3e65692d07e10d8f4a2c5af8298d101cc50a034aa1a8244766e7ca41daad7819"
+    },
+    {
+      "path": "deployment/grafana/dashboards/aegisroute-overview.json",
+      "bytes": 37313,
+      "sha256": "9cea7b52c47d4122b5043576c23c164ca2f57cd4c662dd811d24f5e7308a00cb"
+    },
+    {
+      "path": "deployment/grafana/provisioning/dashboards/dashboards.yml",
+      "bytes": 138,
+      "sha256": "2009a8511dda2c0a2d7a16f63ffecf1899d011bebb6548f2a119284a8cd63e9b"
+    },
+    {
+      "path": "deployment/grafana/provisioning/datasources/prometheus.yml",
+      "bytes": 140,
+      "sha256": "9899f6354c570a5f60b89fec5b76d0a7df4e2fb1ac38337321da3228f244dac6"
+    },
+    {
+      "path": "deployment/nginx/nginx.conf",
+      "bytes": 418,
+      "sha256": "f7679c31007d5114e4279811d6b86db7382df421432d68544afc980ca1f01466"
+    },
+    {
+      "path": "deployment/nginx/reliability.conf",
+      "bytes": 1055,
+      "sha256": "c3d082f8f29c3930bd0e0d68fe8d3c7f641664446d131993259f8ab1a30029c4"
+    },
+    {
+      "path": "deployment/prometheus/prometheus.yml",
+      "bytes": 522,
+      "sha256": "2f29f7d4a06068ba6bd8e71724eb9c1546b79c3858be38376fef2b22e2ae88ca"
+    },
+    {
+      "path": "deployment/prometheus/reliability.yml",
+      "bytes": 511,
+      "sha256": "4f5f4c5af8747f57a56985d727d50f17b156d51d0b3796f92a4df046069c5e5b"
+    },
+    {
+      "path": "docs/adr/0000-template.md",
+      "bytes": 144,
+      "sha256": "e4d7e6916421c539f32615093dc882e02d0fbc068273e7840611f3dedf059ac3"
+    },
+    {
+      "path": "docs/en/adr/0001-isolate-shadow-publication.md",
+      "bytes": 820,
+      "sha256": "82ca84bec1ac1cf22d8743c5b960cea6fe6ee74db5739dae9adb088b02114746"
+    },
+    {
+      "path": "docs/en/adr/0002-versioned-route-snapshots.md",
+      "bytes": 757,
+      "sha256": "a6d02d29034fc6e40051d989445884e62fab1daed29a157f76f25b246a6b28f1"
+    },
+    {
+      "path": "docs/en/adr/0003-recoverable-route-bound-evidence.md",
+      "bytes": 11175,
+      "sha256": "555ab0e8a20f43911ac5b3e70b5a2f169b24918189fcc872d7ba9795dae02f12"
+    },
+    {
+      "path": "docs/en/architecture.md",
+      "bytes": 1552,
+      "sha256": "749990a3568f3ebb48820544850113feadf379dc1c237c8b2c5a37d7f4f9c914"
+    },
+    {
+      "path": "docs/en/development-workflow.md",
+      "bytes": 725,
+      "sha256": "02671bf3417260a41a5d00b1b5036806ec9af5b2fe3ca7e1dd68b71f31581360"
+    },
+    {
+      "path": "docs/en/incident-report-template.md",
+      "bytes": 716,
+      "sha256": "ba5bdd9e1146be2f8bb811cd5558afc6f4911c3d993c6594c840e5e74375a1b3"
+    },
+    {
+      "path": "docs/en/incidents/2026-08-17-compose-dependency-recovery.md",
+      "bytes": 4878,
+      "sha256": "04bc70040ca006d54e928e9681d418fc778af1d965686eb30cf53e7a452a8a96"
+    },
+    {
+      "path": "docs/en/product.md",
+      "bytes": 5752,
+      "sha256": "528979a43b562c3a5a42f79d3a695434d6c6bff1e10849f15bb5ff745f59a00e"
+    },
+    {
+      "path": "docs/en/status-and-roadmap.md",
+      "bytes": 20519,
+      "sha256": "5fff197320d0a68d74cac7b4cbda2d6dc09d361da34e5140688dcb36c52321a3"
+    },
+    {
+      "path": "docs/en/threat-model.md",
+      "bytes": 3782,
+      "sha256": "5601b1540598921289d94e6e537ee7ce4ade96324ddf366e0276e0e9d11218e4"
+    },
+    {
+      "path": "docs/zh-CN/adr/0001-isolate-shadow-publication.md",
+      "bytes": 735,
+      "sha256": "5d2862a9273297806646a82a21cddac4cd2269d1dd8efdea39cb239de62d1246"
+    },
+    {
+      "path": "docs/zh-CN/adr/0002-versioned-route-snapshots.md",
+      "bytes": 651,
+      "sha256": "b2d9b13fe5f153555b155a5cf292be6bd7d8751f5c132c53dd174d40f6962697"
+    },
+    {
+      "path": "docs/zh-CN/AegisRoute_Product_Design.md",
+      "bytes": 38220,
+      "sha256": "b9871d1f0bd09f31d038178611b214040c1d804f4fc7436e1489c044f3e71465"
+    },
+    {
+      "path": "docs/zh-CN/AegisRoute_Product_Spec_Final.md",
+      "bytes": 39247,
+      "sha256": "fc92f329c8090ef29c32abd9c5b330874dee3f9c6ef329c950340d86f4df118b"
+    },
+    {
+      "path": "docs/zh-CN/AegisRoute_Project_Review.md",
+      "bytes": 11659,
+      "sha256": "8153426a1ac4ad1a23158316fcdee768c8e5b80491c7cd44864825f42033d18a"
+    },
+    {
+      "path": "docs/zh-CN/architecture.md",
+      "bytes": 1448,
+      "sha256": "80df291a59e66a8786537d914db58ca461a0bdebe4123d1836b47dfc4b77e08b"
+    },
+    {
+      "path": "docs/zh-CN/development-workflow.md",
+      "bytes": 636,
+      "sha256": "fff71613992e3bfc90dccea5c3805591f5e8fb9623856d5f742ecd4d649ef1de"
+    },
+    {
+      "path": "docs/zh-CN/incident-report-template.md",
+      "bytes": 649,
+      "sha256": "362f25bd80108b270d3da8bf8e02db06fbea527ecb6da4172f48c2a0e7b66994"
+    },
+    {
+      "path": "docs/zh-CN/incidents/2026-08-17-compose-dependency-recovery.md",
+      "bytes": 4610,
+      "sha256": "ed7693368b0c53fa36cd33127a535756c76ee56fb12c8367a871589f8afa4033"
+    },
+    {
+      "path": "docs/zh-CN/product.md",
+      "bytes": 5122,
+      "sha256": "36f5ce2591d17370b571ddd8ac203977a6bae3e9b4831ada1cac0906816b1a49"
+    },
+    {
+      "path": "docs/zh-CN/status-and-roadmap.md",
+      "bytes": 18942,
+      "sha256": "98f90d02570fb41868e193f074c194d75ff579dedbc10427e890a8200d6144d9"
+    },
+    {
+      "path": "docs/zh-CN/threat-model.md",
+      "bytes": 2539,
+      "sha256": "34c8d128dfc5cdc08d98629cc553bfcdc8b0cbc5628ceef30e31806342fd6441"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43764,
+      "sha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 253,
+      "sha256": "cc9996e1b641176fded450c88cecacbb1c06bb7c4e111d2f11f0164af143cfbe"
+    },
+    {
+      "path": "gradle.properties",
+      "bytes": 210,
+      "sha256": "e48fe5925d5b244f814f34d5e7e70caaadf1843c46a564a7933ec7a97269e847"
+    },
+    {
+      "path": "gradlew",
+      "bytes": 8733,
+      "sha256": "b187b4c52e749f5760afdd6fadc31b2a98ad35fb249bf0dff03b72650f320409"
+    },
+    {
+      "path": "gradlew.bat",
+      "bytes": 2937,
+      "sha256": "1d297e00bd21de3ace22b4d7f2de1f9dfa858883d66bbf7c1ccbecccec8f4f3b"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 11788,
+      "sha256": "f05027e1442b1aaeae3c6317608633f25f1d981187e84a95051eb8110a2b558f"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11338,
+      "sha256": "2ca1a30d1f212a704a1dbc5d7125e75dfaf870dc7395c7797891033e24e08cfe"
+    },
+    {
+      "path": "modules/contracts/build.gradle.kts",
+      "bytes": 439,
+      "sha256": "b6359fbef9b9e58404065fe03fbffed171b1af93842d64d78cd5902a2e8bae73"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/api/ApiError.java",
+      "bytes": 250,
+      "sha256": "a0d4c25ca8595ecb6de76764edc2cafc008756cc31d466574072de38191c3d00"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/api/ChatCompletionChunk.java",
+      "bytes": 415,
+      "sha256": "90ccbec2ea643ffe330876c23717dd3f82739aa1a46d57724880e9e4000a6a30"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/api/ChatCompletionRequest.java",
+      "bytes": 550,
+      "sha256": "a0411f21412cdeb9fd426b63d0b1821a62e33184ace30bd035b4821318533179"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/api/ChatCompletionResponse.java",
+      "bytes": 582,
+      "sha256": "5dabb51218f32199d00a33cda6810261cf48625ad214ba5ccdaf90c0cb6351e9"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/api/ChatMessage.java",
+      "bytes": 282,
+      "sha256": "4df064eff4aa48e5a9c5110e54a2e8fb0081307c693eef2d75faffe2fa7cb31b"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/BaselineObservedV1.java",
+      "bytes": 387,
+      "sha256": "766e50ef93709961022998f0edfd2969c4dcbea442ce83ce5bede3907ef924bf"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/CandidateObservedV1.java",
+      "bytes": 413,
+      "sha256": "c42e5da243adc3330018e59679ac65532bbb8509d430f29632e575b8c5a2cd77"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/EvidenceWindowV2.java",
+      "bytes": 1615,
+      "sha256": "336bd88d88252b8fda2801f989417103430666a38b4dc797fe5af4a09f646bcf"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/GatewayWindowReport.java",
+      "bytes": 1983,
+      "sha256": "9cb6df00ed072cec49152ef87032f4cce3cf86b054dc9ef8867d73c0f2123e7a"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/ObservationV2.java",
+      "bytes": 1632,
+      "sha256": "2c901a14a90c3d3c3b19b7b92f20434872b46022a02a741e257d258193e3a75b"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/ObservedOutcome.java",
+      "bytes": 153,
+      "sha256": "270e4b4a6823fe915fbc37d189ca11a0f94f68bd27661812d0da6a1eacd65be6"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/RouteAppliedV1.java",
+      "bytes": 296,
+      "sha256": "147ae8fb39839898e81f69eeb0df7ba5f173e7487ff14d67828a66e472fadf94"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/SampleIdentity.java",
+      "bytes": 1810,
+      "sha256": "968b518a289a90ccde97c006801051eb8c8594942bc973d21fffcb08651c93ec"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/ServingObservedV1.java",
+      "bytes": 390,
+      "sha256": "43e3ddef882125849fd7e273464f27ea08de0e047db2c076334a014c8200de93"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/ShadowRequestedV1.java",
+      "bytes": 561,
+      "sha256": "243f5d459cba7d6b8383bff8c3d008b607fb95b1ccb2beda39f46ffb7706d3fa"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/events/ShadowRequestedV2.java",
+      "bytes": 598,
+      "sha256": "fc9bf97751e24e18990ee6e94d0de3aaaccba9fd37d5a29436a5013f4e060573"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/schema/EventContractViolationException.java",
+      "bytes": 220,
+      "sha256": "bcaca99cd4080d349ed469a3a045cc08b6bf295b18d8ff6f1cf37f5b30225a94"
+    },
+    {
+      "path": "modules/contracts/src/main/java/io/github/maoyouaa/aegisroute/contracts/schema/EventSchemaValidator.java",
+      "bytes": 2903,
+      "sha256": "fa1c9c7c54e932120812485a2f567fcd46ab2281c158c7e83423413b1c2094c0"
+    },
+    {
+      "path": "modules/contracts/src/test/java/io/github/maoyouaa/aegisroute/contracts/schema/EventSchemaContractTest.java",
+      "bytes": 7327,
+      "sha256": "0c1cf25a797ce7a85344b361846aa2b75ed8a0822547de584dfb758cc0ee516d"
+    },
+    {
+      "path": "modules/domain/build.gradle.kts",
+      "bytes": 31,
+      "sha256": "ecb7d0ddfa3676b8add575fda884d7ba04ab76f1c0bcafc11990d287dc81958f"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/provider/FailureClassifier.java",
+      "bytes": 1091,
+      "sha256": "7db844b557d253f323f2dc60db94dad5ef844b7a3f1aa3088e523136bac21c24"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/provider/FailureKind.java",
+      "bytes": 204,
+      "sha256": "7837668efea67d53d4da3b5bf6a281e90a48c4134bc92f8727ad3fab3fa24848"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/EvidenceWindow.java",
+      "bytes": 876,
+      "sha256": "d3c625903967e661d6e3938570b75ad92d6188db8ecc232ab9aac2eb54f87286"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/InvalidRolloutTransitionException.java",
+      "bytes": 294,
+      "sha256": "1d0ece06ac9c76102a41a1f120d393332761e4af37c450a8b7cf9d254e6466ed"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/RollbackPolicy.java",
+      "bytes": 747,
+      "sha256": "816e3c93dcc160d7339564d39ebc8ad0dde87efbff52d7e98cce69644b6c3aac"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/RolloutAction.java",
+      "bytes": 192,
+      "sha256": "ea7dbcd2cee6b1578a3ee9e70d083a428758af271a1114b787bae86b3f913e8e"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/RolloutState.java",
+      "bytes": 192,
+      "sha256": "e2236aee0e961a38af6b607b27c0c3aba5f1d33d21a10080a2352bd46c859502"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/rollout/RolloutTransitions.java",
+      "bytes": 2652,
+      "sha256": "8c1ec24fa9a6efb17ea09d532d4bbd61ce1fd5b2a995811d716fa0a8ddbc2d23"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/routing/RouteChecksum.java",
+      "bytes": 2208,
+      "sha256": "fde62aa6874ab6e79dd9a81e111335273d7c2c9849627950b035ac292e4a61f7"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/routing/RouteSnapshot.java",
+      "bytes": 4355,
+      "sha256": "3ee0b19274ed77c7d188c9978cba37d57cb1353e8f09e6ccbee7d4ceec540113"
+    },
+    {
+      "path": "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/routing/StableSampler.java",
+      "bytes": 858,
+      "sha256": "1274c4112960da744620c71ff0a5889e212adfa5381152621be7fe290de47584"
+    },
+    {
+      "path": "modules/domain/src/test/java/io/github/maoyouaa/aegisroute/domain/provider/FailureClassifierTest.java",
+      "bytes": 597,
+      "sha256": "c58384231670ae490cb63f4d5ee6813e1d3920e82131258cab1820a253513d3a"
+    },
+    {
+      "path": "modules/domain/src/test/java/io/github/maoyouaa/aegisroute/domain/rollout/RolloutTransitionsTest.java",
+      "bytes": 1633,
+      "sha256": "b11650f1d2f26d52b46c85462fedda69c4a14b410507da790e91100d55feb04b"
+    },
+    {
+      "path": "modules/domain/src/test/java/io/github/maoyouaa/aegisroute/domain/routing/ShadowLifecycleTest.java",
+      "bytes": 2152,
+      "sha256": "25dfef85d4ec5924dd3ec89c272c850ea1cdfe2cb4e98a2171fb05908ee33189"
+    },
+    {
+      "path": "modules/domain/src/test/java/io/github/maoyouaa/aegisroute/domain/routing/StableSamplerTest.java",
+      "bytes": 548,
+      "sha256": "d139776511120ff9a2bb7cd5a82c910c489268559647dabf22c09ec637650185"
+    },
+    {
+      "path": "modules/provider-spi/build.gradle.kts",
+      "bytes": 310,
+      "sha256": "8f0f7342db28b46a0fdb26a69aef0b299d2bde9634b17e14db1bf4a7eeffed41"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/InferenceProvider.java",
+      "bytes": 427,
+      "sha256": "6a586522096ec769115fd4c5cccc6f16e5913ab2ae32ad900c864f22471fb254"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/openai/OpenAiCompatibleProvider.java",
+      "bytes": 6662,
+      "sha256": "9ff7aeb69c1ad9d36f53fa372c1f99aed1f770bd5bf7cbe0e0fd5026671ccea5"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/OpenAiProviderFactory.java",
+      "bytes": 698,
+      "sha256": "182a4cdddfb38d922eb77afbd293cdb855d5b21a27a4466e82706637245ed735"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderCallContext.java",
+      "bytes": 384,
+      "sha256": "df4652245b6f82fb512e458f9a1747dd778256dacd7a55a96feaae0528e3d73e"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderException.java",
+      "bytes": 503,
+      "sha256": "8dd717b64d581d146eb0e6e86b6dc83337e9025d43e7ccc86eac9713674b84cb"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderResponse.java",
+      "bytes": 129,
+      "sha256": "faeda6d424ba5997b5fd8d8b42474354f14edf31bd2ddb97d4dac274cdb944cb"
+    },
+    {
+      "path": "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderStreamEvent.java",
+      "bytes": 306,
+      "sha256": "d9a7705d3537b9e9bd4ebe3692efee23f58c1a711e33eca5237202ef39f556c9"
+    },
+    {
+      "path": "modules/provider-spi/src/test/java/io/github/maoyouaa/aegisroute/provider/openai/OpenAiCompatibleProviderDeadlineTest.java",
+      "bytes": 1185,
+      "sha256": "ec877cd9d51aafd7948e50817f8c5d4eb44a17043b4fa7b175a9997f4a8f3f26"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3498,
+      "sha256": "32222c978b999cebd6d0ed266d35cde3f7576d80041046fab6642137e4a3e6b3"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 3093,
+      "sha256": "6a488120e0d0b6575a7556cba26a261501bd78e1297f85f25d4723e3a8146f02"
+    },
+    {
+      "path": "release-please-config.json",
+      "bytes": 326,
+      "sha256": "a6c25c4829aa075843309f61cf455410160d1ff46a7ea0c3a01fe1eb761ced69"
+    },
+    {
+      "path": "scripts/acceptance.ps1",
+      "bytes": 15845,
+      "sha256": "b565c8534a244ec20e3f430c938b96a49cbffd504aee27696d0531a3f5b003aa"
+    },
+    {
+      "path": "scripts/reliability/__pycache__/benchmark.cpython-312.pyc",
+      "bytes": 14374,
+      "sha256": "c3f7a1f5c6adc9d0a03f4442c5b46acc550cf3b67f758988b29d4569196a5b20"
+    },
+    {
+      "path": "scripts/reliability/__pycache__/reconcile.cpython-312.pyc",
+      "bytes": 9231,
+      "sha256": "d88d41818f135f0277ad89c3bc288baf53a5e1b511a86d86e5779afb7cd21fd8"
+    },
+    {
+      "path": "scripts/reliability/__pycache__/scenario.cpython-312.pyc",
+      "bytes": 38761,
+      "sha256": "2b83457f6d961bf6a4779daf389b4fb9f8f3a9a61b50129f663864bac2edf687"
+    },
+    {
+      "path": "scripts/reliability/__pycache__/transport.cpython-312.pyc",
+      "bytes": 9366,
+      "sha256": "5660fdb572c6f8031dde03f4474d6cf6d25d9300c9f52e4d90903dff9ee39acb"
+    },
+    {
+      "path": "scripts/reliability/analyze_benchmark.py",
+      "bytes": 4512,
+      "sha256": "d62086863d8ea65e0e171bf4a6afa988e5504fb50f4746d472e905c19fb1296f"
+    },
+    {
+      "path": "scripts/reliability/benchmark.py",
+      "bytes": 6597,
+      "sha256": "84aa9e68e8d33769fad4d841d39b0b098d3bf7cfab544a572ef0aa2f348bb905"
+    },
+    {
+      "path": "scripts/reliability/freeze.py",
+      "bytes": 6289,
+      "sha256": "1b0e5be36223c22341cbaee079056dcfc72faf616df440249a8081bd72656b8f"
+    },
+    {
+      "path": "scripts/reliability/README.md",
+      "bytes": 9745,
+      "sha256": "b115ab8791e738ff2a51473efbf675dd754cdb892cdc3032fc3918df923441ca"
+    },
+    {
+      "path": "scripts/reliability/reconcile.py",
+      "bytes": 4545,
+      "sha256": "fb749cbae1929b3c7766f4b7b3c89b602072da1488731e26eef447ef479d2560"
+    },
+    {
+      "path": "scripts/reliability/render_report.py",
+      "bytes": 3108,
+      "sha256": "1f1157ed764d28853e952c83f979b3a5836073af3605708eaad29a7d4c67f647"
+    },
+    {
+      "path": "scripts/reliability/report-requirements.txt",
+      "bytes": 14,
+      "sha256": "2ceb0a8f577f5b5818dd4ca1afc19e7eeb8cc9c58d624f87e73b2a38888e1b94"
+    },
+    {
+      "path": "scripts/reliability/scenario.py",
+      "bytes": 19481,
+      "sha256": "8b0799c740e8cf639fbea3ca00e4d7efc9b8cf28fb445cae73f10d32a1d83e9d"
+    },
+    {
+      "path": "scripts/reliability/transport.py",
+      "bytes": 6777,
+      "sha256": "2847ef4e0a20daeedb90271101ed4e658f739b9d10c9bbac667444c0d50bfc25"
+    },
+    {
+      "path": "scripts/smoke.ps1",
+      "bytes": 627,
+      "sha256": "196009bf932bc2177089a3c962fa51a054fddfc17e43373da2735f002903a0e5"
+    },
+    {
+      "path": "scripts/verify-compose-crash-recovery.ps1",
+      "bytes": 6871,
+      "sha256": "0db4fab23bfb9e279b89edce661b55f095b05cf4b1ef0149c0ab9499820c2416"
+    },
+    {
+      "path": "scripts/verify-compose-runtime-policy.ps1",
+      "bytes": 1606,
+      "sha256": "ed77e0a465388fe86d0127e4d658572401489ba8af1a023ba3a68be388e3f430"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 825,
+      "sha256": "ccb78290754d2404382e495be5535e8994e79d01c7241c744ea1ca9d3b90a05f"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "bytes": 392,
+      "sha256": "320c50d43353b76db17672b1f0acb406649f0bc8d433b9f507edb96f38d4414d"
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "capturedUtc": "2026-09-05T07:01:10.633123+00:00",
+  "main": {
+    "name": "main",
+    "protected": true,
+    "protection": {
+      "enabled": true,
+      "required_status_checks": {
+        "checks": [
+          {
+            "app_id": 15368,
+            "context": "linux"
+          },
+          {
+            "app_id": 15368,
+            "context": "windows"
+          },
+          {
+            "app_id": 15368,
+            "context": "compose-config"
+          },
+          {
+            "app_id": 15368,
+            "context": "analyze"
+          }
+        ],
+        "contexts": [
+          "linux",
+          "windows",
+          "compose-config",
+          "analyze"
+        ],
+        "enforcement_level": "everyone"
+      }
+    },
+    "sha": "e0260134b5e438534606fb3a08ba9364334cd36c"
+  },
+  "pullRequests": [
+    {
+      "number": 15,
+      "title": "fix(runtime): recover dependency failures",
+      "url": "https://github.com/maoyouaa/AegisRoute/pull/15",
+      "baseRefName": "main",
+      "headRefName": "fix/14-compose-runtime-recovery",
+      "headRefOid": "9983b647225cd4ec6ba6702785c1839be3225df9",
+      "isDraft": true,
+      "checks": [
+        {
+          "name": "linux",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "analyze",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "two-gateway",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "dependency-review",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "windows",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "secret-scan",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "compose-config",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "coverage",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        }
+      ],
+      "ancestorOfDeliveryBase": true,
+      "mergeBase": "9983b647225cd4ec6ba6702785c1839be3225df9",
+      "changedPaths": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/compose-chaos.yml",
+        "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotPoller.java",
+        "apps/gateway/src/main/resources/application.yml",
+        "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/routing/RouteSnapshotPollerTest.java",
+        "compose.yml",
+        "docs/en/architecture.md",
+        "docs/en/incidents/2026-08-17-compose-dependency-recovery.md",
+        "docs/zh-CN/architecture.md",
+        "docs/zh-CN/incidents/2026-08-17-compose-dependency-recovery.md",
+        "scripts/verify-compose-crash-recovery.ps1",
+        "scripts/verify-compose-runtime-policy.ps1"
+      ],
+      "overlapWithDelivery": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/compose-chaos.yml",
+        "apps/gateway/src/main/resources/application.yml",
+        "compose.yml",
+        "scripts/verify-compose-runtime-policy.ps1"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "fix(ci): validate release candidates safely",
+      "url": "https://github.com/maoyouaa/AegisRoute/pull/13",
+      "baseRefName": "main",
+      "headRefName": "fix/11-release-candidate-validation",
+      "headRefOid": "d42c13bb76d6f5a489f6fa5620bc642212a03285",
+      "isDraft": true,
+      "checks": [
+        {
+          "name": "linux",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "analyze",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "dependency-review",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "windows",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "secret-scan",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "compose-config",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "coverage",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        }
+      ],
+      "ancestorOfDeliveryBase": false,
+      "mergeBase": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "changedPaths": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/release-candidate.yml",
+        "docs/en/release-candidate-validation.md",
+        "docs/en/threat-model.md",
+        "docs/zh-CN/release-candidate-validation.md",
+        "docs/zh-CN/threat-model.md",
+        "scripts/verify-release-candidate-workflow.ps1"
+      ],
+      "overlapWithDelivery": [
+        ".github/workflows/ci.yml",
+        "docs/en/threat-model.md",
+        "docs/zh-CN/threat-model.md"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "fix(gateway): enforce stream-aware failure boundaries",
+      "url": "https://github.com/maoyouaa/AegisRoute/pull/12",
+      "baseRefName": "main",
+      "headRefName": "fix/10-sse-failure-classifier",
+      "headRefOid": "129b9d79993f7f8fca68ad36567e4f4ddfd2bb68",
+      "isDraft": true,
+      "checks": [
+        {
+          "name": "linux",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "analyze",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "two-gateway",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "dependency-review",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "windows",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "secret-scan",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "compose-config",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "coverage",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        }
+      ],
+      "ancestorOfDeliveryBase": false,
+      "mergeBase": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "changedPaths": [
+        "README.md",
+        "README.zh-CN.md",
+        "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/ChatController.java",
+        "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/GatewayExceptionHandler.java",
+        "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/api/ChatControllerHttpStreamContractTest.java",
+        "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/api/ChatControllerStreamContractTest.java",
+        "docs/en/adr/0003-classify-stream-failures-before-retry-policy.md",
+        "docs/en/product.md",
+        "docs/zh-CN/adr/0003-classify-stream-failures-before-retry-policy.md",
+        "docs/zh-CN/product.md",
+        "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/provider/FailureClassifier.java",
+        "modules/domain/src/main/java/io/github/maoyouaa/aegisroute/domain/provider/FailureKind.java",
+        "modules/domain/src/test/java/io/github/maoyouaa/aegisroute/domain/provider/FailureClassifierTest.java",
+        "modules/provider-spi/build.gradle.kts",
+        "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderException.java",
+        "modules/provider-spi/src/main/java/io/github/maoyouaa/aegisroute/provider/ProviderFailureClassifier.java",
+        "modules/provider-spi/src/test/java/io/github/maoyouaa/aegisroute/provider/ProviderFailureClassifierTest.java",
+        "modules/provider-spi/src/test/java/io/github/maoyouaa/aegisroute/provider/openai/OpenAiCompatibleProviderFailureContractTest.java",
+        "modules/provider-spi/src/test/java/io/github/maoyouaa/aegisroute/provider/openai/OpenAiCompatibleProviderStreamContractTest.java"
+      ],
+      "overlapWithDelivery": [
+        "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/ChatController.java",
+        "apps/gateway/src/main/java/io/github/maoyouaa/aegisroute/gateway/api/GatewayExceptionHandler.java",
+        "apps/gateway/src/test/java/io/github/maoyouaa/aegisroute/gateway/api/ChatControllerStreamContractTest.java",
+        "modules/provider-spi/build.gradle.kts"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "fix(ci): enforce release permission boundary",
+      "url": "https://github.com/maoyouaa/AegisRoute/pull/9",
+      "baseRefName": "main",
+      "headRefName": "fix/7-release-permission-boundary",
+      "headRefOid": "0ca73adb2d1794fe11b0dece4cd2115000a29e6b",
+      "isDraft": true,
+      "checks": [
+        {
+          "name": "linux",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "analyze",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "dependency-review",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "windows",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "secret-scan",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "compose-config",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "coverage",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        },
+        {
+          "name": "CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS"
+        }
+      ],
+      "ancestorOfDeliveryBase": false,
+      "mergeBase": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "changedPaths": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "build.gradle.kts",
+        "docs/en/development-workflow.md",
+        "docs/en/release-permission-boundary.md",
+        "docs/en/threat-model.md",
+        "docs/zh-CN/development-workflow.md",
+        "docs/zh-CN/release-permission-boundary.md",
+        "docs/zh-CN/threat-model.md"
+      ],
+      "overlapWithDelivery": [
+        "docs/en/threat-model.md",
+        "docs/zh-CN/threat-model.md"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "chore(main): release 0.1.0",
+      "url": "https://github.com/maoyouaa/AegisRoute/pull/8",
+      "baseRefName": "main",
+      "headRefName": "release-please--branches--main",
+      "headRefOid": "b6d310a6b259cde5fc2bac5ee21501af9c50c5ff",
+      "isDraft": false,
+      "checks": [],
+      "ancestorOfDeliveryBase": false,
+      "mergeBase": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "changedPaths": [
+        ".release-please-manifest.json",
+        "CHANGELOG.md",
+        "gradle.properties"
+      ],
+      "overlapWithDelivery": []
+    }
+  ],
+  "mainRuns": [
+    {
+      "conclusion": "success",
+      "databaseId": 33379484126,
+      "event": "schedule",
+      "headSha": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/33379484126",
+      "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32688814160,
+      "event": "schedule",
+      "headSha": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32688814160",
+      "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32005220401,
+      "event": "push",
+      "headSha": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32005220401",
+      "workflowName": "CI"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32005220447,
+      "event": "push",
+      "headSha": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32005220447",
+      "workflowName": "Release"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32005220423,
+      "event": "push",
+      "headSha": "e0260134b5e438534606fb3a08ba9364334cd36c",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32005220423",
+      "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 32004784787,
+      "event": "push",
+      "headSha": "acf858c42ffbe580e215102d312a0a3072b5d3f5",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004784787",
+      "workflowName": "Release"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32004784803,
+      "event": "push",
+      "headSha": "acf858c42ffbe580e215102d312a0a3072b5d3f5",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004784803",
+      "workflowName": "CI"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32004784823,
+      "event": "push",
+      "headSha": "acf858c42ffbe580e215102d312a0a3072b5d3f5",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004784823",
+      "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 32004421235,
+      "event": "push",
+      "headSha": "2798950d0a21fbb534514ed147bfe5d09a78c9f1",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004421235",
+      "workflowName": "Release"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32004421351,
+      "event": "push",
+      "headSha": "2798950d0a21fbb534514ed147bfe5d09a78c9f1",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004421351",
+      "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 32004421261,
+      "event": "push",
+      "headSha": "2798950d0a21fbb534514ed147bfe5d09a78c9f1",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/32004421261",
+      "workflowName": "CI"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 31993179087,
+      "event": "schedule",
+      "headSha": "d082138fc842f252e4336612762654c86be91a03",
+      "status": "completed",
+      "url": "https://github.com/maoyouaa/AegisRoute/actions/runs/31993179087",
+      "workflowName": "CodeQL"
+    }
+  ],
+  "tags": [],
+  "releases": []
+}

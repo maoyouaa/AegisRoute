@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "method": "Recursively decompress each application JAR and nested JAR; compare every non-directory entry SHA-256 and full entry-name sets. This excludes ZIP container metadata/order/compression.",
+  "comparisons": [
+    {
+      "app": "control",
+      "path": "apps/control/build/libs/application.jar",
+      "oldJarSha256": "f1ea14cac308452c64b91a04193a56c17aff310557acfd71d7a8bee5f12e6838",
+      "newJarSha256": "cf63c48df42444e64d737a069a24df9b7a9fb2cc27f0acc99f10e9772a9bdbce",
+      "archiveByteEqual": false,
+      "oldLeafEntries": 17325,
+      "newLeafEntries": 17325,
+      "recursiveLeafContentDifferences": []
+    },
+    {
+      "app": "gateway",
+      "path": "apps/gateway/build/libs/application.jar",
+      "oldJarSha256": "160fef519a73c0b504f066165cadfbb933b8a83bb2e27d9e76f320e5b4012d1a",
+      "newJarSha256": "20eb54e4c8d8249ed178cb056713292198f2aa0900147221816a2c29abf8edd2",
+      "archiveByteEqual": false,
+      "oldLeafEntries": 24131,
+      "newLeafEntries": 24131,
+      "recursiveLeafContentDifferences": []
+    },
+    {
+      "app": "mock-provider",
+      "path": "apps/mock-provider/build/libs/application.jar",
+      "oldJarSha256": "2f1b7494d60399fee8a5bb4d96e97183eceffc3d1e89bc63f119e07547ca3634",
+      "newJarSha256": "805cbcf60174762fffa1586a12a2e5da980b9449eb090ebcd57357123f5dd8a7",
+      "archiveByteEqual": false,
+      "oldLeafEntries": 17378,
+      "newLeafEntries": 17378,
+      "recursiveLeafContentDifferences": []
+    },
+    {
+      "app": "worker",
+      "path": "apps/worker/build/libs/application.jar",
+      "oldJarSha256": "d6ed5beeed33f3ce76b2362697b662dfdddf99b201cf4bb9f50740845cfab5d4",
+      "newJarSha256": "6d67d57e9f93dc20dc83ce874d5a33bc69ef4a1045454f64187f143d85d77ceb",
+      "archiveByteEqual": false,
+      "oldLeafEntries": 24294,
+      "newLeafEntries": 24294,
+      "recursiveLeafContentDifferences": []
+    }
+  ]
+}

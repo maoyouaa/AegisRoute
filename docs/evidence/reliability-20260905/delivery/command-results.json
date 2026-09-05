@@ -1,0 +1,46 @@
+{
+  "sourceSha256": "c250736742067d69f49ed9418aaae1f3959fbe5535b1524b441370184bbd4846",
+  "note": "Command names/timestamps/exits projected from original command log; local executable and workspace paths omitted.",
+  "commands": [
+    {
+      "name": "default-compose-config",
+      "startedUtc": "2026-09-05T07:33:52.550080+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "reliability-compose-config",
+      "startedUtc": "2026-09-05T07:33:52.857884+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "start",
+      "startedUtc": "2026-09-05T07:33:53.176122+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "transport",
+      "startedUtc": "2026-09-05T07:34:31.343588+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "scenario",
+      "startedUtc": "2026-09-05T07:34:39.090189+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "reconcile",
+      "startedUtc": "2026-09-05T07:40:38.439771+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "online-convergence",
+      "startedUtc": "2026-09-05T07:40:38.549417+00:00",
+      "exitCode": 0
+    },
+    {
+      "name": "stop",
+      "startedUtc": "2026-09-05T07:40:44.384935+00:00",
+      "exitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "project": "aegis-delivery-20260905-03",
+  "syntheticOnly": true,
+  "endpoints": {
+    "GATEWAY_A": "http://127.0.0.1:28080",
+    "CONTROL": "http://127.0.0.1:28081",
+    "WORKER": "http://127.0.0.1:28082",
+    "GATEWAY_B": "http://127.0.0.1:28083",
+    "BASELINE": "http://127.0.0.1:28084",
+    "CANDIDATE": "http://127.0.0.1:28085",
+    "GRAFANA": "http://127.0.0.1:23000",
+    "PROMETHEUS": "http://127.0.0.1:29090"
+  },
+  "skipBuild": true,
+  "benchmark": false
+}

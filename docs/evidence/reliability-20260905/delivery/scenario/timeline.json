@@ -1,0 +1,420 @@
+[
+  {
+    "time": 1788593679.1879232,
+    "event": "start",
+    "project": "aegis-delivery-20260905-03",
+    "scenarioId": "scenario-788b1a8d"
+  },
+  {
+    "time": 1788593681.405001,
+    "event": "load",
+    "label": "draft",
+    "count": 10,
+    "bucket": 1788593680,
+    "routeVersion": 1,
+    "p95ms": 77.38349999999627
+  },
+  {
+    "time": 1788593682.9586523,
+    "event": "service-stopped",
+    "service": "baseline"
+  },
+  {
+    "time": 1788593685.6020997,
+    "event": "service-started",
+    "service": "baseline"
+  },
+  {
+    "time": 1788593687.3423462,
+    "event": "human-api",
+    "action": "shadow:start",
+    "ratio": null,
+    "status": 200,
+    "result": {
+      "id": "96f1939b-51e8-4d0d-970f-4210d7fb6940",
+      "name": "Synthetic demo rollout",
+      "state": "SHADOW",
+      "version": 2,
+      "candidateRatio": 0,
+      "routeVersion": 2,
+      "updatedAt": "2026-09-05T07:34:46.724308Z"
+    }
+  },
+  {
+    "time": 1788593692.1499164,
+    "event": "load",
+    "label": "initial-shadow",
+    "count": 20,
+    "bucket": 1788593690,
+    "routeVersion": 2,
+    "p95ms": 76.61300001200289
+  },
+  {
+    "time": 1788593712.2318633,
+    "event": "service-stopped",
+    "service": "control"
+  },
+  {
+    "time": 1788593735.821891,
+    "event": "worker-snapshot",
+    "label": "before-worker-kill",
+    "samples": 67,
+    "records": 147,
+    "windows": 6,
+    "quarantine": 0,
+    "pending_windows": 1
+  },
+  {
+    "time": 1788593736.2829785,
+    "event": "worker-killed",
+    "signal": "SIGKILL"
+  },
+  {
+    "time": 1788593736.7762036,
+    "event": "service-started",
+    "service": "worker"
+  },
+  {
+    "time": 1788593742.9178903,
+    "event": "worker-snapshot",
+    "label": "worker-restarted-control-down",
+    "samples": 67,
+    "records": 147,
+    "windows": 6,
+    "quarantine": 0,
+    "pending_windows": 1
+  },
+  {
+    "time": 1788593743.449697,
+    "event": "service-started",
+    "service": "control"
+  },
+  {
+    "time": 1788593748.3212247,
+    "event": "worker-snapshot",
+    "label": "worker-recovered",
+    "samples": 67,
+    "records": 147,
+    "windows": 6,
+    "quarantine": 0,
+    "pending_windows": 0
+  },
+  {
+    "time": 1788593783.1390963,
+    "event": "worker-snapshot",
+    "label": "after-business-replay",
+    "samples": 67,
+    "records": 147,
+    "windows": 6,
+    "quarantine": 0,
+    "pending_windows": 0
+  },
+  {
+    "time": 1788593783.1400955,
+    "event": "business-replay-deduplicated",
+    "events": 60
+  },
+  {
+    "time": 1788593783.8204713,
+    "event": "service-stopped",
+    "service": "redpanda"
+  },
+  {
+    "time": 1788593788.806234,
+    "event": "service-started",
+    "service": "redpanda"
+  },
+  {
+    "time": 1788593800.9184327,
+    "event": "load",
+    "label": "shadow-timeout",
+    "count": 8,
+    "bucket": 1788593800,
+    "routeVersion": 2,
+    "p95ms": 53.542800014838576
+  },
+  {
+    "time": 1788593820.1302323,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 1,
+    "status": 409,
+    "result": {
+      "error": {
+        "code": "FRESH_EVIDENCE_REQUIRED",
+        "message": "FRESH_EVIDENCE_REQUIRED"
+      }
+    }
+  },
+  {
+    "time": 1788593826.2759435,
+    "event": "load",
+    "label": "shadow-http500",
+    "count": 20,
+    "bucket": 1788593825,
+    "routeVersion": 2,
+    "p95ms": 36.85840000980534
+  },
+  {
+    "time": 1788593846.4057727,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 1,
+    "status": 409,
+    "result": {
+      "error": {
+        "code": "FRESH_EVIDENCE_REQUIRED",
+        "message": "FRESH_EVIDENCE_REQUIRED"
+      }
+    }
+  },
+  {
+    "time": 1788593852.5017717,
+    "event": "load",
+    "label": "recovered-shadow",
+    "count": 20,
+    "bucket": 1788593850,
+    "routeVersion": 2,
+    "p95ms": 18.656599975656718
+  },
+  {
+    "time": 1788593871.0142095,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 1,
+    "status": 200,
+    "result": {
+      "id": "96f1939b-51e8-4d0d-970f-4210d7fb6940",
+      "name": "Synthetic demo rollout",
+      "state": "CANARY",
+      "version": 4,
+      "candidateRatio": 1,
+      "routeVersion": 3,
+      "updatedAt": "2026-09-05T07:37:50.817914Z"
+    }
+  },
+  {
+    "time": 1788593871.5708835,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 10,
+    "status": 409,
+    "result": {
+      "error": {
+        "code": "FRESH_EVIDENCE_REQUIRED",
+        "message": "FRESH_EVIDENCE_REQUIRED"
+      }
+    }
+  },
+  {
+    "time": 1788593876.797105,
+    "event": "load",
+    "label": "canary-1",
+    "count": 40,
+    "bucket": 1788593875,
+    "routeVersion": 3,
+    "p95ms": 36.18219998315908
+  },
+  {
+    "time": 1788593895.3582442,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 10,
+    "status": 200,
+    "result": {
+      "id": "96f1939b-51e8-4d0d-970f-4210d7fb6940",
+      "name": "Synthetic demo rollout",
+      "state": "CANARY",
+      "version": 5,
+      "candidateRatio": 10,
+      "routeVersion": 4,
+      "updatedAt": "2026-09-05T07:38:15.500669Z"
+    }
+  },
+  {
+    "time": 1788593895.896436,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 50,
+    "status": 409,
+    "result": {
+      "error": {
+        "code": "FRESH_EVIDENCE_REQUIRED",
+        "message": "FRESH_EVIDENCE_REQUIRED"
+      }
+    }
+  },
+  {
+    "time": 1788593901.0999877,
+    "event": "load",
+    "label": "canary-10",
+    "count": 40,
+    "bucket": 1788593900,
+    "routeVersion": 4,
+    "p95ms": 26.65580000029877
+  },
+  {
+    "time": 1788593920.6778252,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 50,
+    "status": 200,
+    "result": {
+      "id": "96f1939b-51e8-4d0d-970f-4210d7fb6940",
+      "name": "Synthetic demo rollout",
+      "state": "CANARY",
+      "version": 6,
+      "candidateRatio": 50,
+      "routeVersion": 5,
+      "updatedAt": "2026-09-05T07:38:41.197518Z"
+    }
+  },
+  {
+    "time": 1788593921.717317,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 100,
+    "status": 409,
+    "result": {
+      "error": {
+        "code": "FRESH_EVIDENCE_REQUIRED",
+        "message": "FRESH_EVIDENCE_REQUIRED"
+      }
+    }
+  },
+  {
+    "time": 1788593925.919758,
+    "event": "load",
+    "label": "canary-50",
+    "count": 40,
+    "bucket": 1788593925,
+    "routeVersion": 5,
+    "p95ms": 28.358799987472594
+  },
+  {
+    "time": 1788593944.9733906,
+    "event": "human-api",
+    "action": "canary:approve",
+    "ratio": 100,
+    "status": 200,
+    "result": {
+      "id": "96f1939b-51e8-4d0d-970f-4210d7fb6940",
+      "name": "Synthetic demo rollout",
+      "state": "FULL",
+      "version": 7,
+      "candidateRatio": 100,
+      "routeVersion": 6,
+      "updatedAt": "2026-09-05T07:39:05.864833Z"
+    }
+  },
+  {
+    "time": 1788593951.0843828,
+    "event": "load",
+    "label": "full-once",
+    "count": 10,
+    "bucket": 1788593950,
+    "routeVersion": 6,
+    "p95ms": 32.08299999823794
+  },
+  {
+    "time": 1788593956.2558308,
+    "event": "load",
+    "label": "breach-0",
+    "count": 20,
+    "bucket": 1788593955,
+    "routeVersion": 6,
+    "p95ms": 30.01430002041161
+  },
+  {
+    "time": 1788593961.3713791,
+    "event": "load",
+    "label": "breach-1",
+    "count": 20,
+    "bucket": 1788593960,
+    "routeVersion": 6,
+    "p95ms": 29.446500004269183
+  },
+  {
+    "time": 1788593966.4794562,
+    "event": "load",
+    "label": "breach-2",
+    "count": 20,
+    "bucket": 1788593965,
+    "routeVersion": 6,
+    "p95ms": 32.54170002765022
+  },
+  {
+    "time": 1788593996.3534489,
+    "event": "load",
+    "label": "rolled-back",
+    "count": 10,
+    "bucket": 1788593995,
+    "routeVersion": 7,
+    "p95ms": 35.41750001022592
+  },
+  {
+    "time": 1788593997.5090847,
+    "event": "human-api",
+    "action": "shadow:start",
+    "ratio": null,
+    "status": 200,
+    "result": {
+      "id": "fefb0549-a8ea-46eb-a973-d91264846f4f",
+      "name": "synthetic-reliability",
+      "state": "SHADOW",
+      "version": 2,
+      "candidateRatio": 0,
+      "routeVersion": 9,
+      "updatedAt": "2026-09-05T07:39:57.330981Z"
+    }
+  },
+  {
+    "time": 1788593998.591262,
+    "event": "human-api",
+    "action": "pause",
+    "ratio": null,
+    "status": 200,
+    "result": {
+      "id": "fefb0549-a8ea-46eb-a973-d91264846f4f",
+      "name": "synthetic-reliability",
+      "state": "PAUSED",
+      "version": 3,
+      "candidateRatio": 0,
+      "routeVersion": 10,
+      "updatedAt": "2026-09-05T07:39:58.357905Z"
+    }
+  },
+  {
+    "time": 1788594001.721409,
+    "event": "load",
+    "label": "paused",
+    "count": 10,
+    "bucket": 1788594000,
+    "routeVersion": 10,
+    "p95ms": 36.3290999957826
+  },
+  {
+    "time": 1788594003.2772818,
+    "event": "service-stopped",
+    "service": "gateway-b"
+  },
+  {
+    "time": 1788594006.8197446,
+    "event": "service-started",
+    "service": "gateway-b"
+  },
+  {
+    "time": 1788594032.4780772,
+    "event": "worker-snapshot",
+    "label": "final-worker",
+    "samples": 355,
+    "records": 707,
+    "windows": 20,
+    "quarantine": 0,
+    "pending_windows": 0
+  },
+  {
+    "time": 1788594038.403996,
+    "event": "PASS"
+  }
+]

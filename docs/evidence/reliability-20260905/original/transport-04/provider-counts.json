@@ -1,0 +1,48 @@
+{
+  "baseline": {
+    "requests": 14,
+    "calls": {
+      "wire-92ee3967-body-selects-json": 1,
+      "wire-92ee3967-cancel": 1,
+      "wire-92ee3967-empty": 1,
+      "wire-92ee3967-http400": 1,
+      "wire-92ee3967-http429": 1,
+      "wire-92ee3967-http500": 1,
+      "wire-92ee3967-json": 1,
+      "wire-92ee3967-malformed": 1,
+      "wire-92ee3967-post-token": 1,
+      "wire-92ee3967-pre-token": 1,
+      "wire-92ee3967-pre-token-timeout": 1,
+      "wire-92ee3967-stream": 1,
+      "wire-92ee3967-timeout": 1,
+      "wire-92ee3967-total-deadline": 1
+    },
+    "cancelledRequests": {
+      "wire-92ee3967-cancel": 1,
+      "wire-92ee3967-pre-token-timeout": 1,
+      "wire-92ee3967-timeout": 1,
+      "wire-92ee3967-total-deadline": 1
+    },
+    "cancelled": 4,
+    "completed": 7,
+    "name": "baseline",
+    "fault": {
+      "mode": "long-stream",
+      "failEvery": 0,
+      "latencyMs": 5
+    }
+  },
+  "candidate": {
+    "cancelledRequests": {},
+    "cancelled": 0,
+    "completed": 0,
+    "name": "candidate",
+    "fault": {
+      "mode": "normal",
+      "failEvery": 0,
+      "latencyMs": 5
+    },
+    "requests": 0,
+    "calls": {}
+  }
+}

@@ -1,0 +1,6 @@
+# Preserve this delivery run's original JSON bytes for provenance verification.
+delivery/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Raw Windows records retain CRLF; keep the normal whitespace checks otherwise.
+original/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Prometheus emits spaces after empty HELP descriptions; preserve captured metrics.
+original/benchmark-01/*/metrics-*.txt whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,10 @@
+{
+  "requestId": "scenario-e82a4d86-connection-failure",
+  "stream": false,
+  "accept": "application/json",
+  "frames": [],
+  "status": 504,
+  "contentType": "application/json",
+  "body": "{\"error\":{\"code\":\"PROVIDER_FAILURE\",\"message\":\"Provider request failed\"}}",
+  "elapsedMs": 2032.8179000061937
+}

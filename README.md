@@ -2,70 +2,87 @@
 
 [中文](README.zh-CN.md)
 
-Evidence-based rollout and adaptive routing for AI inference.
+Evidence-based rollout safety for OpenAI-compatible inference.
 
-> Status: **v0.1 implementation in progress.** The core local synthetic-data path is implemented and reproducible; GitHub CI and release evidence remain pending. Do not interpret local acceptance results as production performance.
-
-AegisRoute sits between an application and OpenAI-compatible inference deployments. Its v0.1 vertical slice keeps baseline serving independent from shadow work, collects deterministic candidate evidence, requires a human to approve canary traffic, and automatically removes the candidate after a policy breach.
+AegisRoute keeps baseline serving independent from shadow work, collects durable
+candidate evidence, requires a human to approve each canary stage, and removes the
+candidate after a deterministic policy breach. Gateway convergence is confirmed
+against the exact rollback route ID, version and checksum.
 
 ```text
-Baseline serving
-  -> isolated shadow
-  -> deterministic evidence
-  -> human-approved canary
-  -> automatic rollback
-  -> gateway convergence evidence
+baseline serving → isolated shadow → recoverable evidence
+                 → human canary → automatic rollback → exact Gateway ACKs
 ```
 
-## Engineering focus
+**Status, 2026-09-05:** the first reliability slice is implemented and verified in a
+local synthetic environment. This delivery branch has not been merged into
+`main` or released. Each PR's checks cover its own head. See the
+[current roadmap](docs/en/status-and-roadmap.md) for integration dependencies.
 
-- Java 21, Spring Boot 4.1, WebFlux, and Gradle Kotlin DSL
-- immutable, monotonically versioned route snapshots
-- two-stage shadow isolation: bounded local queue then Redpanda publisher
-- JSON Schema event contracts without a Schema Registry
-- optimistic concurrency and idempotent control-plane mutations
-- stream-aware failure handling: no transparent retry after the first SSE token
-- append-only rollback decisions and multi-gateway convergence evidence
-
-## Current capability status
-
-| Capability | Status |
+| Capability | Evidence and boundary |
 |---|---|
-| Product and architecture specification | Documented |
-| Repository and build baseline | Implemented; local Windows checks pass, GitHub CI pending |
-| Streaming gateway | Implemented; full end-to-end SSE matrix pending |
-| Shadow/evaluation pipeline | Implemented; local Compose path verified |
-| Human canary and automatic rollback | Implemented; local two-Gateway convergence verified |
-| Performance and reliability results | Not yet measured |
-| Production IAM/GDPR compliance | Out of scope |
+| Java 21 / Spring Boot / WebFlux gateway | 14 actual HTTP/SSE cases; JSON `stream`, `[DONE]`, cancellation and pre/post-token failures |
+| Shadow isolation | Baseline-only admission, bounded queue and separate broker publisher; candidate execution follows the immutable route |
+| Recoverable evidence | SQLite inbox/outbox, business-sample deduplication, stable windows and durable Control receipts; process kill and replay tested |
+| Human canary | Explicit 1/10/50/100 approvals, each requiring a new sufficient current-route window |
+| Rollback and convergence | Shared manual/policy decision path, append-only targets and exact A/B ACKs; offline Gateway remains pending |
+| Local measurements | Six matched 240-request runs; 0 observed errors/drops; p95 on-minus-off −1.724, −0.325 and +0.653 ms |
 
-## Build
+Measurements use synthetic mocks and warm processes on one shared Windows/Docker
+host, in fixed off-then-on order. Noise and additional Worker/candidate CPU are
+reported; these results do not establish zero overhead or production performance.
 
-Prerequisites: Git and Docker Desktop. The Gradle Wrapper can run on Java 17+ and provisions the Java 21 toolchain through Foojay.
+## Run and verify
+
+Use Git, Docker with Linux containers, Python 3.12+ and Java 17+ to start the committed
+Gradle Wrapper. The wrapper provisions Java 21 through Foojay. Run from this repository:
 
 ```powershell
-.\gradlew.bat clean check
-docker compose up --build --wait
-docker compose up --build --wait --scale gateway=2
+# New project and new evidence directory; reserves localhost task ports.
 .\scripts\acceptance.ps1
+# Add -PortOffset 10000 if the default 18080–18085 / 13000 / 19090 ports are occupied.
+# Add -Benchmark for all six measurement rounds; -KeepRunning keeps Grafana open.
 ```
 
-The acceptance script uses only synthetic data and verifies the automatic rollback evidence chain, two-Gateway convergence, startup/LKG behavior, and broker-failure isolation. Raw local output is written to ignored `build-evidence/`; CI uploads the equivalent output as an artifact. See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md) for the repository workflow and invariants.
+On Linux (where Docker and Java are available):
 
-## Documentation
+```bash
+python3 scripts/reliability/run.py --project aegis-demo-$(date +%Y%m%d-%H%M%S) --output build-evidence/demo-$(date +%Y%m%d-%H%M%S)
+```
 
-- [Architecture](docs/en/architecture.md)
-- [Product document](docs/en/product.md)
-- [Threat model](docs/en/threat-model.md)
-- [Development workflow](docs/en/development-workflow.md)
-- [Product specification (Chinese)](docs/zh-CN/AegisRoute_Product_Spec_Final.md)
-- [Project review (Chinese)](docs/zh-CN/AegisRoute_Project_Review.md)
-- [Original design (Chinese)](docs/zh-CN/AegisRoute_Product_Design.md)
+The entrypoint runs `clean check integrationTest`, builds jars, launches the fixed
+A/B reliability topology, and exercises transport, Worker recovery, replay, fresh
+canary evidence, rollback and automatic dependency recovery. It writes raw output
+to ignored `build-evidence/`, stops only its own project and preserves its volumes.
+A failed or interrupted run must use a new project/output name on retry. Details and
+individual commands: [reproduction guide](scripts/reliability/README.md).
 
-## Explicit non-goals for v0.1
+`docker compose up --build --wait` remains a **baseline smoke topology**. Its dynamic
+Gateway identities do not establish v2 convergence across container recreation.
+Full lifecycle acceptance uses `compose.reliability.yml` and fixed A/B membership.
+Control stays internal in the default topology; the synthetic inspector is localhost only.
 
-React UI, Redis quotas, Etcd node discovery, LLM judges, Schema Registry, public cloud hosting, production IAM, real user data, and compliance certification.
+To recompute the selected saved evidence without Docker:
 
-## License
+```powershell
+python scripts/reliability/verify_bundle.py
+```
+
+## Inspect the result
+
+- [Curated evidence and measured results](docs/evidence/reliability-20260905/README.md)
+- [Current status and integration plan](docs/en/status-and-roadmap.md)
+- [Recoverable evidence design](docs/en/adr/0003-recoverable-route-bound-evidence.md)
+- [Acceptance integration decision](docs/en/adr/0004-v2-acceptance-delivery.md)
+- [Architecture](docs/en/architecture.md) · [Product scope](docs/en/product.md)
+- [Threat model](docs/en/threat-model.md) · [Contribution workflow](CONTRIBUTING.md)
+
+## v0.1 scope
+
+One synthetic global-route owner and one durable Worker. No React UI, Redis quota,
+Etcd, LLM judge, Schema Registry, real model/data integration, cloud deployment,
+production IAM or compliance claim. Disk loss, Worker HA and provider exactly-once
+side effects are unverified. A crash can repeat candidate execution while evidence
+counts remain deduplicated. Promotion remains human-initiated.
 
 Apache License 2.0.

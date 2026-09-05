@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dropsBefore": 0.0,
+  "dropsDuring": 2.0,
+  "requests": 30,
+  "maxBaselineMs": 62.2109999821987
+}
